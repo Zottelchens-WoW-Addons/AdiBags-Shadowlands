@@ -1,7 +1,7 @@
 # How to Read this
 
 All items are broken down into categories, with itemID followed by the Item name.
-Latest version: 1.1.0
+Latest version: @project-version@
 
 ## Rings (Disabled by default)
 

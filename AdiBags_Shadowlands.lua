@@ -1,7 +1,7 @@
 --[[
 AdiBags - Shadowlands
 by Zottelchen
-version: 1.1.0
+version: @project-version@
 Add various Shadowlands items to AdiBags filter groups
 ]]
 
