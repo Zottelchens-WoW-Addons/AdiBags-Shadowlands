@@ -1,8 +1,8 @@
 --[[
-AdiBags - Azerite Essence items
-by Mandus
-version: v1.0
-Add various Azerite Essence items to AdiBags filter groups
+AdiBags - Shadowlands
+by Zottelchen
+version: 1.1.0
+Add various Shadowlands items to AdiBags filter groups
 ]]
 
 local addonName, addon = ...
@@ -14,679 +14,1305 @@ local Tooltip
 local Result = {}
 
 local function AddToSet(Set, List)
-	for _, v in ipairs(List) do
-		Set[v] = true
-	end
+    for _, v in ipairs(List) do
+        Set[v] = true
+    end
 end
 
--- AnimaPower
-local animaItems = {
-181368,
-181377,
-181477,
-181478,
-181479,
-181540,
-181541,
-181544,
-181545,
-181546,
-181547,
-181548,
-181549,
-181550,
-181551,
-181552,
-181642,
-181643,
-181644,
-181645,
-181646,
-181647,
-181648,
-181649,
-181650,
-181743,
-181744,
-181745,
-183723,
-183727,
-184146,
-184147,
-184148,
-184149,
-184150,
-184151,
-184152,
-184286,
-184293,
-184294,
-184305,
-184306,
-184307,
-184315,
-184360,
-184362,
-184363,
-184371,
-184373,
-184374,
-184378,
-184379,
-184380,
-184381,
-184382,
-184383,
-184384,
-184385,
-184386,
-184387,
-184388,
-184389,
-184519,
-184763,
-184764,
-184765,
-184766,
-184767,
-184768,
-184769,
-184770,
-184771,
-184772,
-184773,
-184774,
-184775,
-184776,
-184777
+
+
+ -- Rings
+local RingsIDs = {
+173131, -- Versatile Solenium Ring
+173132, -- Masterful Phaedrum Ring
+173133, -- Quick Oxxein Ring
+173134, -- Deadly Sinvyr Ring
+173135, -- Versatile Laestrite Band
+173136, -- Masterful Laestrite Band
+173137, -- Quick Laestrite Band
+173138, -- Deadly Laestrite Band
+173344, -- Band of Chronicled Deeds
+175244, -- Spider-Eye Ring
+175703, -- Silverspire Signet
+175704, -- Reverberating Silver Band
+175706, -- Mind-Torn Band
+175707, -- Signet of the Learned
+175710, -- Night Courtier's Ring
+175711, -- Slumberwood Band
+175712, -- Shimmerbough Loop
+175713, -- Sprigthistle Loop
+175714, -- The Chamberlain's Tarnished Signet
+175715, -- Gargon Eye Ring
+175716, -- Emberscorched Band
+175717, -- Inquisitor's Signet
+175879, -- Sinful Aspirant's Ring
+175916, -- Sinful Gladiator's Ring
+177145, -- Sea Sapphire Band
+177153, -- Beaten Copper Loop
+177164, -- Sea Sapphire Band
+177167, -- Beaten Copper Loop
+177290, -- Heart-Lesion Ring of Might
+177291, -- Heart-Lesion Band of Might
+177297, -- Heart-Lesion Ring of Stoicism
+177298, -- Heart-Lesion Band of Stoicism
+177303, -- Springrain Ring of Onslaught
+177304, -- Springrain Band of Onslaught
+177309, -- Springrain Band of Destruction
+177310, -- Springrain Ring of Destruction
+177316, -- Springrain Band of Wisdom
+177317, -- Springrain Ring of Wisdom
+177323, -- Springrain Ring of Durability
+177324, -- Springrain Band of Durability
+177329, -- Trailseeker Band of Onslaught
+177330, -- Trailseeker Ring of Onslaught
+177336, -- Mountainsage Band of Destruction
+177337, -- Mountainsage Ring of Destruction
+177342, -- Mistdancer Band of Stoicism
+177343, -- Mistdancer Ring of Stoicism
+177350, -- Mistdancer Ring of Wisdom
+177351, -- Mistdancer Band of Wisdom
+177357, -- Mistdancer Band of Onslaught
+177358, -- Mistdancer Ring of Onslaught
+177364, -- Sunsoul Ring of Wisdom
+177365, -- Sunsoul Band of Wisdom
+177373, -- Sunsoul Ring of Might
+177374, -- Sunsoul Band of Might
+177380, -- Sunsoul Ring of Stoicism
+177381, -- Sunsoul Band of Stoicism
+177385, -- Communal Band of Destruction
+177386, -- Communal Ring of Destruction
+177391, -- Communal Band of Wisdom
+177392, -- Communal Ring of Wisdom
+177399, -- Lightdrinker Band of Onslaught
+177400, -- Lightdrinker Ring of Onslaught
+177408, -- Streamtalker Band of Onslaught
+177409, -- Streamtalker Ring of Onslaught
+177413, -- Streamtalker Ring of Destruction
+177414, -- Streamtalker Band of Destruction
+177422, -- Streamtalker Ring of Wisdom
+177423, -- Streamtalker Band of Wisdom
+177577, -- Illidari Band
+177578, -- Illidari Ring
+177585, -- Felsoul Band of Destruction
+177586, -- Felsoul Ring of Destruction
+177597, -- Oathsworn Band of Stoicism
+177598, -- Oathsworn Ring of Stoicism
+177600, -- Oathsworn Ring of Might
+177601, -- Oathsworn Band of Might
+177811, -- Depraved Tutor's Signet
+177812, -- Redelv House Band
+178077, -- Briarbane Signet
+178171, -- Darkmaul Signet Ring
+178293, -- Sinful Aspirant's Band
+178329, -- Sinful Aspirant's Signet
+178381, -- Sinful Gladiator's Band
+178442, -- Sinful Gladiator's Signet
+178736, -- Stitchflesh's Misplaced Signet
+178781, -- Ritual Commander's Ring
+178824, -- Signet of the False Accuser
+178848, -- Entwined Gorger Tendril
+178869, -- Fleshfused Circle
+178870, -- Ritual Bone Band
+178871, -- Bloodoath Signet
+178872, -- Ring of Perpetual Conflict
+178933, -- Arachnid Cipher Ring
+179355, -- Death God's Signet
+180349, -- Nethrezim Acolyte's Band
+180855, -- Competitor's Signet
+181217, -- Dominance Guard's Band
+181218, -- Chalice Noble's Signet
+181626, -- Gorewrought Loop
+181702, -- Sanctified Guardian's Signet
+181708, -- Leafed Banewood Band
+181721, -- Ascendent Valor Signet
+183035, -- Ardent Sunstar Signet
+183036, -- Most Regal Signet of Sire Denathrius
+183037, -- Ritualist's Treasured Ring
+183038, -- Hyperlight Band
+183631, -- Ring of Carnelian and Sinew
+183659, -- Annhylde's Band
+183673, -- Nerubian Aegis Ring
+183676, -- Hailstone Loop
+183685, -- Phantasmic Seal of the Prophet
+184105, -- Gyre
+184106, -- Gimble
+184142, -- Twisted Witherroot Band
+184143, -- Band of the Risen Bonelord
+184165, -- Seal of Fordragon
+184174, -- Clasp of Death
+184744, -- Gnarled Boneloop
+184756, -- Smoothed Loop of Contemplation
+184783, -- Muirnne's Stormforged Signet
+184784, -- Punishing Loop
 }
 
--- LegendaryUnlockItems
-local legendaryItems = {
-182617,
-182625,
-182626,
-182627,
-182628,
-182629,
-182630,
-182631,
-182632,
-182633,
-182634,
-182635,
-182636,
-182637,
-182638,
-182640,
-183210,
-183211,
-183212,
-183213,
-183214,
-183215,
-183216,
-183217,
-183218,
-183219,
-183220,
-183221,
-183222,
-183223,
-183224,
-183225,
-183226,
-183227,
-183228,
-183229,
-183230,
-183231,
-183232,
-183233,
-183234,
-183235,
-183236,
-183237,
-183238,
-183239,
-183240,
-183241,
-183242,
-183243,
-183244,
-183245,
-183246,
-183247,
-183248,
-183249,
-183250,
-183251,
-183252,
-183253,
-183254,
-183255,
-183256,
-183257,
-183258,
-183259,
-183260,
-183261,
-183262,
-183263,
-183264,
-183265,
-183266,
-183267,
-183268,
-183269,
-183270,
-183271,
-183272,
-183273,
-183274,
-183275,
-183276,
-183277,
-183278,
-183279,
-183280,
-183281,
-183282,
-183283,
-183284,
-183285,
-183286,
-183287,
-183288,
-183289,
-183290,
-183291,
-183292,
-183293,
-183294,
-183295,
-183296,
-183297,
-183298,
-183299,
-183300,
-183301,
-183302,
-183303,
-183304,
-183305,
-183306,
-183307,
-183308,
-183309,
-183310,
-183311,
-183312,
-183313,
-183314,
-183315,
-183316,
-183317,
-183318,
-183319,
-183320,
-183321,
-183322,
-183323,
-183324,
-183325,
-183326,
-183327,
-183328,
-183329,
-183330,
-183331,
-183332,
-183333,
-183334,
-183335,
-183336,
-183337,
-183338,
-183339,
-183340,
-183341,
-183342,
-183343,
-183344,
-183345,
-183346,
-183347,
-183348,
-183349,
-183350,
-183351,
-183352,
-183353,
-183354,
-183355,
-183356,
-183357,
-183358,
-183359,
-183360,
-183361,
-183362,
-183363,
-183364,
-183365,
-183366,
-183367,
-183368,
-183369,
-183370,
-183371,
-183372,
-183373,
-183374,
-183375,
-183376,
-183377,
-183378,
-183379,
-183380,
-183381,
-183382,
-183383,
-183384,
-183385,
-183386,
-183387,
-183388,
-183389,
-183390,
-183391,
-183392,
-183393,
-184665
+ -- Trinkets
+local TrinketsIDs = {
+171323, -- Spiritual Alchemy Stone
+173069, -- Darkmoon Deck: Putrescence
+173078, -- Darkmoon Deck: Repose
+173087, -- Darkmoon Deck: Voracity
+173096, -- Darkmoon Deck: Indomitable
+173349, -- Misfiring Centurion Controller
+175718, -- Ascended Defender's Crest
+175719, -- Agitha's Void-Tinged Speartip
+175722, -- Vial of Caustic Liquid
+175723, -- Rejuvenating Serum
+175725, -- Newcomer's Gladiatorial Badge
+175726, -- Primalist's Kelpling
+175727, -- Elder's Stormseed
+175728, -- Soulsifter Root
+175729, -- Rotbriar Sprout
+175730, -- Master Duelist's Chit
+175731, -- Stolen Maw Badge
+175732, -- Tablet of Despair
+175733, -- Brimming Ember Shard
+175884, -- Sinful Aspirant's Badge of Ferocity
+175921, -- Sinful Gladiator's Badge of Ferocity
+175941, -- Spiritual Alchemy Stone
+175942, -- Spiritual Alchemy Stone
+175943, -- Spiritual Alchemy Stone
+177147, -- Seabeast Tusk
+177148, -- Lucky Braid
+177149, -- Shimmering Rune
+177150, -- Petrified Basilisk Scale
+177151, -- Oceanographer's Weather Log
+177152, -- Privateer's Spyglass
+177154, -- Seabeast Tusk
+177155, -- Shimmering Rune
+177156, -- Petrified Basilisk Scale
+177157, -- Bijou of the Golden City
+177158, -- Enchanted Devilsaur Claw
+177166, -- Lucky Braid
+177292, -- Heart-Lesion Stone of Battle
+177293, -- Heart-Lesion Idol of Battle
+177296, -- Heart-Lesion Defender Idol
+177299, -- Heart-Lesion Defender Stone
+177302, -- Springrain Idol of Rage
+177305, -- Springrain Stone of Rage
+177308, -- Springrain Idol of Destruction
+177311, -- Springrain Stone of Destruction
+177315, -- Springrain Idol of Wisdom
+177318, -- Springrain Stone of Wisdom
+177322, -- Springrain Idol of Durability
+177325, -- Springrain Stone of Durability
+177328, -- Trailseeker Idol of Rage
+177331, -- Trailseeker Stone of Rage
+177335, -- Mountainsage Idol of Destruction
+177338, -- Mountainsage Stone of Destruction
+177344, -- Mistdancer Defender Stone
+177346, -- Mistdancer Defender Idol
+177348, -- Mistdancer Idol of Wisdom
+177352, -- Mistdancer Stone of Wisdom
+177355, -- Mistdancer Idol of Rage
+177359, -- Mistdancer Stone of Rage
+177363, -- Sunsoul Idol of Wisdom
+177366, -- Sunsoul Stone of Wisdom
+177375, -- Sunsoul Stone of Battle
+177376, -- Sunsoul Idol of Battle
+177379, -- Sunsoul Defender Idol
+177382, -- Sunsoul Defender Stone
+177384, -- Communal Idol of Destruction
+177387, -- Communal Stone of Destruction
+177390, -- Communal Idol of Wisdom
+177393, -- Communal Stone of Wisdom
+177398, -- Lightdrinker Idol of Rage
+177401, -- Lightdrinker Stone of Rage
+177407, -- Streamtalker Idol of Rage
+177410, -- Streamtalker Stone of Rage
+177412, -- Streamtalker Idol of Destruction
+177415, -- Streamtalker Stone of Destruction
+177421, -- Streamtalker Idol of Wisdom
+177424, -- Streamtalker Stone of Wisdom
+177575, -- Demon Trophy
+177576, -- Charm of Demonic Fire
+177584, -- Felsoul Idol of Destruction
+177587, -- Felsoul Stone of Destruction
+177596, -- Oathsworn Defender Idol
+177599, -- Oathsworn Defender Stone
+177602, -- Oathsworn Idol of Battle
+177603, -- Oathsworn Stone of Battle
+177657, -- Overflowing Ember Mirror
+177813, -- Hopebreaker's Badge
+178168, -- Darkmaul Ritual Stone
+178298, -- Sinful Aspirant's Insignia of Alacrity
+178334, -- Sinful Aspirant's Emblem
+178386, -- Sinful Gladiator's Insignia of Alacrity
+178447, -- Sinful Gladiator's Emblem
+178708, -- Unbound Changeling
+178715, -- Mistcaller Ocarina
+178742, -- Bottled Flayedwing Toxin
+178751, -- Spare Meat Hook
+178769, -- Infinitely Divisible Ooze
+178770, -- Slimy Consumptive Organ
+178771, -- Phial of Putrefaction
+178772, -- Satchel of Misbegotten Minions
+178783, -- Siphoning Phylactery Shard
+178808, -- Viscera of Coalesced Hatred
+178809, -- Soulletting Ruby
+178810, -- Vial of Spectral Essence
+178811, -- Grim Codex
+178825, -- Pulsating Stoneheart
+178826, -- Sunblood Amethyst
+178849, -- Overflowing Anima Cage
+178850, -- Lingering Sunmote
+178861, -- Decanter of Anima-Charged Winds
+178862, -- Bladedancer's Armor Kit
+179331, -- Blood-Spattered Scale
+179342, -- Overwhelming Power Crystal
+179350, -- Inscrutable Quantum Device
+179356, -- Shadowgrasp Totem
+179927, -- Glowing Endmire Stinger
+180116, -- Overcharged Anima Battery
+180117, -- Empyreal Ordnance
+180118, -- Anima Field Emitter
+180119, -- Boon of the Archon
+180827, -- Maldraxxian Warhorn
+181333, -- Sinful Gladiator's Medallion
+181334, -- Essence Extractor
+181335, -- Sinful Gladiator's Relentless Brooch
+181357, -- Tablet of Despair
+181358, -- Master Duelist's Chit
+181359, -- Overflowing Ember Mirror
+181360, -- Brimming Ember Shard
+181457, -- Wakener's Frond
+181458, -- Queensguard's Vigil
+181459, -- Withergrove Shardling
+181501, -- Flame of Battle
+181502, -- Rejuvenating Serum
+181503, -- Vial of Caustic Liquid
+181507, -- Beating Abomination Core
+181816, -- Sinful Gladiator's Sigil of Adaptation
+182451, -- Glimmerdust's Grand Design
+182452, -- Everchill Brambles
+182453, -- Twilight Bloom
+182454, -- Murmurs in the Dark
+182455, -- Dreamer's Mending
+182682, -- Book-Borrower Identification
+183650, -- Miniscule Abomination in a Jar
+183849, -- Soulsifter Root
+183850, -- Wakener's Frond
+183851, -- Withergrove Shardling
+184016, -- Skulker's Wing
+184017, -- Bargast's Leash
+184018, -- Splintered Heart of Al'ar
+184019, -- Soul Igniter
+184020, -- Tuft of Smoldering Plumage
+184021, -- Glyph of Assimilation
+184022, -- Consumptive Infusion
+184023, -- Gluttonous Spike
+184024, -- Macabre Sheet Music
+184025, -- Memory of Past Sins
+184026, -- Hateful Chain
+184027, -- Stone Legion Heraldry
+184028, -- Cabalist's Hymnal
+184029, -- Manabound Mirror
+184030, -- Dreadfire Vessel
+184031, -- Sanguine Vintage
+184052, -- Sinful Aspirant's Medallion
+184053, -- Sinful Aspirant's Relentless Brooch
+184054, -- Sinful Aspirant's Sigil of Adaptation
+184055, -- Corrupted Gladiator's Medallion
+184056, -- Corrupted Gladiator's Relentless Brooch
+184057, -- Corrupted Gladiator's Sigil of Adaptation
+184058, -- Corrupted Aspirant's Medallion
+184059, -- Corrupted Aspirant's Relentless Brooch
+184060, -- Corrupted Aspirant's Sigil of Adaptation
+184279, -- Siphoning Blood-Drinker
+184807, -- Relic of the First Ones
+184839, -- Misfiring Centurion Controller
+184840, -- Hymnal of the Path
+184841, -- Lyre of Sacred Purpose
+184842, -- Instructor's Divine Bell
 }
 
--- Conduits
-local conduitItems = { 
-180842,
-180843,
-180844,
-180847,
-180896,
-180932,
-180933,
-180935,
-180943,
-180944,
-181373,
-181376,
-181383,
-181389,
-181435,
-181455,
-181461,
-181462,
-181464,
-181465,
-181466,
-181467,
-181469,
-181495,
-181498,
-181504,
-181505,
-181506,
-181508,
-181509,
-181510,
-181511,
-181512,
-181539,
-181553,
-181600,
-181624,
-181639,
-181640,
-181641,
-181698,
-181700,
-181705,
-181707,
-181709,
-181712,
-181734,
-181735,
-181736,
-181737,
-181738,
-181740,
-181742,
-181756,
-181759,
-181769,
-181770,
-181774,
-181775,
-181776,
-181786,
-181826,
-181827,
-181834,
-181836,
-181837,
-181838,
-181840,
-181841,
-181842,
-181843,
-181844,
-181845,
-181847,
-181848,
-181866,
-181867,
-181942,
-181943,
-181944,
-181962,
-181963,
-181974,
-181975,
-181980,
-181981,
-181982,
-182105,
-182106,
-182107,
-182108,
-182109,
-182110,
-182111,
-182113,
-182125,
-182126,
-182127,
-182128,
-182129,
-182130,
-182131,
-182132,
-182133,
-182134,
-182135,
-182136,
-182137,
-182138,
-182139,
-182140,
-182141,
-182142,
-182143,
-182144,
-182145,
-182187,
-182201,
-182203,
-182206,
-182208,
-182288,
-182292,
-182295,
-182304,
-182307,
-182316,
-182317,
-182318,
-182321,
-182324,
-182325,
-182330,
-182331,
-182335,
-182336,
-182338,
-182339,
-182340,
-182344,
-182345,
-182346,
-182347,
-182348,
-182368,
-182383,
-182384,
-182385,
-182440,
-182441,
-182442,
-182448,
-182449,
-182456,
-182460,
-182461,
-182462,
-182463,
-182464,
-182465,
-182466,
-182468,
-182469,
-182470,
-182471,
-182476,
-182478,
-182480,
-182559,
-182582,
-182584,
-182598,
-182604,
-182605,
-182608,
-182610,
-182621,
-182622,
-182624,
-182646,
-182648,
-182649,
-182651,
-182656,
-182657,
-182667,
-182675,
-182677,
-182681,
-182684,
-182685,
-182686,
-182706,
-182736,
-182743,
-182747,
-182748,
-182750,
-182751,
-182752,
-182753,
-182754,
-182755,
-182767,
-182769,
-182770,
-182772,
-182777,
-182778,
-182960,
-182961,
-182962,
-182964,
-183044,
-183076,
-183132,
-183167,
-183184,
-183197,
-183199,
-183202,
-183396,
-183402,
-183463,
-183464,
-183465,
-183466,
-183467,
-183468,
-183469,
-183470,
-183471,
-183472,
-183473,
-183474,
-183476,
-183477,
-183478,
-183479,
-183480,
-183481,
-183482,
-183483,
-183484,
-183485,
-183486,
-183487,
-183488,
-183489,
-183490,
-183491,
-183492,
-183493,
-183494,
-183495,
-183496,
-183497,
-183498,
-183499,
-183500,
-183501,
-183502,
-183503,
-183504,
-183505,
-183506,
-183507,
-183508,
-183509,
-183510,
-183511,
-183512,
-183513,
-183514,
-184359,
-184587
+ -- Abominable Stitching
+local AbominableStitchingIDs = {
+178061, -- Malleable Flesh
+181371, -- Spare Head
+181797, -- Strange Cloth
+181798, -- Stuffed Construct
+181799, -- Extra Large Hat
+183743, -- Malleable Flesh
+183744, -- Superior Parts
+183752, -- Empty Nightcap Cask
+183754, -- Stitchflesh's Design Notes
+183755, -- Ardenweald Wreath
+183756, -- Floating Circlet
+183759, -- Unusually Large Cranium
+183760, -- Venthyr Spectacles
+183786, -- Happiness Bird
+183789, -- Six-League Pack
+183824, -- Cache of Spare Weapons
+183825, -- Oversized Monocle
+183826, -- Big Floppy Hat
+183827, -- Blacksteel Backplate
+183828, -- Friendly Bugs
+183829, -- Slime Cat
+183830, -- Do It Yourself Flag Kit
+183831, -- Safe Fall Kit
+183833, -- Kash's Bag of Junk
+183873, -- Otherworldy Tea Set
+184036, -- Dundae's Hat
+184037, -- Maldraxxus Candles
+184038, -- Trained Corpselice
+184039, -- Clean White Hat
+184040, -- Broken Egg Shells
+184041, -- Festive Umbrella
+184203, -- Fungal Hair Tonic
+184204, -- Otherworld Hat
+184205, -- Long Lost Crown
+184224, -- Dapperling Seeds
+184225, -- Small Posable Skeleton
 }
+
+ -- Anima
+local AnimaIDs = {
+181368, -- Centurion Power Core
+181377, -- Illustrated Combat Meditation Aid
+181477, -- Ardendew Pearl
+181478, -- Cornucopia of the Winter Court
+181479, -- Starlight Catcher
+181540, -- Animaflower Bud
+181541, -- Celestial Acorn
+181544, -- Confessions of Misdeed
+181545, -- Bloodbound Globule
+181546, -- Mature Cryptbloom
+181547, -- Noble's Draught
+181548, -- Darkhaven Soul Lantern
+181549, -- Timeworn Sinstone
+181550, -- Hopebreaker's Field Injector
+181551, -- Depleted Stoneborn Heart
+181552, -- Collected Tithe
+181642, -- Novice Principles of Plaguistry
+181643, -- Weeping Corpseshroom
+181644, -- Unlabled Culture Jars
+181645, -- Engorged Monstrosity's Heart
+181646, -- Bound Failsafe Phylactery
+181647, -- Stabilized Plague Strain
+181648, -- Ziggurat Focusing Crystal
+181649, -- Preserved Preternatural Braincase
+181650, -- Spellwarded Dissertation
+181743, -- Plume of the Archon
+181744, -- Forgelite Ember
+181745, -- Forgesmith's Coal
+183723, -- Brimming Anima Orb
+183727, -- Resonance of Conflict
+184146, -- Singed Soul Shackles
+184147, -- Agony Enrichment Device
+184148, -- Concealed Sinvyr Flask
+184149, -- Widowbloom-Infused Fragrance
+184150, -- Bonded Tallow Candles
+184151, -- Counterfeit Ruby Brooch
+184152, -- Bottle of Diluted Anima-Wine
+184286, -- Extinguished Soul Anima
+184293, -- Sanctified Skylight Leaf
+184294, -- Ethereal Ambrosia
+184305, -- Maldraxxi Champion's Armaments
+184306, -- Soulcatching Sludge
+184307, -- Maldraxxi Armor Scraps
+184315, -- Multi-Modal Anima Container
+184360, -- Musings on Repetition
+184362, -- Reflections on Purity
+184363, -- Considerations on Courage
+184371, -- Vivacity of Collaboration
+184373, -- Small Anima Globe
+184374, -- Cartel Exchange Vessel
+184378, -- Faeweald Amber
+184379, -- Queen's Frozen Tear
+184380, -- Starblossom Nectar
+184381, -- Astral Sapwood
+184382, -- Luminous Sylberry
+184383, -- Duskfall Tuber
+184384, -- Hibernal Sproutling
+184385, -- Fossilized Heartwood
+184386, -- Nascent Sporepod
+184387, -- Misty Shimmerleaf
+184388, -- Plump Glitterroot
+184389, -- Slumbering Starseed
+184519, -- Totem of Stolen Mojo
+184763, -- Mnemis Neural Network
+184764, -- Colossus Actuator
+184765, -- Vesper Strikehammer
+184766, -- Chronicles of the Paragons
+184767, -- Handheld Soul Mirror
+184768, -- Censer of Dried Gracepetals
+184769, -- Pressed Torchlily Blossom
+184770, -- Roster of the Forgotten
+184771, -- Remembrance Parchment Ash
+184772, -- Ritual Maldracite Crystal
+184773, -- Battle-Tested Armor Component
+184774, -- Juvenile Sporespindle
+184775, -- Necromancy for the Practical Ritualist
+184776, -- Urn of Arena Soil
+184777, -- Gravedredger's Shovel
+}
+
+ -- Ascended Crafting
+local AscendedCraftingIDs = {
+180477, -- Elysian Feathers
+180478, -- Champion's Pelt
+180594, -- Calloused Bone
+180595, -- Nightforged Steel
+}
+
+ -- Conduits
+local ConduitsIDs = {
+180842, -- Stalwart Guardian
+180843, -- Template Conduit
+180844, -- Brutal Vitality
+180847, -- Inspiring Presence
+180896, -- Safeguard
+180932, -- Fueled by Violence
+180933, -- Ashen Juggernaut
+180935, -- Crash the Ramparts
+180943, -- Cacophonous Roar
+180944, -- Merciless Bonegrinder
+181373, -- Harm Denial
+181376, -- Inner Fury
+181383, -- Unrelenting Cold
+181389, -- Shivering Core
+181435, -- Calculated Strikes
+181455, -- Icy Propulsion
+181461, -- Ice Bite
+181462, -- Coordinated Offensive
+181464, -- Winter's Protection
+181465, -- Xuen's Bond
+181466, -- Grounding Breath
+181467, -- Flow of Time
+181469, -- Indelible Victory
+181495, -- Jade Bond
+181498, -- Grounding Surge
+181504, -- Infernal Cascade
+181505, -- Resplendent Mist
+181506, -- Master Flame
+181508, -- Fortifying Ingredients
+181509, -- Arcane Prodigy
+181510, -- Lingering Numbness
+181511, -- Nether Precision
+181512, -- Dizzying Tumble
+181539, -- Discipline of the Grove
+181553, -- Gift of the Lich
+181600, -- Ire of the Ascended
+181624, -- Swift Transference
+181639, -- Siphoned Malice
+181640, -- Tumbling Technique
+181641, -- Rising Sun Revival
+181698, -- Cryo-Freeze
+181700, -- Scalding Brew
+181705, -- Celestial Effervescence
+181707, -- Diverted Energy
+181709, -- Unnerving Focus
+181712, -- Depths of Insanity
+181734, -- Magi's Brand
+181735, -- Hack and Slash
+181736, -- Flame Accretion
+181737, -- Nourishing Chi
+181738, -- Artifice of the Archmage
+181740, -- Evasive Stride
+181742, -- Walk with the Ox
+181756, -- Incantation of Swiftness
+181759, -- Strike with Clarity
+181769, -- Tempest Barrier
+181770, -- Bone Marrow Hops
+181774, -- Imbued Reflections
+181775, -- Way of the Fae
+181776, -- Vicious Contempt
+181786, -- Eternal Hunger
+181826, -- Translucent Image
+181827, -- Move with Grace
+181834, -- Chilled Resilience
+181836, -- Spirit Drain
+181837, -- Clear Mind
+181838, -- Charitable Soul
+181840, -- Light's Inspiration
+181841, -- Reinforced Shell
+181842, -- Power Unto Others
+181843, -- Shining Radiance
+181844, -- Pain Transformation
+181845, -- Exaltation
+181847, -- Lasting Spirit
+181848, -- Accelerated Cold
+181866, -- Withering Plague
+181867, -- Swift Penitence
+181942, -- Focused Mending
+181943, -- Eradicating Blow
+181944, -- Resonant Words
+181962, -- Mental Recovery
+181963, -- Blood Bond
+181974, -- Courageous Ascension
+181975, -- Hardened Bones
+181980, -- Embrace Death
+181981, -- Festering Transfusion
+181982, -- Everfrost
+182105, -- Astral Protection
+182106, -- Refreshing Waters
+182107, -- Vital Accretion
+182108, -- Thunderous Paws
+182109, -- Totemic Surge
+182110, -- Crippling Hex
+182111, -- Spiritual Resonance
+182113, -- Fleeting Wind
+182125, -- Pyroclastic Shock
+182126, -- High Voltage
+182127, -- Shake the Foundations
+182128, -- Call of Flame
+182129, -- Fae Fermata
+182130, -- Shattered Perceptions
+182131, -- Haunting Apparitions
+182132, -- Unending Grip
+182133, -- Insatiable Appetite
+182134, -- Unruly Winds
+182135, -- Focused Lightning
+182136, -- Chilled to the Core
+182137, -- Magma Fist
+182138, -- Mind Devourer
+182139, -- Rabid Shadows
+182140, -- Dissonant Echoes
+182141, -- Holy Oration
+182142, -- Embrace of Earth
+182143, -- Swirling Currents
+182144, -- Nature's Reach
+182145, -- Heavy Rainfall
+182187, -- Meat Shield
+182201, -- Unleashed Frenzy
+182203, -- Debilitating Malady
+182206, -- Convocation of the Dead
+182208, -- Lingering Plague
+182288, -- Impenetrable Gloom
+182292, -- Brutal Grasp
+182295, -- Proliferation
+182304, -- Divine Call
+182307, -- Shielding Words
+182316, -- Fel Defender
+182317, -- Shattered Restoration
+182318, -- Viscous Ink
+182321, -- Enfeebled Mark
+182324, -- Felfire Haste
+182325, -- Ravenous Consumption
+182330, -- Demonic Parole
+182331, -- Empowered Release
+182335, -- Spirit Attunement
+182336, -- Golden Path
+182338, -- Pure Concentration
+182339, -- Necrotic Barrage
+182340, -- Fel Celerity
+182344, -- Lost in Darkness
+182345, -- Elysian Dirge
+182346, -- Tumbling Waves
+182347, -- Essential Extraction
+182348, -- Lavish Harvest
+182368, -- Relentless Onslaught
+182383, -- Dancing with Fate
+182384, -- Serrated Glaive
+182385, -- Growing Inferno
+182440, -- Piercing Verdict
+182441, -- Markman's Advantage
+182442, -- Veteran's Repute
+182448, -- Light's Barding
+182449, -- Resolute Barrier
+182456, -- Wrench Evil
+182460, -- Accrued Vitality
+182461, -- Echoing Blessings
+182462, -- Expurgation
+182463, -- Harrowing Punishment
+182464, -- Harmony of the Tortollan
+182465, -- Truth's Wake
+182466, -- Shade of Terror
+182468, -- Mortal Combo
+182469, -- Rejuvenating Wind
+182470, -- Demonic Momentum
+182471, -- Soul Furnace
+182476, -- Resilience of the Hunter
+182478, -- Corrupting Leer
+182480, -- Reversal of Fortune
+182559, -- Templar's Vindication
+182582, -- Enkindled Spirit
+182584, -- Cheetah's Vigor
+182598, -- Demon Muzzle
+182604, -- Roaring Fire
+182605, -- Tactical Retreat
+182608, -- Virtuous Command
+182610, -- Ferocious Appetite
+182621, -- One With the Beast
+182622, -- Resplendent Light
+182624, -- Show of Force
+182646, -- Repeat Decree
+182648, -- Sharpshooter's Focus
+182649, -- Brutal Projectiles
+182651, -- Destructive Reverberations
+182656, -- Disturb the Peace
+182657, -- Deadly Chain
+182667, -- Focused Light
+182675, -- Untempered Dedication
+182677, -- Punish the Guilty
+182681, -- Vengeful Shock
+182684, -- Resolute Defender
+182685, -- Increased Scrutiny
+182686, -- Powerful Precision
+182706, -- Brooding Pool
+182736, -- Rolling Agony
+182743, -- Focused Malignancy
+182747, -- Cold Embrace
+182748, -- Borne of Blood
+182750, -- Carnivorous Stalkers
+182751, -- Tyrant's Soul
+182752, -- Fel Commando
+182753, -- Royal Decree
+182754, -- Duplicitous Havoc
+182755, -- Ashen Remains
+182767, -- The Long Summer
+182769, -- Combusting Engine
+182770, -- Righteous Might
+182772, -- Infernal Brand
+182777, -- Hallowed Discernment
+182778, -- Ringing Clarity
+182960, -- Soul Tithe
+182961, -- Fatal Decimation
+182962, -- Catastrophic Origin
+182964, -- Soul Eater
+183044, -- Kilrogg's Cunning
+183076, -- Diabolic Bloodstone
+183132, -- Echoing Call
+183167, -- Strength of the Pack
+183184, -- Stinging Strike
+183197, -- Controlled Destruction
+183199, -- Withering Ground
+183202, -- Deadly Tandem
+183396, -- Flame Infusion
+183402, -- Bloodletting
+183463, -- Unnatural Malice
+183464, -- Tough as Bark
+183465, -- Ursine Vigor
+183466, -- Innate Resolve
+183467, -- Tireless Pursuit
+183468, -- Born Anew
+183469, -- Front of the Pack
+183470, -- Born of the Wilds
+183471, -- Deep Allegiance
+183472, -- Evolved Swarm
+183473, -- Conflux of Elements
+183474, -- Endless Thirst
+183476, -- Stellar Inspiration
+183477, -- Precise Alignment
+183478, -- Fury of the Skies
+183479, -- Umbral Intensity
+183480, -- Taste for Blood
+183481, -- Incessant Hunter
+183482, -- Sudden Ambush
+183483, -- Carnivorous Instinct
+183484, -- Unchecked Aggression
+183485, -- Savage Combatant
+183486, -- Well-Honed Instincts
+183487, -- Layered Mane
+183488, -- Unstoppable Growth
+183489, -- Flash of Clarity
+183490, -- Floral Recycling
+183491, -- Ready for Anything
+183492, -- Reverberation
+183493, -- Sudden Fractures
+183494, -- Septic Shock
+183495, -- Lashing Scars
+183496, -- Nimble Fingers
+183497, -- Recuperator
+183498, -- Cloaked in Shadows
+183499, -- Quick Decisions
+183500, -- Fade to Nothing
+183501, -- Rushed Setup
+183502, -- Prepared for All
+183503, -- Poisoned Katar
+183504, -- Well-Placed Steel
+183505, -- Maim, Mangle
+183506, -- Lethal Poisons
+183507, -- Triple Threat
+183508, -- Ambidexterity
+183509, -- Sleight of Hand
+183510, -- Count the Odds
+183511, -- Deeper Daggers
+183512, -- Planned Execution
+183513, -- Stiletto Staccato
+183514, -- Perforated Veins
+184359, -- Unbound Reality Fragment
+184587, -- Ambuscade
+}
+
+ -- Ember Court
+local EmberCourtIDs = {
+177230, -- Anima-Infused Water
+177231, -- Crown of Honor
+177232, -- Bewitched Wardrobe
+177233, -- Bounding Shroom Seeds
+177234, -- Rally Bell
+177235, -- Tubbins's Lucky Teapot
+177236, -- Dog Bone's Bone
+177237, -- Dredger Party Supplies
+177238, -- Generous Gift
+177239, -- Racing Permit
+177241, -- Necrolord Arsenal
+177242, -- Venthyr Arsenal
+177243, -- Kyrian Arsenal
+177244, -- Night Fae Arsenal
+177245, -- Maldraxxi Challenge Banner
+180248, -- Ambassador's Reserve
+181436, -- Vanity Mirror
+181437, -- Training Dummies
+181438, -- The Wild Drum
+181439, -- Protective Braziers
+181440, -- Slippery Muck
+181441, -- Altar of Accomplishment
+181442, -- Perk 22
+181443, -- Perk 23
+181444, -- Perk 24
+181445, -- Perk 25
+181446, -- Perk 26
+181447, -- Perk 27
+181448, -- Perk 28
+181449, -- Perk 29
+181451, -- Perk 30
+181517, -- Building: Dredger Pool
+181518, -- Building: Guardhouse
+181519, -- Staff: Dredger Decorators
+181520, -- Staff: Stage Crew
+181521, -- Staff: Ambassador
+181522, -- Staff: Waiters
+181523, -- Staff: Bouncers
+181524, -- Staff: Ambassador
+181530, -- Stock: Greeting Kits
+181532, -- Stock: Appetizers
+181533, -- Stock: Anima Samples
+181535, -- Stock: Comfy Chairs
+181536, -- Guest List Page
+181537, -- Guest List Page
+181538, -- Guest List Page
+181556, -- Tribute of the Court
+182296, -- Letter of Note, Premier Party Planner
+182342, -- Staff: Ambassador
+182343, -- Staff: Ambassador
+183956, -- Invitation: Choofa
+183957, -- Invitation: Grandmaster Vole
+184628, -- Elder's Sacrificial Moonstone
+184663, -- Building: Guardhouse
+}
+
+ -- Legendary Powers
+local LegendaryPowersIDs = {
+182617, -- Memory of Death's Embrace
+182625, -- Memory of an Everlasting Grip
+182626, -- Memory of the Phearomones
+182627, -- Memory of Superstrain
+182628, -- Memory of Bryndaor
+182629, -- Memory of the Crimson Runes
+182630, -- Memory of Gorefiend's Domination
+182631, -- Memory of a Vampiric Aura
+182632, -- Memory of Absolute Zero
+182633, -- Memory of the Biting Cold
+182634, -- Memory of a Frozen Champion's Rage
+182635, -- Memory of Koltira
+182636, -- Memory of the Deadliest Coil
+182637, -- Memory of Death's Certainty
+182638, -- Memory of a Frenzied Monstrosity
+182640, -- Memory of a Reanimated Shambler
+183210, -- Memory of a Fel Bombardment
+183211, -- Memory of the Hour of Darkness
+183212, -- Memory of a Darkglare Medallion
+183213, -- Memory of the Anguish of the Collective
+183214, -- Memory of the Chaos Theory
+183215, -- Memory of an Erratic Fel Core
+183216, -- Memory of a Burning Wound
+183217, -- Memory of my Darker Nature
+183218, -- Memory of a Fortified Fel Flame
+183219, -- Memory of Soul of Fire
+183220, -- Memory of Razelikh's Defilement
+183221, -- Memory of the Dark Flame Spirit
+183222, -- Memory of the Elder Druid
+183223, -- Memory of the Circle of Life and Death
+183224, -- Memory of a Deep Focus Draught
+183225, -- Memory of Lycara
+183226, -- Memory of the Balance of All Things
+183227, -- Memory of Oneth
+183228, -- Memory of Arcane Pulsars
+183229, -- Memory of a Timeworn Dreambinder
+183230, -- Memory of the Apex Predator
+183231, -- Memory of a Cat-eye Curio
+183232, -- Memory of a Symmetrical Eye
+183233, -- Memory of the Frenzyband
+183234, -- Memory of a Luffa-Infused Embrace
+183235, -- Memory of the Natural Order
+183236, -- Memory of Ursoc
+183237, -- Memory of the Sleeper
+183238, -- Memory of the Verdant Infusion
+183239, -- Memory of an Unending Growth
+183240, -- Memory of the Mother Tree
+183241, -- Memory of the Dark Titan
+183242, -- Memory of Eonar
+183243, -- Memory of the Arbiter's Judgment
+183244, -- Memory of the Rattle of the Maw
+183245, -- Memory of Norgannon
+183246, -- Memory of Sephuz
+183247, -- Memory of a Stable Phantasma Lure
+183248, -- Memory of Jailer's Eye
+183249, -- Memory of a Vital Sacrifice
+183250, -- Memory of the Wild Call
+183251, -- Memory of a Craven Strategem
+183252, -- Memory of a Trapping Apparatus
+183253, -- Memory of the Soulforge Embers
+183254, -- Memory of a Dire Command
+183255, -- Memory of the Flamewaker
+183256, -- Memory of the Eredun War Order
+183257, -- Memory of the Rylakstalker's Fangs
+183258, -- Memory of Eagletalon's True Focus
+183259, -- Memory of the Unblinking Vigil
+183260, -- Memory of the Serpentstalker's Trickery
+183261, -- Memory of Surging Shots
+183262, -- Memory of the Butcher's Bone Fragments
+183263, -- Memory of Poisonous Injectors
+183264, -- Memory of the Rylakstalker's Strikes
+183265, -- Memory of a Wildfire Cluster
+183266, -- Memory of the Disciplinary Command
+183267, -- Memory of an Expanded Potential
+183268, -- Memory of a Grisly Icicle
+183269, -- Memory of the Triune Ward
+183270, -- Memory of an Arcane Bombardment
+183271, -- Memory of the Infinite Arcane
+183272, -- Memory of a Siphoning Storm
+183273, -- Memory of a Temporal Warp
+183274, -- Memory of a Fevered Incantation
+183275, -- Memory of the Firestorm
+183276, -- Memory of the Molten Sky
+183277, -- Memory of the Sun King
+183278, -- Memory of the Cold Front
+183279, -- Memory of the Freezing Winds
+183280, -- Memory of Fragments of Ice
+183281, -- Memory of Slick Ice
+183282, -- Memory of the Fatal Touch
+183283, -- Memory of the Invoker
+183284, -- Memory of Escaping from Reality
+183285, -- Memory of the Swiftsure Wraps
+183286, -- Memory of Shaohao
+183287, -- Memory of Charred Passions
+183288, -- Memory of a Celestial Infusion
+183289, -- Memory of Stormstout
+183290, -- Memory of Ancient Teachings
+183291, -- Memory of Yu'lon
+183292, -- Memory of Clouded Focus
+183293, -- Memory of the Morning's Tear
+183294, -- Memory of the Jade Ignition
+183295, -- Memory of Keefer
+183296, -- Memory of the Last Emperor
+183297, -- Memory of Xuen
+183298, -- Memory of the Mad Paragon
+183299, -- Memory of the Sun's Cycles
+183300, -- Memory of the Magistrate's Judgment
+183301, -- Memory of Uther
+183302, -- Memory of the Sunwell's Bloom
+183303, -- Memory of Maraad's Dying Breath
+183304, -- Memory of the Shadowbreaker
+183305, -- Memory of the Shock Barrier
+183306, -- Memory of the Righteous Bulwark
+183307, -- Memory of a Holy Sigil
+183308, -- Memory of the Endless Kings
+183309, -- Memory of the Ardent Protector
+183310, -- Memory of the Vanguard's Momentum
+183311, -- Memory of the Final Verdict
+183312, -- Memory of a Relentless Inquisitor
+183313, -- Memory of the Lightbringer's Tempest
+183314, -- Memory of Cauterizing Shadows
+183315, -- Memory of Measured Contemplation
+183316, -- Memory of the Twins of the Sun Priestess
+183317, -- Memory of a Heavenly Vault
+183318, -- Memory of a Clear Mind
+183319, -- Memory of my Crystalline Reflection
+183320, -- Memory of the Kiss of Death
+183321, -- Memory of the Penitent One
+183322, -- Memory of a Divine Image
+183323, -- Memory of Flash Concentration
+183324, -- Memory of a Harmonious Apparatus
+183325, -- Memory of Archbishop Benedictus
+183326, -- Memory of the Void's Eternal Call
+183327, -- Memory of the Painbreaker Psalm
+183328, -- Memory of Talbadar
+183329, -- Memory of a Prism of Shadow and Fire
+183330, -- Memory of Bloodfang's Essence
+183331, -- Memory of Invigorating Shadowdust
+183332, -- Memory of the Master Assassin's Mark
+183333, -- Memory of Tiny Toxic Blade
+183334, -- Memory of the Dashing Scoundrel
+183335, -- Memory of the Doomblade
+183336, -- Memory of the Duskwalker's Patch
+183337, -- Memory of the Zoldyck Insignia
+183338, -- Memory of Celerity
+183339, -- Memory of a Concealed Blunderbuss
+183340, -- Memory of Greenskin
+183341, -- Memory of a Guile Charm
+183342, -- Memory of Akaari's Soul Fragment
+183343, -- Memory of the Deathly Shadows
+183344, -- Memory of Finality
+183345, -- Memory of the Rotten
+183346, -- Memory of an Ancestral Reminder
+183347, -- Memory of Devastating Chains
+183348, -- Memory of Deeply Rooted Elements
+183349, -- Memory of the Deeptremor Stone
+183350, -- Memory of the Great Sundering
+183351, -- Memory of an Elemental Equilibrium
+183352, -- Memory of the Demise of Skybreaker
+183353, -- Memory of the Windspeaker's Lava Resurgence
+183354, -- Memory of the Doom Winds
+183355, -- Memory of the Frost Witch
+183356, -- Memory of the Primal Lava Actuators
+183357, -- Memory of the Witch Doctor
+183358, -- Memory of an Earthen Harmony
+183359, -- Memory of Jonat
+183360, -- Memory of the Primal Tide Core
+183361, -- Memory of the Spiritwalker's Tidal Totem
+183362, -- Memory of a Malefic Wrath
+183363, -- Memory of Azj'Aqir's Agony
+183364, -- Memory of Sacrolash's Dark Strike
+183365, -- Memory of the Consuming Wrath
+183366, -- Memory of the Claw of Endereth
+183367, -- Memory of Demonic Synergy
+183368, -- Memory of the Dark Portal
+183369, -- Memory of Wilfred's Sigil of Superior Summoning
+183370, -- Memory of the Core of the Balespider
+183371, -- Memory of the Horned Nightmare
+183372, -- Memory of the Grim Inquisitor
+183373, -- Memory of an Implosive Potential
+183374, -- Memory of Azj'Aqir's Cinders
+183375, -- Memory of the Diabolic Raiment
+183376, -- Memory of Azj'Aqir's Madness
+183377, -- Memory of the Ymirjar
+183378, -- Memory of the Leaper
+183379, -- Memory of the Misshapen Mirror
+183380, -- Memory of a Seismic Reverberation
+183381, -- Memory of the Tormented Kings
+183382, -- Memory of a Battlelord
+183383, -- Memory of an Enduring Blow
+183384, -- Memory of the Exploiter
+183385, -- Memory of the Unhinged
+183386, -- Memory of Fujieda
+183387, -- Memory of the Deathmaker
+183388, -- Memory of a Reckless Defense
+183389, -- Memory of the Berserker's Will
+183390, -- Memory of a Reprisal
+183391, -- Memory of the Wall
+183392, -- Memory of the Thunderlord
+183393, -- Memory of an Unbreakable Will
+184665, -- Chronicle of Lost Memories
+}
+
+ -- Outdoor Items
+local OutdoorItemsIDs = {
+178658, -- Restore Construct
+179392, -- Orb of Burgeoning Ambition
+179535, -- Crumbling Pride Extractors
+179613, -- Extra Sticky Spidey Webs
+179937, -- Sliver of Burgeoning Ambition
+179938, -- Crumbling Pride Extractors
+179939, -- Wriggling Spider Sac
+180264, -- Abominable Backup
+180660, -- Darktower Parchments: Instant Polymorphist
+180661, -- Darktower Parchments: Affliction Most Foul
+180678, -- Peck Acorn
+180688, -- Infused Remnant of Light
+180689, -- Pocket Embers
+180690, -- Bottled Ash Cloud
+180692, -- Box of Stalker Traps
+180704, -- Infused Pet Biscuit
+180707, -- Sticky Muck
+180708, -- Mirror of Despair
+180713, -- Shrieker's Voicebox
+180874, -- Gargon Whistle
+182160, -- Bag of Twigin Treats
+182653, -- Larion Treats
+182749, -- Regurgitated Kyrian Wings
+183122, -- Death's Cloak
+183131, -- Stygic Grapnel
+183135, -- Summon the Fallen
+183136, -- Incendiary Mawrat
+183141, -- Stygic Magma
+183165, -- Mawsworn Crossbow
+183187, -- Shadeweaver Incantation
+183602, -- Sticky Webbing
+183718, -- Extra Gooey Gorm Gunk
+183787, -- Stygic Dampener
+183799, -- Shifting Catalyst
+183807, -- Stygic Coercion
+183811, -- Construct's Best Friend
+183902, -- A Faintly Glowing Seed
+}
+
+ -- Queen's Conservatory
+local QueensConservatoryIDs = {
+176832, -- Wildseed Root Grain
+176921, -- Temporal Leaves
+176922, -- Wild Nightbloom
+177698, -- Untamed Spirit
+177699, -- Greater Untamed Spirit
+177700, -- Divine Untamed Spirit
+177953, -- Untamed Spirit
+178874, -- Martial Spirit
+178877, -- Greater Martial Spirit
+178878, -- Divine Martial Spirit
+178879, -- Divine Dutiful Spirit
+178880, -- Greater Dutiful Spirit
+178881, -- Dutiful Spirit
+178882, -- Prideful Spirit
+178883, -- Greater Prideful Spirit
+178884, -- Divine Prideful Spirit
+183520, -- Wild Nightbloom Seeds
+183521, -- Temporal Leaf Seeds
+183522, -- Wildseed Root Grain Seeds
+183704, -- Shifting Spirit of Knowledge
+183805, -- Tranquil Spirit of the Cosmos
+183806, -- Energetic Spirit of Curiosity
+184779, -- Temporal Leaves
+}
+
+ -- Rune Vessel
+local RuneVesselIDs = {
+171412, -- Shadowghast Breastplate
+171413, -- Shadowghast Sabatons
+171414, -- Shadowghast Gauntlets
+171415, -- Shadowghast Helm
+171416, -- Shadowghast Greaves
+171417, -- Shadowghast Pauldrons
+171418, -- Shadowghast Waistguard
+171419, -- Shadowghast Armguards
+172314, -- Umbrahide Vest
+172315, -- Umbrahide Treads
+172316, -- Umbrahide Gauntlets
+172317, -- Umbrahide Helm
+172318, -- Umbrahide Leggings
+172319, -- Umbrahide Pauldrons
+172320, -- Umbrahide Waistguard
+172321, -- Umbrahide Armguards
+172322, -- Boneshatter Vest
+172323, -- Boneshatter Treads
+172324, -- Boneshatter Gauntlets
+172325, -- Boneshatter Helm
+172326, -- Boneshatter Greaves
+172327, -- Boneshatter Pauldrons
+172328, -- Boneshatter Waistguard
+172329, -- Boneshatter Armguards
+173241, -- Grim-Veiled Robe
+173242, -- Grim-Veiled Cape
+173243, -- Grim-Veiled Sandals
+173244, -- Grim-Veiled Mittens
+173245, -- Grim-Veiled Hood
+173246, -- Grim-Veiled Pants
+173247, -- Grim-Veiled Spaulders
+173248, -- Grim-Veiled Belt
+173249, -- Grim-Veiled Bracers
+178926, -- Shadowghast Ring
+178927, -- Shadowghast Necklace
+}
+
 
 
 
 local function MatchIDs_Init(self)
-	wipe(Result)
+    wipe(Result)
+    
+    if self.db.profile.moveRings then
+        AddToSet(Result['Rings'], RingsIDs)
+    end
 
-	if self.db.profile.moveAnima then
-		AddToSet(Result, animaItems)
-	end
+    if self.db.profile.moveTrinkets then
+        AddToSet(Result['Trinkets'], TrinketsIDs)
+    end
 
-	if self.db.profile.moveConduits then
-		AddToSet(Result, conduitItems)
-	end
-	
-	if self.db.profile.moveLegendary then
-		AddToSet(Result, legendaryItems)
-	end
+    if self.db.profile.moveAbominableStitching then
+        AddToSet(Result['AbominableStitching'], AbominableStitchingIDs)
+    end
 
-	return Result
+    if self.db.profile.moveAnima then
+        AddToSet(Result['Anima'], AnimaIDs)
+    end
+
+    if self.db.profile.moveAscendedCrafting then
+        AddToSet(Result['AscendedCrafting'], AscendedCraftingIDs)
+    end
+
+    if self.db.profile.moveConduits then
+        AddToSet(Result['Conduits'], ConduitsIDs)
+    end
+
+    if self.db.profile.moveEmberCourt then
+        AddToSet(Result['EmberCourt'], EmberCourtIDs)
+    end
+
+    if self.db.profile.moveLegendaryPowers then
+        AddToSet(Result['LegendaryPowers'], LegendaryPowersIDs)
+    end
+
+    if self.db.profile.moveOutdoorItems then
+        AddToSet(Result['OutdoorItems'], OutdoorItemsIDs)
+    end
+
+    if self.db.profile.moveQueensConservatory then
+        AddToSet(Result['QueensConservatory'], QueensConservatoryIDs)
+    end
+
+    if self.db.profile.moveRuneVessel then
+        AddToSet(Result['RuneVessel'], RuneVesselIDs)
+    end
+
+
+
+    return Result
 end
 
 local function Tooltip_Init()
-	local tip, leftside = CreateFrame("GameTooltip"), {}
-	for i = 1, 6 do
-		local Left, Right = tip:CreateFontString(), tip:CreateFontString()
-		Left:SetFontObject(GameFontNormal)
-		Right:SetFontObject(GameFontNormal)
-		tip:AddFontStrings(Left, Right)
-		leftside[i] = Left
-	end
-	tip.leftside = leftside
-	return tip
+    local tip, leftside = CreateFrame("GameTooltip"), {}
+    for i = 1, 6 do
+        local Left, Right = tip:CreateFontString(), tip:CreateFontString()
+        Left:SetFontObject(GameFontNormal)
+        Right:SetFontObject(GameFontNormal)
+        tip:AddFontStrings(Left, Right)
+        leftside[i] = Left
+    end
+    tip.leftside = leftside
+    return tip
 end
 
 local setFilter = AdiBags:RegisterFilter("Shadowlands", 98, "ABEvent-1.0")
 setFilter.uiName = "Shadowlands"
-setFilter.uiDesc = "Shadowlands Stuff"
+setFilter.uiDesc = "Items from the Shadowlands"
 
 function setFilter:OnInitialize()
     self.db = AdiBags.db:RegisterNamespace("Shadowlands", {
         profile = {
+            
+            moveRings = false,
+            moveTrinkets = false,
+            moveAbominableStitching = true,
             moveAnima = true,
+            moveAscendedCrafting = true,
             moveConduits = true,
-			moveLegendary = true,
-		}
-	})
+            moveEmberCourt = true,
+            moveLegendaryPowers = true,
+            moveOutdoorItems = true,
+            moveQueensConservatory = true,
+            moveRuneVessel = true,
+        }
+    })
 end
 
 function setFilter:Update()
-	MatchIDs = nil
-	self:SendMessage("AdiBags_FiltersChanged")
+    MatchIDs = nil
+    self:SendMessage("AdiBags_FiltersChanged")
 end
 
 function setFilter:OnEnable()
-	AdiBags:UpdateFilters()
+    AdiBags:UpdateFilters()
 end
 
 function setFilter:OnDisable()
-	AdiBags:UpdateFilters()
+    AdiBags:UpdateFilters()
 end
 
 function setFilter:Filter(slotData)
-	MatchIDs = MatchIDs or MatchIDs_Init(self)
-	if MatchIDs[slotData.itemId] then
-		return "Shadowlands"
-	end
-	
-	Tooltip = Tooltip or Tooltip_Init()
-	Tooltip:SetOwner(UIParent,"ANCHOR_NONE")
-	Tooltip:ClearLines()
-	
-	if slotData.bag == BANK_CONTAINER then
-		Tooltip:SetInventoryItem("player", BankButtonIDToInvSlotID(slotData.slot, nil))
-	else
-		Tooltip:SetBagItem(slotData.bag, slotData.slot)
-	end
-	
-	Tooltip:Hide()
+    MatchIDs = MatchIDs or MatchIDs_Init(self)
+    for i, name in pairs(MatchIDs) do
+        if name[slotData.itemId] then
+            return i
+        end
+    end
+    
+    Tooltip = Tooltip or Tooltip_Init()
+    Tooltip:SetOwner(UIParent,"ANCHOR_NONE")
+    Tooltip:ClearLines()
+    
+    if slotData.bag == BANK_CONTAINER then
+        Tooltip:SetInventoryItem("player", BankButtonIDToInvSlotID(slotData.slot, nil))
+    else
+        Tooltip:SetBagItem(slotData.bag, slotData.slot)
+    end
+    
+    Tooltip:Hide()
 end
 
 function setFilter:GetOptions()
-	return {
-		moveAnima = {
-			name = "Anima",
-			desc = "Items which grant Anima",
-			type = "toggle",
-			order = 10
-		},
-		moveConduits = {
-			name = "Conduits",
-			desc = "Items used to unlock Conduits",
-			type = "toggle",
-			order = 20
-		},
-		moveLegendary = {
-			name = "Legendary Power",
-			desc = "Items used to unlock Legendary Powers",
-			type = "toggle",
-			order = 30
-		},
-	},
-	AdiBags:GetOptionHandler(self, false, function ()
-		return self:Update()
-	end)
+    return {
+        moveRings = {
+            name = "Rings",
+            desc = "",
+            type = "toggle",
+            order = 10
+        },
+
+        moveTrinkets = {
+            name = "Trinkets",
+            desc = "",
+            type = "toggle",
+            order = 20
+        },
+
+        moveAbominableStitching = {
+            name = "Abominable Stitching",
+            desc = "",
+            type = "toggle",
+            order = 30
+        },
+
+        moveAnima = {
+            name = "Anima",
+            desc = "",
+            type = "toggle",
+            order = 40
+        },
+
+        moveAscendedCrafting = {
+            name = "Ascended Crafting",
+            desc = "",
+            type = "toggle",
+            order = 50
+        },
+
+        moveConduits = {
+            name = "Conduits",
+            desc = "",
+            type = "toggle",
+            order = 60
+        },
+
+        moveEmberCourt = {
+            name = "Ember Court",
+            desc = "",
+            type = "toggle",
+            order = 70
+        },
+
+        moveLegendaryPowers = {
+            name = "Legendary Powers",
+            desc = "",
+            type = "toggle",
+            order = 80
+        },
+
+        moveOutdoorItems = {
+            name = "Outdoor Items",
+            desc = "",
+            type = "toggle",
+            order = 90
+        },
+
+        moveQueensConservatory = {
+            name = "Queen's Conservatory",
+            desc = "",
+            type = "toggle",
+            order = 100
+        },
+
+        moveRuneVessel = {
+            name = "Rune Vessel",
+            desc = "",
+            type = "toggle",
+            order = 110
+        },
+
+
+    },
+    AdiBags:GetOptionHandler(self, false, function ()
+        return self:Update()
+    end)
 end
