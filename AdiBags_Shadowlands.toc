@@ -5,6 +5,5 @@
 ## Notes: Adds various Shadowlands items to AdiBags item filters.
 ## Dependencies: AdiBags
 ## X-Curse-Project-ID: 423029
-## X-WoWI-ID: 22213
 
 AdiBags_Shadowlands.lua
