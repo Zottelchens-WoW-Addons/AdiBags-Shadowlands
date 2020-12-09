@@ -14,9 +14,11 @@ local Tooltip
 local Result = {}
 
 local function AddToSet(Set, List)
+    Set = {}
     for _, v in ipairs(List) do
         Set[v] = true
     end
+    return Set
 end
 
 
@@ -1113,47 +1115,47 @@ local function MatchIDs_Init(self)
     wipe(Result)
     
     if self.db.profile.moveRings then
-        AddToSet(Result['Rings'], RingsIDs)
+        Result["|cff0070FFRings|r"] = AddToSet(Result["|cff0070FFRings|r"], RingsIDs)
     end
 
     if self.db.profile.moveTrinkets then
-        AddToSet(Result['Trinkets'], TrinketsIDs)
+        Result["|cff0070FFTrinkets|r"] = AddToSet(Result["|cff0070FFTrinkets|r"], TrinketsIDs)
     end
 
     if self.db.profile.moveAbominableStitching then
-        AddToSet(Result['AbominableStitching'], AbominableStitchingIDs)
+        Result["|cff37B2FFAbominable Stitching|r"] = AddToSet(Result["|cff37B2FFAbominable Stitching|r"], AbominableStitchingIDs)
     end
 
     if self.db.profile.moveAnima then
-        AddToSet(Result['Anima'], AnimaIDs)
+        Result["|cff00afbfAnima|r"] = AddToSet(Result["|cff00afbfAnima|r"], AnimaIDs)
     end
 
     if self.db.profile.moveAscendedCrafting then
-        AddToSet(Result['AscendedCrafting'], AscendedCraftingIDs)
+        Result["|cff37B2FFAscended Crafting|r"] = AddToSet(Result["|cff37B2FFAscended Crafting|r"], AscendedCraftingIDs)
     end
 
     if self.db.profile.moveConduits then
-        AddToSet(Result['Conduits'], ConduitsIDs)
+        Result["|cff1d9e00Conduits|r"] = AddToSet(Result["|cff1d9e00Conduits|r"], ConduitsIDs)
     end
 
     if self.db.profile.moveEmberCourt then
-        AddToSet(Result['EmberCourt'], EmberCourtIDs)
+        Result["|cff37B2FFEmber Court|r"] = AddToSet(Result["|cff37B2FFEmber Court|r"], EmberCourtIDs)
     end
 
     if self.db.profile.moveLegendaryPowers then
-        AddToSet(Result['LegendaryPowers'], LegendaryPowersIDs)
+        Result["|cffFF8000Legendary Powers|r"] = AddToSet(Result["|cffFF8000Legendary Powers|r"], LegendaryPowersIDs)
     end
 
     if self.db.profile.moveOutdoorItems then
-        AddToSet(Result['OutdoorItems'], OutdoorItemsIDs)
+        Result["|cffd900d2Outdoor Items|r"] = AddToSet(Result["|cffd900d2Outdoor Items|r"], OutdoorItemsIDs)
     end
 
     if self.db.profile.moveQueensConservatory then
-        AddToSet(Result['QueensConservatory'], QueensConservatoryIDs)
+        Result["|cff37B2FFQueen's Conservatory|r"] = AddToSet(Result["|cff37B2FFQueen's Conservatory|r"], QueensConservatoryIDs)
     end
 
     if self.db.profile.moveRuneVessel then
-        AddToSet(Result['RuneVessel'], RuneVesselIDs)
+        Result["|cffFF8000Rune Vessel|r"] = AddToSet(Result["|cffFF8000Rune Vessel|r"], RuneVesselIDs)
     end
 
 
@@ -1235,77 +1237,77 @@ function setFilter:GetOptions()
     return {
         moveRings = {
             name = "Rings",
-            desc = "",
+            desc = "All Shadowlands Rings",
             type = "toggle",
             order = 10
         },
 
         moveTrinkets = {
             name = "Trinkets",
-            desc = "",
+            desc = "All Shadowland Trinkets",
             type = "toggle",
             order = 20
         },
 
         moveAbominableStitching = {
             name = "Abominable Stitching",
-            desc = "",
+            desc = "Items used for Abominable Stitching (Necrolord Covenant)",
             type = "toggle",
             order = 30
         },
 
         moveAnima = {
             name = "Anima",
-            desc = "",
+            desc = "Items used to gain Anima",
             type = "toggle",
             order = 40
         },
 
         moveAscendedCrafting = {
             name = "Ascended Crafting",
-            desc = "",
+            desc = "Items used for Ascended Crafting (Kyrian Covenant)",
             type = "toggle",
             order = 50
         },
 
         moveConduits = {
             name = "Conduits",
-            desc = "",
+            desc = "Items used to unlock Conduits",
             type = "toggle",
             order = 60
         },
 
         moveEmberCourt = {
             name = "Ember Court",
-            desc = "",
+            desc = "Items used for the Ember Court (Venthyr)",
             type = "toggle",
             order = 70
         },
 
         moveLegendaryPowers = {
             name = "Legendary Powers",
-            desc = "",
+            desc = "Items used to unlock Legendary Powers at the Runecarver",
             type = "toggle",
             order = 80
         },
 
         moveOutdoorItems = {
             name = "Outdoor Items",
-            desc = "",
+            desc = "Items that can be found and used in Outdoor Shadowlands",
             type = "toggle",
             order = 90
         },
 
         moveQueensConservatory = {
             name = "Queen's Conservatory",
-            desc = "",
+            desc = "Items used in the Queen's Conservatory (Night Fae Covenant)",
             type = "toggle",
             order = 100
         },
 
         moveRuneVessel = {
             name = "Rune Vessel",
-            desc = "",
+            desc = "Items used to craft Legendaries",
             type = "toggle",
             order = 110
         },

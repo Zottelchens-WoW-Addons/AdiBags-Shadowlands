@@ -1,6 +1,6 @@
 # AdiBags - Shadowlands
 
-Adds a category for the most common Shadowlands items in AdiBags:
+**Adds a category for the most common Shadowlands items in AdiBags (AdiBags is required!):**
 
 * Conduits
 * Legendary Powers

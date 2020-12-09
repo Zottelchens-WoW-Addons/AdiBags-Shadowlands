@@ -5,6 +5,8 @@ Latest version: @project-version@
 
 ## Rings (Disabled by default)
 
+All Shadowlands Rings
+
  * 173131 - Versatile Solenium Ring
  * 173132 - Masterful Phaedrum Ring
  * 173133 - Quick Oxxein Ring
@@ -128,6 +130,8 @@ Latest version: @project-version@
  * 184784 - Punishing Loop
 
 ## Trinkets (Disabled by default)
+
+All Shadowlands Trinkets
 
  * 171323 - Spiritual Alchemy Stone
  * 173069 - Darkmoon Deck: Putrescence
@@ -308,6 +312,8 @@ Latest version: @project-version@
 
 ## Abominable Stitching 
 
+Items used for Abominable Stitching (Necrolord Covenant)
+
  * 178061 - Malleable Flesh
  * 181371 - Spare Head
  * 181797 - Strange Cloth
@@ -346,6 +352,8 @@ Latest version: @project-version@
  * 184225 - Small Posable Skeleton
 
 ## Anima 
+
+Items used to gain Anima
 
  * 181368 - Centurion Power Core
  * 181377 - Illustrated Combat Meditation Aid
@@ -428,12 +436,16 @@ Latest version: @project-version@
 
 ## Ascended Crafting 
 
+Items used for Ascended Crafting (Kyrian Covenant)
+
  * 180477 - Elysian Feathers
  * 180478 - Champion's Pelt
  * 180594 - Calloused Bone
  * 180595 - Nightforged Steel
 
 ## Conduits 
+
+Items used to unlock Conduits
 
  * 180842 - Stalwart Guardian
  * 180843 - Template Conduit
@@ -714,6 +726,8 @@ Latest version: @project-version@
 
 ## Ember Court 
 
+Items used for the Ember Court (Venthyr)
+
  * 177230 - Anima-Infused Water
  * 177231 - Crown of Honor
  * 177232 - Bewitched Wardrobe
@@ -770,6 +784,8 @@ Latest version: @project-version@
  * 184663 - Building: Guardhouse
 
 ## Legendary Powers 
+
+Items used to unlock Legendary Powers at the Runecarver
 
  * 182617 - Memory of Death's Embrace
  * 182625 - Memory of an Everlasting Grip
@@ -975,6 +991,8 @@ Latest version: @project-version@
 
 ## Outdoor Items 
 
+Items that can be found and used in Outdoor Shadowlands (usually have a duration/charge limit)
+
  * 178658 - Restore Construct
  * 179392 - Orb of Burgeoning Ambition
  * 179535 - Crumbling Pride Extractors
@@ -1015,6 +1033,8 @@ Latest version: @project-version@
 
 ## Queen's Conservatory 
 
+Items used in the Queen's Conservatory (Night Fae Covenant)
+
  * 176832 - Wildseed Root Grain
  * 176921 - Temporal Leaves
  * 176922 - Wild Nightbloom
@@ -1040,6 +1060,8 @@ Latest version: @project-version@
  * 184779 - Temporal Leaves
 
 ## Rune Vessel 
+
+Items used to craft Legendaries
 
  * 171412 - Shadowghast Breastplate
  * 171413 - Shadowghast Sabatons
