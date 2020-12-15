@@ -13,7 +13,7 @@ local MatchIDs
 local Tooltip
 local Result = {}
 
-local function AddToSet(Set, List)
+local function AddToSet(List)
     Set = {}
     for _, v in ipairs(List) do
         Set[v] = true
@@ -21,6 +21,15 @@ local function AddToSet(Set, List)
     return Set
 end
 
+local function unescape(String)
+    local Result = tostring(String)
+    Result = gsub(Result, "|c........", "") -- Remove color start.
+    Result = gsub(Result, "|r", "") -- Remove color end.
+    -- Result = gsub(Result, "|H.-|h(.-)|h", "%1") -- Remove links.
+    -- Result = gsub(Result, "|T.-|t", "") -- Remove textures.
+    -- Result = gsub(Result, "{.-}", "") -- Remove raid target icons.
+    return Result
+end
 
 
  -- Rings
@@ -1110,52 +1119,95 @@ local RuneVesselIDs = {
 
 
 
-
 local function MatchIDs_Init(self)
     wipe(Result)
     
     if self.db.profile.moveRings then
-        Result["|cff0070FFRings|r"] = AddToSet(Result["|cff0070FFRings|r"], RingsIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cff0070FFRings|r"] = AddToSet(RingsIDs)
+        else
+            Result[unescape("|cff0070FFRings|r")] = AddToSet(RingsIDs)
+        end
     end
 
     if self.db.profile.moveTrinkets then
-        Result["|cff0070FFTrinkets|r"] = AddToSet(Result["|cff0070FFTrinkets|r"], TrinketsIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cff0070FFTrinkets|r"] = AddToSet(TrinketsIDs)
+        else
+            Result[unescape("|cff0070FFTrinkets|r")] = AddToSet(TrinketsIDs)
+        end
     end
 
     if self.db.profile.moveAbominableStitching then
-        Result["|cff37B2FFAbominable Stitching|r"] = AddToSet(Result["|cff37B2FFAbominable Stitching|r"], AbominableStitchingIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cff37B2FFAbominable Stitching|r"] = AddToSet(AbominableStitchingIDs)
+        else
+            Result[unescape("|cff37B2FFAbominable Stitching|r")] = AddToSet(AbominableStitchingIDs)
+        end
     end
 
     if self.db.profile.moveAnima then
-        Result["|cff00afbfAnima|r"] = AddToSet(Result["|cff00afbfAnima|r"], AnimaIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cff00afbfAnima|r"] = AddToSet(AnimaIDs)
+        else
+            Result[unescape("|cff00afbfAnima|r")] = AddToSet(AnimaIDs)
+        end
     end
 
     if self.db.profile.moveAscendedCrafting then
-        Result["|cff37B2FFAscended Crafting|r"] = AddToSet(Result["|cff37B2FFAscended Crafting|r"], AscendedCraftingIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cff37B2FFAscended Crafting|r"] = AddToSet(AscendedCraftingIDs)
+        else
+            Result[unescape("|cff37B2FFAscended Crafting|r")] = AddToSet(AscendedCraftingIDs)
+        end
     end
 
     if self.db.profile.moveConduits then
-        Result["|cff1d9e00Conduits|r"] = AddToSet(Result["|cff1d9e00Conduits|r"], ConduitsIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cff1d9e00Conduits|r"] = AddToSet(ConduitsIDs)
+        else
+            Result[unescape("|cff1d9e00Conduits|r")] = AddToSet(ConduitsIDs)
+        end
     end
 
     if self.db.profile.moveEmberCourt then
-        Result["|cff37B2FFEmber Court|r"] = AddToSet(Result["|cff37B2FFEmber Court|r"], EmberCourtIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cff37B2FFEmber Court|r"] = AddToSet(EmberCourtIDs)
+        else
+            Result[unescape("|cff37B2FFEmber Court|r")] = AddToSet(EmberCourtIDs)
+        end
     end
 
     if self.db.profile.moveLegendaryPowers then
-        Result["|cffFF8000Legendary Powers|r"] = AddToSet(Result["|cffFF8000Legendary Powers|r"], LegendaryPowersIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cffFF8000Legendary Powers|r"] = AddToSet(LegendaryPowersIDs)
+        else
+            Result[unescape("|cffFF8000Legendary Powers|r")] = AddToSet(LegendaryPowersIDs)
+        end
     end
 
     if self.db.profile.moveOutdoorItems then
-        Result["|cffd900d2Outdoor Items|r"] = AddToSet(Result["|cffd900d2Outdoor Items|r"], OutdoorItemsIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cffd900d2Outdoor Items|r"] = AddToSet(OutdoorItemsIDs)
+        else
+            Result[unescape("|cffd900d2Outdoor Items|r")] = AddToSet(OutdoorItemsIDs)
+        end
     end
 
     if self.db.profile.moveQueensConservatory then
-        Result["|cff37B2FFQueen's Conservatory|r"] = AddToSet(Result["|cff37B2FFQueen's Conservatory|r"], QueensConservatoryIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cff37B2FFQueen's Conservatory|r"] = AddToSet(QueensConservatoryIDs)
+        else
+            Result[unescape("|cff37B2FFQueen's Conservatory|r")] = AddToSet(QueensConservatoryIDs)
+        end
     end
 
     if self.db.profile.moveRuneVessel then
-        Result["|cffFF8000Rune Vessel|r"] = AddToSet(Result["|cffFF8000Rune Vessel|r"], RuneVesselIDs)
+        if self.db.profile.showcoloredCategories then
+            Result["|cffFF8000Rune Vessel|r"] = AddToSet(RuneVesselIDs)
+        else
+            Result[unescape("|cffFF8000Rune Vessel|r")] = AddToSet(RuneVesselIDs)
+        end
     end
 
 
@@ -1195,6 +1247,7 @@ function setFilter:OnInitialize()
             moveOutdoorItems = true,
             moveQueensConservatory = true,
             moveRuneVessel = true,
+            showcoloredCategories = true,
         }
     })
 end
@@ -1310,6 +1363,13 @@ function setFilter:GetOptions()
             desc = "Items used to craft Legendaries",
             type = "toggle",
             order = 110
+        },
+
+        showcoloredCategories = {
+            name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
+            desc = "Should Categories be colored?",
+            type = "toggle",
+            order = 120
         },
 
 
