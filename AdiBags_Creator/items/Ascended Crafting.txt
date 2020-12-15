@@ -1,0 +1,7 @@
+#Items used for Ascended Crafting (Kyrian Covenant)
+!Items used for Ascended Crafting (Kyrian Covenant)
+$37B2FF
+180477
+180478
+180594
+180595
