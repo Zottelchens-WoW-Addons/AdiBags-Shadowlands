@@ -1128,6 +1128,28 @@ local RuneVesselIDs = {
 178927, -- Shadowghast Necklace
 }
 
+ -- Ve'nari
+local VenariIDs = {
+180949, -- Animaflow Stabilizer
+180952, -- Possibility Matrix
+180953, -- Soultwinning Scepter
+181245, -- Oil of Ethereal Force
+184361, -- Spatial Realignment Apparatus
+184588, -- Soul-Stabilizing Talisman
+184605, -- Sigil of the Unseen
+184613, -- Encased Riftwalker Essence
+184615, -- Extradimensional Pockets
+184617, -- Bangle of Seniority
+184618, -- Rank Insignia: Acquisitionist
+184619, -- Loupe of Unusual Charm
+184620, -- Vessel of Unfortunate Spirits
+184621, -- Ritual Prism of Fortune
+184651, -- Maw-Touched Miasma
+184652, -- Phantasmic Infuser
+184653, -- Animated Levitating Chain
+184664, -- Sticky-Fingered Skeletal Hand
+}
+
 
 
 local function MatchIDs_Init(self)
@@ -1221,6 +1243,14 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveVenari then
+        if self.db.profile.showcoloredCategories then
+            Result["|cffd900d2Ve'nari|r"] = AddToSet(VenariIDs)
+        else
+            Result[unescape("|cffd900d2Ve'nari|r")] = AddToSet(VenariIDs)
+        end
+    end
+
 
 
     return Result
@@ -1258,6 +1288,7 @@ function setFilter:OnInitialize()
             moveOutdoorItems = true,
             moveQueensConservatory = true,
             moveRuneVessel = true,
+            moveVenari = true,
             showcoloredCategories = true,
         }
     })
@@ -1376,11 +1407,18 @@ function setFilter:GetOptions()
             order = 110
         },
 
+        moveVenari = {
+            name = "Ve'nari",
+            desc = "Items that are sold by Ve'nari",
+            type = "toggle",
+            order = 120
+        },
+
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 120
+            order = 130
         },
 
 
