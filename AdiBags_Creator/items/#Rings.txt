@@ -1,5 +1,5 @@
-#All Shadowlands Rings
 !All Shadowlands Rings
+#All Shadowlands Rings
 $0070FF
 173131
 173132

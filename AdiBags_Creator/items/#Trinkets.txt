@@ -1,5 +1,5 @@
-#All Shadowlands Trinkets
 !All Shadowland Trinkets
+#All Shadowlands Trinkets
 $0070FF
 171323
 173069

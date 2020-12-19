@@ -1,5 +1,5 @@
-#Items used to unlock Legendary Powers at the Runecarver
 !Items used to unlock Legendary Powers at the Runecarver
+#Items used to unlock Legendary Powers at the Runecarver
 $FF8000
 182617
 182625

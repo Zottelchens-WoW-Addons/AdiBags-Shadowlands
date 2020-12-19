@@ -1012,6 +1012,7 @@ local LegendaryPowersIDs = {
 
  -- Outdoor Items
 local OutdoorItemsIDs = {
+173939, -- Enticing Anima
 178658, -- Restore Construct
 179392, -- Orb of Burgeoning Ambition
 179535, -- Crumbling Pride Extractors
@@ -1019,6 +1020,13 @@ local OutdoorItemsIDs = {
 179937, -- Sliver of Burgeoning Ambition
 179938, -- Crumbling Pride Extractors
 179939, -- Wriggling Spider Sac
+179977, -- Benevolent Gong
+179982, -- Kyrian Bell
+180008, -- Resonating Anima Core
+180009, -- Resonating Anima Mote
+180062, -- Heavenly Drum
+180063, -- Unearthly Chime
+180064, -- Ascended Flute
 180264, -- Abominable Backup
 180660, -- Darktower Parchments: Instant Polymorphist
 180661, -- Darktower Parchments: Affliction Most Foul
@@ -1049,6 +1057,9 @@ local OutdoorItemsIDs = {
 183807, -- Stygic Coercion
 183811, -- Construct's Best Friend
 183902, -- A Faintly Glowing Seed
+184485, -- Mawforged Key
+184586, -- Sky Chain
+184719, -- Enchanted Map of Infused Ruby Network
 }
 
  -- Queen's Conservatory

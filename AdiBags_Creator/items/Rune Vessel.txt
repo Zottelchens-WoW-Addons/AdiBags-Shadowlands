@@ -1,5 +1,5 @@
-#Items used to craft Legendaries
 !Items used to craft Legendaries
+#Items used to craft Legendaries
 $FF8000
 171412
 171413

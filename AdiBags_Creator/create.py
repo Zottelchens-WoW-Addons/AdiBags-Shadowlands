@@ -9,8 +9,7 @@ import blizzauth
 from forms import LUA_FILE, TOC_FILE
 
 # OUTDIR = 'out/'
-OUTDIR = str(Path(os.path.dirname(os.path.realpath(__file__))).parent)+"/"
-
+OUTDIR = str(Path(os.path.dirname(os.path.realpath(__file__))).parent) + "/"
 
 
 def main():
@@ -18,6 +17,7 @@ def main():
 
     access_token = blizzauth.get_access()
     for idfile in glob('items/*.txt'):
+        sort_file(idfile)
         groupname = Path(idfile).stem
         disabled = False
         if "#" in groupname:
@@ -127,6 +127,13 @@ def create_toc():
     str_toc = TOC_FILE
     with open(OUTDIR + 'AdiBags_Shadowlands.toc', 'w', encoding='utf8') as f:
         f.write(str_toc)
+
+
+def sort_file(file):
+    with open(file, 'r') as r:
+        uniq = sorted(set(r.readlines()))
+    with open(file, 'w') as w:
+        w.writelines(uniq)
 
 
 #########################################################################################

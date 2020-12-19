@@ -1,5 +1,5 @@
-#Items used to gain Anima
 !Items used to gain Anima
+#Items used to gain Anima
 $00afbf
 181368
 181377
