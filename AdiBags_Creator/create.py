@@ -35,7 +35,7 @@ def main():
                     group['adibagsdesc'] = line.strip().replace('!', '')
                     print("\tFound AdiBags Description:", group['adibagsdesc'])
                 elif '$' in line:
-                    group['adibagscolor'] = 'ff' + line.strip().replace('$', '')
+                    group['adibagscolor'] = 'ff' + line.strip().replace('$', '').lower()
                     print("\tFound AdiBags Color:", group['adibagscolor'])
                 else:
                     items.append({'id': line.strip(), 'name': get_item_name(line.strip(), access_token)})

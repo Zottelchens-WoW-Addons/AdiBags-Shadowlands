@@ -3,6 +3,31 @@
 All items are broken down into categories, with itemID followed by the Item name.
 Latest version: @project-version@
 
+## Food (Disabled by default)
+
+Food made by Cooks in the Shadowlands
+
+ * 172040 - Butterscotch Marinated Ribs
+ * 172041 - Spinefin Souffle and Fries
+ * 172042 - Surprisingly Palatable Feast
+ * 172043 - Feast of Gluttonous Hedonism
+ * 172044 - Cinnamon Bonefish Stew
+ * 172045 - Tenebrous Crown Roast Aspic
+ * 172046 - Biscuits and Caviar
+ * 172047 - Candied Amberjack Cakes
+ * 172048 - Meaty Apple Dumplings
+ * 172049 - Iridescent Ravioli with Apple Sauce
+ * 172050 - Sweet Silvergill Sausages
+ * 172051 - Steak a la Mode
+ * 172061 - Seraph Tenders
+ * 172062 - Smothered Shank
+ * 172063 - Fried Bonefish
+ * 172068 - Pickled Meat Smoothie
+ * 172069 - Banana Beef Pudding
+ * 184624 - Extra Sugary Fish Feast
+ * 184682 - Extra Lemony Herb Filet
+ * 184690 - Extra Fancy Darkmoon Feast
+
 ## Rings (Disabled by default)
 
 All Shadowlands Rings
@@ -1109,6 +1134,22 @@ Items used to craft Legendaries
  * 173249 - Grim-Veiled Bracers
  * 178926 - Shadowghast Ring
  * 178927 - Shadowghast Necklace
+
+## Sinstones 
+
+Sinstones used by the Avowed faction
+
+ * 172996 - Inquisitor Sorin's Sinstone
+ * 172997 - Inquisitor Petre's Sinstone
+ * 172998 - Inquisitor Otilia's Sinstone
+ * 172999 - Inquisitor Traian's Sinstone
+ * 173000 - High Inquisitor Gabi's Sinstone
+ * 173001 - High Inquisitor Radu's Sinstone
+ * 173005 - High Inquisitor Magda's Sinstone
+ * 173006 - High Inquisitor Dacian's Sinstone
+ * 173007 - Grand Inquisitor Nicu's Sinstone
+ * 173008 - Grand Inquisitor Aurica's Sinstone
+ * 180451 - Grand Inquisitor's Sinstone Fragment
 
 ## Ve'nari 
 

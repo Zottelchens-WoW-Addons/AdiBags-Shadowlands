@@ -32,6 +32,30 @@ local function unescape(String)
 end
 
 
+ -- Food
+local FoodIDs = {
+172040, -- Butterscotch Marinated Ribs
+172041, -- Spinefin Souffle and Fries
+172042, -- Surprisingly Palatable Feast
+172043, -- Feast of Gluttonous Hedonism
+172044, -- Cinnamon Bonefish Stew
+172045, -- Tenebrous Crown Roast Aspic
+172046, -- Biscuits and Caviar
+172047, -- Candied Amberjack Cakes
+172048, -- Meaty Apple Dumplings
+172049, -- Iridescent Ravioli with Apple Sauce
+172050, -- Sweet Silvergill Sausages
+172051, -- Steak a la Mode
+172061, -- Seraph Tenders
+172062, -- Smothered Shank
+172063, -- Fried Bonefish
+172068, -- Pickled Meat Smoothie
+172069, -- Banana Beef Pudding
+184624, -- Extra Sugary Fish Feast
+184682, -- Extra Lemony Herb Filet
+184690, -- Extra Fancy Darkmoon Feast
+}
+
  -- Rings
 local RingsIDs = {
 173131, -- Versatile Solenium Ring
@@ -1128,6 +1152,21 @@ local RuneVesselIDs = {
 178927, -- Shadowghast Necklace
 }
 
+ -- Sinstones
+local SinstonesIDs = {
+172996, -- Inquisitor Sorin's Sinstone
+172997, -- Inquisitor Petre's Sinstone
+172998, -- Inquisitor Otilia's Sinstone
+172999, -- Inquisitor Traian's Sinstone
+173000, -- High Inquisitor Gabi's Sinstone
+173001, -- High Inquisitor Radu's Sinstone
+173005, -- High Inquisitor Magda's Sinstone
+173006, -- High Inquisitor Dacian's Sinstone
+173007, -- Grand Inquisitor Nicu's Sinstone
+173008, -- Grand Inquisitor Aurica's Sinstone
+180451, -- Grand Inquisitor's Sinstone Fragment
+}
+
  -- Ve'nari
 local VenariIDs = {
 180949, -- Animaflow Stabilizer
@@ -1155,27 +1194,35 @@ local VenariIDs = {
 local function MatchIDs_Init(self)
     wipe(Result)
     
+    if self.db.profile.moveFood then
+        if self.db.profile.showcoloredCategories then
+            Result["|cff34eb9eFood|r"] = AddToSet(FoodIDs)
+        else
+            Result[unescape("|cff34eb9eFood|r")] = AddToSet(FoodIDs)
+        end
+    end
+
     if self.db.profile.moveRings then
         if self.db.profile.showcoloredCategories then
-            Result["|cff0070FFRings|r"] = AddToSet(RingsIDs)
+            Result["|cff0070ffRings|r"] = AddToSet(RingsIDs)
         else
-            Result[unescape("|cff0070FFRings|r")] = AddToSet(RingsIDs)
+            Result[unescape("|cff0070ffRings|r")] = AddToSet(RingsIDs)
         end
     end
 
     if self.db.profile.moveTrinkets then
         if self.db.profile.showcoloredCategories then
-            Result["|cff0070FFTrinkets|r"] = AddToSet(TrinketsIDs)
+            Result["|cff0070ffTrinkets|r"] = AddToSet(TrinketsIDs)
         else
-            Result[unescape("|cff0070FFTrinkets|r")] = AddToSet(TrinketsIDs)
+            Result[unescape("|cff0070ffTrinkets|r")] = AddToSet(TrinketsIDs)
         end
     end
 
     if self.db.profile.moveAbominableStitching then
         if self.db.profile.showcoloredCategories then
-            Result["|cff37B2FFAbominable Stitching|r"] = AddToSet(AbominableStitchingIDs)
+            Result["|cff37b2ffAbominable Stitching|r"] = AddToSet(AbominableStitchingIDs)
         else
-            Result[unescape("|cff37B2FFAbominable Stitching|r")] = AddToSet(AbominableStitchingIDs)
+            Result[unescape("|cff37b2ffAbominable Stitching|r")] = AddToSet(AbominableStitchingIDs)
         end
     end
 
@@ -1189,9 +1236,9 @@ local function MatchIDs_Init(self)
 
     if self.db.profile.moveAscendedCrafting then
         if self.db.profile.showcoloredCategories then
-            Result["|cff37B2FFAscended Crafting|r"] = AddToSet(AscendedCraftingIDs)
+            Result["|cff37b2ffAscended Crafting|r"] = AddToSet(AscendedCraftingIDs)
         else
-            Result[unescape("|cff37B2FFAscended Crafting|r")] = AddToSet(AscendedCraftingIDs)
+            Result[unescape("|cff37b2ffAscended Crafting|r")] = AddToSet(AscendedCraftingIDs)
         end
     end
 
@@ -1205,17 +1252,17 @@ local function MatchIDs_Init(self)
 
     if self.db.profile.moveEmberCourt then
         if self.db.profile.showcoloredCategories then
-            Result["|cff37B2FFEmber Court|r"] = AddToSet(EmberCourtIDs)
+            Result["|cff37b2ffEmber Court|r"] = AddToSet(EmberCourtIDs)
         else
-            Result[unescape("|cff37B2FFEmber Court|r")] = AddToSet(EmberCourtIDs)
+            Result[unescape("|cff37b2ffEmber Court|r")] = AddToSet(EmberCourtIDs)
         end
     end
 
     if self.db.profile.moveLegendaryPowers then
         if self.db.profile.showcoloredCategories then
-            Result["|cffFF8000Legendary Powers|r"] = AddToSet(LegendaryPowersIDs)
+            Result["|cffff8000Legendary Powers|r"] = AddToSet(LegendaryPowersIDs)
         else
-            Result[unescape("|cffFF8000Legendary Powers|r")] = AddToSet(LegendaryPowersIDs)
+            Result[unescape("|cffff8000Legendary Powers|r")] = AddToSet(LegendaryPowersIDs)
         end
     end
 
@@ -1229,17 +1276,25 @@ local function MatchIDs_Init(self)
 
     if self.db.profile.moveQueensConservatory then
         if self.db.profile.showcoloredCategories then
-            Result["|cff37B2FFQueen's Conservatory|r"] = AddToSet(QueensConservatoryIDs)
+            Result["|cff37b2ffQueen's Conservatory|r"] = AddToSet(QueensConservatoryIDs)
         else
-            Result[unescape("|cff37B2FFQueen's Conservatory|r")] = AddToSet(QueensConservatoryIDs)
+            Result[unescape("|cff37b2ffQueen's Conservatory|r")] = AddToSet(QueensConservatoryIDs)
         end
     end
 
     if self.db.profile.moveRuneVessel then
         if self.db.profile.showcoloredCategories then
-            Result["|cffFF8000Rune Vessel|r"] = AddToSet(RuneVesselIDs)
+            Result["|cffff8000Rune Vessel|r"] = AddToSet(RuneVesselIDs)
         else
-            Result[unescape("|cffFF8000Rune Vessel|r")] = AddToSet(RuneVesselIDs)
+            Result[unescape("|cffff8000Rune Vessel|r")] = AddToSet(RuneVesselIDs)
+        end
+    end
+
+    if self.db.profile.moveSinstones then
+        if self.db.profile.showcoloredCategories then
+            Result["|cff37b2ffSinstones|r"] = AddToSet(SinstonesIDs)
+        else
+            Result[unescape("|cff37b2ffSinstones|r")] = AddToSet(SinstonesIDs)
         end
     end
 
@@ -1277,6 +1332,7 @@ function setFilter:OnInitialize()
     self.db = AdiBags.db:RegisterNamespace("Shadowlands", {
         profile = {
             
+            moveFood = false,
             moveRings = false,
             moveTrinkets = false,
             moveAbominableStitching = true,
@@ -1288,6 +1344,7 @@ function setFilter:OnInitialize()
             moveOutdoorItems = true,
             moveQueensConservatory = true,
             moveRuneVessel = true,
+            moveSinstones = true,
             moveVenari = true,
             showcoloredCategories = true,
         }
@@ -1330,95 +1387,109 @@ end
 
 function setFilter:GetOptions()
     return {
+        moveFood = {
+            name = "Food",
+            desc = "Food made by Cooks in the Shadowlands",
+            type = "toggle",
+            order = 10
+        },
+
         moveRings = {
             name = "Rings",
             desc = "All Shadowlands Rings",
             type = "toggle",
-            order = 10
+            order = 20
         },
 
         moveTrinkets = {
             name = "Trinkets",
             desc = "All Shadowland Trinkets",
             type = "toggle",
-            order = 20
+            order = 30
         },
 
         moveAbominableStitching = {
             name = "Abominable Stitching",
             desc = "Items used for Abominable Stitching (Necrolord Covenant)",
             type = "toggle",
-            order = 30
+            order = 40
         },
 
         moveAnima = {
             name = "Anima",
             desc = "Items used to gain Anima",
             type = "toggle",
-            order = 40
+            order = 50
         },
 
         moveAscendedCrafting = {
             name = "Ascended Crafting",
             desc = "Items used for Ascended Crafting (Kyrian Covenant)",
             type = "toggle",
-            order = 50
+            order = 60
         },
 
         moveConduits = {
             name = "Conduits",
             desc = "Items used to unlock Conduits",
             type = "toggle",
-            order = 60
+            order = 70
         },
 
         moveEmberCourt = {
             name = "Ember Court",
             desc = "Items used for the Ember Court (Venthyr)",
             type = "toggle",
-            order = 70
+            order = 80
         },
 
         moveLegendaryPowers = {
             name = "Legendary Powers",
             desc = "Items used to unlock Legendary Powers at the Runecarver",
             type = "toggle",
-            order = 80
+            order = 90
         },
 
         moveOutdoorItems = {
             name = "Outdoor Items",
             desc = "Items that can be found and used in Outdoor Shadowlands",
             type = "toggle",
-            order = 90
+            order = 100
         },
 
         moveQueensConservatory = {
             name = "Queen's Conservatory",
             desc = "Items used in the Queen's Conservatory (Night Fae Covenant)",
             type = "toggle",
-            order = 100
+            order = 110
         },
 
         moveRuneVessel = {
             name = "Rune Vessel",
             desc = "Items used to craft Legendaries",
             type = "toggle",
-            order = 110
+            order = 120
+        },
+
+        moveSinstones = {
+            name = "Sinstones",
+            desc = "Sinstones used by the Avowed faction",
+            type = "toggle",
+            order = 130
         },
 
         moveVenari = {
             name = "Ve'nari",
             desc = "Items that are sold by Ve'nari",
             type = "toggle",
-            order = 120
+            order = 140
         },
 
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 130
+            order = 150
         },
 
 
