@@ -14,7 +14,7 @@ local Tooltip
 local Result = {}
 
 local function AddToSet(List)
-    Set = {}
+    local Set = {}
 	for _, v in ipairs(List) do
 		Set[v] = true
 	end
@@ -22,13 +22,13 @@ local function AddToSet(List)
 end
 
 local function unescape(String)
-    local Result = tostring(String)
-    Result = gsub(Result, "|c........", "") -- Remove color start.
-    Result = gsub(Result, "|r", "") -- Remove color end.
+    local unescaped = tostring(String)
+    unescaped = gsub(unescaped, "|c........", "") -- Remove color start.
+    unescaped = gsub(unescaped, "|r", "") -- Remove color end.
     -- Result = gsub(Result, "|H.-|h(.-)|h", "%1") -- Remove links.
     -- Result = gsub(Result, "|T.-|t", "") -- Remove textures.
     -- Result = gsub(Result, "{.-}", "") -- Remove raid target icons.
-    return Result
+    return unescaped
 end
 
 --!!PH
@@ -56,7 +56,7 @@ local function Tooltip_Init()
 end
 
 local setFilter = AdiBags:RegisterFilter("Shadowlands", 98, "ABEvent-1.0")
-setFilter.uiName = "Shadowlands"
+setFilter.uiName = "|cff008a57Shadowlands|r"
 setFilter.uiDesc = "Items from the Shadowlands"
 
 function setFilter:OnInitialize()
@@ -83,10 +83,27 @@ end
 function setFilter:Filter(slotData)
 	MatchIDs = MatchIDs or MatchIDs_Init(self)
 	for i, name in pairs(MatchIDs) do
-        if name[slotData.itemId] then
-            return i
-        end
-    end
+		-- Override Method
+		if MatchIDs[i]['override'] then
+			slotData['loc'] = ItemLocation:CreateFromBagAndSlot(slotData.bag, slotData.slot)
+			if MatchIDs[i]['override_method'](slotData.loc) then
+				return i
+			end
+
+		-- Bonus Condition (triggers when bonus condition is not fulfilled)
+		elseif MatchIDs[i]['bonus_condition'] then
+			if name[slotData.itemId] then
+				slotData['loc'] = ItemLocation:CreateFromBagAndSlot(slotData.bag, slotData.slot)
+				if not MatchIDs[i]['bonus_condition_method'](slotData.loc) then -- THERE IS A NOT HERE!
+					return i
+				end
+			end
+
+		-- Standard ID Matching
+		elseif name[slotData.itemId] then
+			return i
+		end
+	end
 	
 	Tooltip = Tooltip or Tooltip_Init()
 	Tooltip:SetOwner(UIParent,"ANCHOR_NONE")

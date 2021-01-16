@@ -7,7 +7,6 @@ import requests
 
 import blizzauth
 
-
 # OUTDIR = 'out/'
 OUTDIR = str(Path(os.path.dirname(os.path.realpath(__file__))).parent) + "/"
 
@@ -23,7 +22,7 @@ def main():
         if "#" in groupname:
             disabled = True
             groupname = groupname.replace('#', '')
-        group = {'disabled_by_default': disabled, 'comment': '', 'adibagsdesc': '', 'adibagscolor': ''}
+        group = {'disabled_by_default': disabled, 'comment': '', 'adibagsdesc': '', 'adibagscolor': '', 'bonus_condition': '', 'override_method': ''}
         items = []
         with open(idfile, 'r') as f:
             print('Getting Names for:', groupname)
@@ -37,6 +36,12 @@ def main():
                 elif '$' in line:
                     group['adibagscolor'] = 'ff' + line.strip().replace('$', '').lower()
                     print("\tFound AdiBags Color:", group['adibagscolor'])
+                elif '&' in line:
+                    group['bonus_condition'] = line.strip().replace('&', '')
+                    print("\tFound Bonus Condition:", group['bonus_condition'])
+                elif '*' in line:
+                    group['override_method'] = line.strip().replace('*', '')
+                    print("\tFound Override Method:", group['override_method'])
                 else:
                     items.append({'id': line.strip(), 'name': get_item_name(line.strip(), access_token)})
         group['items'] = items
@@ -69,7 +74,7 @@ def get_item_name(itemid, access_token):
 
 def create_markdown(itemdict):
     print("Creating Markdown file.")
-    str_markdown = "# How to Read this\n\nAll items are broken down into categories, with itemID followed by the Item name.\nLatest version: @project-version@\n\n"
+    str_markdown = "# How to Read this\n\nAll items are broken down into categories, with itemID followed by the Item name.\n\nLatest version: @project-version@\n\n"
     for key in itemdict:
         post_title = ''
         if itemdict[key]['disabled_by_default']:
@@ -90,22 +95,37 @@ def create_lua(itemdict):
     order_counter = 0
     for key in itemdict:
         key_clean = key.replace(' ', '').replace("'", "")
+
         # ITEM LISTE
+
         itemlist += "\n -- {}\nlocal {} = 🍗".format(key, key_clean + 'IDs')
         for i in itemdict[key]['items']:
             itemlist += "\n{}, -- {}".format(i['id'], i['name'])
         itemlist += '\n}\n'
-        enabled = 'true'
+
         # DEFAULT PROFIL
+        enabled = 'true'
         if itemdict[key]['disabled_by_default']:
             enabled = 'false'
         profiledefaults += '\n            {} = {},'.format('move' + key_clean, enabled)
+
         # ADD TO FILTERS (MatchIDs)
         colorkey = key
         if itemdict[key]['adibagscolor'] != '':
             colorkey = "|c" + itemdict[key]['adibagscolor'] + key + '|r'
-        filters += '\tif self.db.profile.{0} then\n\t\tif self.db.profile.showcoloredCategories then\n\t\t\tResult["{1}"] = AddToSet({2})\n\t\telse\n\t\t\tResult[unescape("{1}")] = AddToSet({2})\n\t\tend\n\tend\n\n'.format(
-            'move' + key_clean, colorkey, key_clean + 'IDs')
+
+        filter_addition = ''  # i present to you: spaghetti
+        filter_addition_colorless = ''
+        if itemdict[key]['bonus_condition'] != '':
+            filter_addition = '\n\t\t\tResult["{0}"]["bonus_condition"] = true\n\t\t\tResult["{0}"]["bonus_condition_method"] = {1}'.format(colorkey, itemdict[key]['bonus_condition'])
+            filter_addition_colorless = '\n\t\t\tResult[unescape("{0}")]["bonus_condition"] = true\n\t\t\tResult[unescape("{0}")]["bonus_condition_method"] = {1}'.format(colorkey, itemdict[key]['bonus_condition'])
+        elif itemdict[key]['override_method'] != '':
+            filter_addition = '\n\t\t\tResult["{0}"]["override"] = true\n\t\t\tResult["{0}"]["override_method"] = {1}'.format(colorkey, itemdict[key]['override_method'])
+            filter_addition_colorless = '\n\t\t\tResult[unescape("{0}")]["override"] = true\n\t\t\tResult[unescape("{0}")]["override_method"] = {1}'.format(colorkey, itemdict[key]['override_method'])
+
+        filters += '\tif self.db.profile.{0} then\n\t\tif self.db.profile.showcoloredCategories then\n\t\t\tResult["{1}"] = AddToSet({2}){3}\n\t\telse\n\t\t\tResult[unescape("{1}")] = AddToSet({2}){4}\n\t\tend\n\tend\n\n'.format(
+            'move' + key_clean, colorkey, key_clean + 'IDs', filter_addition, filter_addition_colorless)
+
         # SETTINGS SCREEN
         order_counter += 10
         settings += '\t\t{} = 🍗\n\t\t\tname = "{}",\n\t\t\tdesc = "{}",\n\t\t\ttype = "toggle",\n\t\t\torder = {}\n\t\t🍖,\n\n'.format('move' + key_clean, key, itemdict[key]['adibagsdesc'], order_counter)
@@ -138,12 +158,11 @@ def sort_file(file):
 
 
 def get_form(form):
-    content = Path("forms/"+form).read_text(encoding='utf-8')
+    content = Path("forms/" + form).read_text(encoding='utf-8')
     if form == "lua.lua":
         content = content.replace('{}', '🍤').replace('{', '🍗').replace('}', '🍖')
         content = content.replace('--!!PH', '{}')
     return content
-
 
 
 #########################################################################################

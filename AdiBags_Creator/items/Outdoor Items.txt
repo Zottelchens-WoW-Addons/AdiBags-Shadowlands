@@ -2,6 +2,7 @@
 #Items that can be found and used in Outdoor Shadowlands (usually have a duration/charge limit)
 $d900d2
 173939
+178602
 178658
 179392
 179535
@@ -49,4 +50,3 @@ $d900d2
 184485
 184586
 184719
-178602

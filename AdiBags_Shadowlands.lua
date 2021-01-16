@@ -14,7 +14,7 @@ local Tooltip
 local Result = {}
 
 local function AddToSet(List)
-    Set = {}
+    local Set = {}
     for _, v in ipairs(List) do
         Set[v] = true
     end
@@ -22,13 +22,13 @@ local function AddToSet(List)
 end
 
 local function unescape(String)
-    local Result = tostring(String)
-    Result = gsub(Result, "|c........", "") -- Remove color start.
-    Result = gsub(Result, "|r", "") -- Remove color end.
+    local unescaped = tostring(String)
+    unescaped = gsub(unescaped, "|c........", "") -- Remove color start.
+    unescaped = gsub(unescaped, "|r", "") -- Remove color end.
     -- Result = gsub(Result, "|H.-|h(.-)|h", "%1") -- Remove links.
     -- Result = gsub(Result, "|T.-|t", "") -- Remove textures.
     -- Result = gsub(Result, "{.-}", "") -- Remove raid target icons.
-    return Result
+    return unescaped
 end
 
 
@@ -486,6 +486,7 @@ local AnimaIDs = {
  -- Ascended Crafting
 local AscendedCraftingIDs = {
 178995, -- Soul Mirror Shard
+179378, -- Soul Mirror
 180477, -- Elysian Feathers
 180478, -- Champion's Pelt
 180594, -- Calloused Bone
@@ -876,6 +877,10 @@ local EmberCourtIDs = {
 184663, -- Building: Guardhouse
 }
 
+ -- Legendary Items
+local LegendaryItemsIDs = {
+}
+
  -- Legendary Powers
 local LegendaryPowersIDs = {
 182617, -- Memory of Death's Embrace
@@ -1084,6 +1089,7 @@ local LegendaryPowersIDs = {
  -- Outdoor Items
 local OutdoorItemsIDs = {
 173939, -- Enticing Anima
+178602, -- Thorny Loop
 178658, -- Restore Construct
 179392, -- Orb of Burgeoning Ambition
 179535, -- Crumbling Pride Extractors
@@ -1305,6 +1311,18 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveLegendaryItems then
+        if self.db.profile.showcoloredCategories then
+            Result["|cffff8000Legendary Items|r"] = AddToSet(LegendaryItemsIDs)
+            Result["|cffff8000Legendary Items|r"]["override"] = true
+            Result["|cffff8000Legendary Items|r"]["override_method"] = C_LegendaryCrafting.IsRuneforgeLegendary
+        else
+            Result[unescape("|cffff8000Legendary Items|r")] = AddToSet(LegendaryItemsIDs)
+            Result[unescape("|cffff8000Legendary Items|r")]["override"] = true
+            Result[unescape("|cffff8000Legendary Items|r")]["override_method"] = C_LegendaryCrafting.IsRuneforgeLegendary
+        end
+    end
+
     if self.db.profile.moveLegendaryPowers then
         if self.db.profile.showcoloredCategories then
             Result["|cffff8000Legendary Powers|r"] = AddToSet(LegendaryPowersIDs)
@@ -1332,8 +1350,12 @@ local function MatchIDs_Init(self)
     if self.db.profile.moveRuneVessel then
         if self.db.profile.showcoloredCategories then
             Result["|cffff8000Rune Vessel|r"] = AddToSet(RuneVesselIDs)
+            Result["|cffff8000Rune Vessel|r"]["bonus_condition"] = true
+            Result["|cffff8000Rune Vessel|r"]["bonus_condition_method"] = C_LegendaryCrafting.IsRuneforgeLegendary
         else
             Result[unescape("|cffff8000Rune Vessel|r")] = AddToSet(RuneVesselIDs)
+            Result[unescape("|cffff8000Rune Vessel|r")]["bonus_condition"] = true
+            Result[unescape("|cffff8000Rune Vessel|r")]["bonus_condition_method"] = C_LegendaryCrafting.IsRuneforgeLegendary
         end
     end
 
@@ -1372,7 +1394,7 @@ local function Tooltip_Init()
 end
 
 local setFilter = AdiBags:RegisterFilter("Shadowlands", 98, "ABEvent-1.0")
-setFilter.uiName = "Shadowlands"
+setFilter.uiName = "|cff008a57Shadowlands|r"
 setFilter.uiDesc = "Items from the Shadowlands"
 
 function setFilter:OnInitialize()
@@ -1387,6 +1409,7 @@ function setFilter:OnInitialize()
             moveAscendedCrafting = true,
             moveConduits = true,
             moveEmberCourt = true,
+            moveLegendaryItems = true,
             moveLegendaryPowers = true,
             moveOutdoorItems = true,
             moveQueensConservatory = true,
@@ -1414,7 +1437,24 @@ end
 function setFilter:Filter(slotData)
     MatchIDs = MatchIDs or MatchIDs_Init(self)
     for i, name in pairs(MatchIDs) do
-        if name[slotData.itemId] then
+        -- Override Method
+        if MatchIDs[i]['override'] then
+            slotData['loc'] = ItemLocation:CreateFromBagAndSlot(slotData.bag, slotData.slot)
+            if MatchIDs[i]['override_method'](slotData.loc) then
+                return i
+            end
+
+        -- Bonus Condition (triggers when bonus condition is not fulfilled)
+        elseif MatchIDs[i]['bonus_condition'] then
+            if name[slotData.itemId] then
+                slotData['loc'] = ItemLocation:CreateFromBagAndSlot(slotData.bag, slotData.slot)
+                if not MatchIDs[i]['bonus_condition_method'](slotData.loc) then -- THERE IS A NOT HERE!
+                    return i
+                end
+            end
+
+        -- Standard ID Matching
+        elseif name[slotData.itemId] then
             return i
         end
     end
@@ -1490,53 +1530,60 @@ function setFilter:GetOptions()
             order = 80
         },
 
+        moveLegendaryItems = {
+            name = "Legendary Items",
+            desc = "Runeforged Legendaries",
+            type = "toggle",
+            order = 90
+        },
+
         moveLegendaryPowers = {
             name = "Legendary Powers",
             desc = "Items used to unlock Legendary Powers at the Runecarver",
             type = "toggle",
-            order = 90
+            order = 100
         },
 
         moveOutdoorItems = {
             name = "Outdoor Items",
             desc = "Items that can be found and used in Outdoor Shadowlands",
             type = "toggle",
-            order = 100
+            order = 110
         },
 
         moveQueensConservatory = {
             name = "Queen's Conservatory",
             desc = "Items used in the Queen's Conservatory (Night Fae Covenant)",
             type = "toggle",
-            order = 110
+            order = 120
         },
 
         moveRuneVessel = {
             name = "Rune Vessel",
             desc = "Items used to craft Legendaries",
             type = "toggle",
-            order = 120
+            order = 130
         },
 
         moveSinstones = {
             name = "Sinstones",
             desc = "Sinstones used by the Avowed faction",
             type = "toggle",
-            order = 130
+            order = 140
         },
 
         moveVenari = {
             name = "Ve'nari",
             desc = "Items that are sold by Ve'nari",
             type = "toggle",
-            order = 140
+            order = 150
         },
 
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 150
+            order = 160
         },
 
 

@@ -2,8 +2,8 @@
 #Items used for Ascended Crafting (Kyrian Covenant)
 $37B2FF
 178995
+179378
 180477
 180478
 180594
 180595
-179378

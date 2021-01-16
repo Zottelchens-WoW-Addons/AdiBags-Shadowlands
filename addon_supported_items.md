@@ -1,6 +1,7 @@
 # How to Read this
 
 All items are broken down into categories, with itemID followed by the Item name.
+
 Latest version: @project-version@
 
 ## Food (Disabled by default)
@@ -464,6 +465,7 @@ Items used to gain Anima
 Items used for Ascended Crafting (Kyrian Covenant)
 
  * 178995 - Soul Mirror Shard
+ * 179378 - Soul Mirror
  * 180477 - Elysian Feathers
  * 180478 - Champion's Pelt
  * 180594 - Calloused Bone
@@ -855,6 +857,11 @@ Items used for the Ember Court (Venthyr)
  * 184628 - Elder's Sacrificial Moonstone
  * 184663 - Building: Guardhouse
 
+## Legendary Items 
+
+Runeforged Legendaries
+
+
 ## Legendary Powers 
 
 Items used to unlock Legendary Powers at the Runecarver
@@ -1066,6 +1073,7 @@ Items used to unlock Legendary Powers at the Runecarver
 Items that can be found and used in Outdoor Shadowlands (usually have a duration/charge limit)
 
  * 173939 - Enticing Anima
+ * 178602 - Thorny Loop
  * 178658 - Restore Construct
  * 179392 - Orb of Burgeoning Ambition
  * 179535 - Crumbling Pride Extractors
