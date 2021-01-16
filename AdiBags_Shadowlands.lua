@@ -865,7 +865,6 @@ local EmberCourtIDs = {
 181536, -- Guest List Page
 181537, -- Guest List Page
 181538, -- Guest List Page
-181556, -- Tribute of the Court
 182296, -- Letter of Note, Premier Party Planner
 182342, -- Staff: Ambassador
 182343, -- Staff: Ambassador
