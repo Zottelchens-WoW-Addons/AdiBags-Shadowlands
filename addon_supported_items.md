@@ -463,6 +463,7 @@ Items used to gain Anima
 
 Items used for Ascended Crafting (Kyrian Covenant)
 
+ * 178995 - Soul Mirror Shard
  * 180477 - Elysian Feathers
  * 180478 - Champion's Pelt
  * 180594 - Calloused Bone
@@ -753,6 +754,44 @@ Items used to unlock Conduits
 
 Items used for the Ember Court (Venthyr)
 
+ * 176058 - RSVP: Baroness Vashj
+ * 176081 - Temel's Party Planning Book
+ * 176090 - RSVP: Lady Moonberry
+ * 176091 - RSVP: The Countess
+ * 176092 - RSVP: Mikanikos
+ * 176093 - RSVP: Alexandros Mograine
+ * 176094 - RSVP: Honor 6
+ * 176097 - RSVP: Baroness Vashj
+ * 176112 - RSVP: Lady Moonberry
+ * 176113 - RSVP: Mikanikos
+ * 176114 - RSVP: The Countess
+ * 176115 - RSVP: Alexandros Mograine
+ * 176116 - RSVP: Hunt-Captain Korayn
+ * 176117 - RSVP: Polemarch Adrestes
+ * 176118 - RSVP: Rendle and Cudgelface
+ * 176119 - RSVP: Choofa
+ * 176120 - RSVP: Cryptkeeper Kassir
+ * 176121 - RSVP: Droman Aliothe
+ * 176122 - RSVP: Grandmaster Vole
+ * 176123 - RSVP: Kleia and Pelagos
+ * 176124 - RSVP: Plague Deviser Marileth
+ * 176125 - RSVP: Sika
+ * 176126 - Contract: Traditional Theme
+ * 176127 - Contract: Mystery Mirrors
+ * 176128 - Contract: Mortal Reminders
+ * 176129 - Contract: Decoration 4
+ * 176130 - Contract: Atoning Rituals
+ * 176131 - Contract: Glimpse of the Wilds
+ * 176132 - Contract: Lost Chalice Band
+ * 176133 - Contract: Entertainment 4
+ * 176134 - Contract: Tubbins's Tea Party
+ * 176135 - Contract: Divine Desserts
+ * 176136 - Contract: Mushroom Surprise!
+ * 176137 - Contract: Refreshment 4
+ * 176138 - Contract: Venthyr Volunteers
+ * 176139 - Contract: Stoneborn Reserves
+ * 176140 - Contract: Maldraxxian Army
+ * 176141 - Contract: Security 4
  * 177230 - Anima-Infused Water
  * 177231 - Crown of Honor
  * 177232 - Bewitched Wardrobe
@@ -768,6 +807,12 @@ Items used for the Ember Court (Venthyr)
  * 177243 - Kyrian Arsenal
  * 177244 - Night Fae Arsenal
  * 177245 - Maldraxxi Challenge Banner
+ * 178686 - RSVP: Stonehead
+ * 178687 - RSVP: VIP 17
+ * 178688 - RSVP: VIP 18
+ * 178689 - RSVP: VIP 19
+ * 178690 - RSVP: VIP 20
+ * 179958 - Ember Court Guest List
  * 180248 - Ambassador's Reserve
  * 181436 - Vanity Mirror
  * 181437 - Training Dummies
@@ -803,8 +848,10 @@ Items used for the Ember Court (Venthyr)
  * 182296 - Letter of Note, Premier Party Planner
  * 182342 - Staff: Ambassador
  * 182343 - Staff: Ambassador
+ * 183876 - Quill of Correspondence
  * 183956 - Invitation: Choofa
  * 183957 - Invitation: Grandmaster Vole
+ * 184626 - Winter Veil Caroling Book
  * 184628 - Elder's Sacrificial Moonstone
  * 184663 - Building: Guardhouse
 
