@@ -9,3 +9,5 @@ The idlists may contain some special symbols:
 * \# - defines a comment for the generated Markdown file
 * ! - defines a description for the AdiBags filter
 * $ - defines a hex color for the AdiBags category
+* \* - defines an override method to check against
+* & - defines an additional method to check in addition to itemid (needs to return false)    
