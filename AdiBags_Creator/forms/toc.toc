@@ -1,0 +1,10 @@
+## Interface: 90002
+## Title: AdiBags - Shadowlands
+## Version: @project-version@
+## Author: Zottelchen
+## Notes: Adds various Shadowlands items to AdiBags item filters.
+## Dependencies: AdiBags
+## X-Curse-Project-ID: 423029
+## X-WoWI-ID: 25821
+
+AdiBags_Shadowlands.lua

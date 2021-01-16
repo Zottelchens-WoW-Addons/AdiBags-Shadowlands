@@ -1,4 +1,4 @@
-LUA_FILE = r"""--[[
+--[[
 AdiBags - Shadowlands
 by Zottelchen
 version: @project-version@
@@ -11,10 +11,10 @@ local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
 local L = addon.L
 local MatchIDs
 local Tooltip
-local Result = 🍤
+local Result = {}
 
 local function AddToSet(List)
-    Set = 🍤
+    Set = {}
 	for _, v in ipairs(List) do
 		Set[v] = true
 	end
@@ -27,23 +27,23 @@ local function unescape(String)
     Result = gsub(Result, "|r", "") -- Remove color end.
     -- Result = gsub(Result, "|H.-|h(.-)|h", "%1") -- Remove links.
     -- Result = gsub(Result, "|T.-|t", "") -- Remove textures.
-    -- Result = gsub(Result, "🍗.-🍖", "") -- Remove raid target icons.
+    -- Result = gsub(Result, "{.-}", "") -- Remove raid target icons.
     return Result
 end
 
-{}
+--!!PH
 
 
 local function MatchIDs_Init(self)
 	wipe(Result)
     
-{}
+--!!PH
 
 	return Result
 end
 
 local function Tooltip_Init()
-	local tip, leftside = CreateFrame("GameTooltip"), 🍤
+	local tip, leftside = CreateFrame("GameTooltip"), {}
 	for i = 1, 6 do
 		local Left, Right = tip:CreateFontString(), tip:CreateFontString()
 		Left:SetFontObject(GameFontNormal)
@@ -60,11 +60,11 @@ setFilter.uiName = "Shadowlands"
 setFilter.uiDesc = "Items from the Shadowlands"
 
 function setFilter:OnInitialize()
-    self.db = AdiBags.db:RegisterNamespace("Shadowlands", 🍗
-        profile = 🍗
-            {}
-		🍖
-	🍖)
+    self.db = AdiBags.db:RegisterNamespace("Shadowlands", {
+        profile = {
+            --!!PH
+		}
+	})
 end
 
 function setFilter:Update()
@@ -102,23 +102,10 @@ function setFilter:Filter(slotData)
 end
 
 function setFilter:GetOptions()
-	return 🍗
-{}
-	🍖,
+	return {
+--!!PH
+	},
 	AdiBags:GetOptionHandler(self, false, function ()
 		return self:Update()
 	end)
 end
-"""
-
-TOC_FILE = """## Interface: 90002
-## Title: AdiBags - Shadowlands
-## Version: @project-version@
-## Author: Zottelchen
-## Notes: Adds various Shadowlands items to AdiBags item filters.
-## Dependencies: AdiBags
-## X-Curse-Project-ID: 423029
-## X-WoWI-ID: 25821
-
-AdiBags_Shadowlands.lua
-"""

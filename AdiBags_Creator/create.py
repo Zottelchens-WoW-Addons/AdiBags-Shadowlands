@@ -6,7 +6,7 @@ from pathlib import Path
 import requests
 
 import blizzauth
-from forms import LUA_FILE, TOC_FILE
+
 
 # OUTDIR = 'out/'
 OUTDIR = str(Path(os.path.dirname(os.path.realpath(__file__))).parent) + "/"
@@ -116,7 +116,8 @@ def create_lua(itemdict):
                                                                                                                                     'Should Categories be colored?', order_counter + 10)
     profiledefaults += '\n            {} = {},'.format('showcoloredCategories', 'true')
     # putting it all together
-    str_lua = LUA_FILE.format(itemlist, filters, profiledefaults, settings)
+    str_lua = get_form("lua.lua")
+    str_lua = str_lua.format(itemlist, filters, profiledefaults, settings)
     str_lua = str_lua.replace('🍤', '{}').replace('🍗', '{').replace('🍖', '}').replace('\t', '    ')
     with open(OUTDIR + 'AdiBags_Shadowlands.lua', 'w', encoding='utf8') as f:
         f.write(str_lua)
@@ -124,7 +125,7 @@ def create_lua(itemdict):
 
 def create_toc():
     print("Creating TOC file.")
-    str_toc = TOC_FILE
+    str_toc = get_form("toc.toc")
     with open(OUTDIR + 'AdiBags_Shadowlands.toc', 'w', encoding='utf8') as f:
         f.write(str_toc)
 
@@ -136,11 +137,21 @@ def sort_file(file):
         w.writelines(uniq)
 
 
+def get_form(form):
+    content = Path("forms/"+form).read_text(encoding='utf-8')
+    if form == "lua.lua":
+        content = content.replace('{}', '🍤').replace('{', '🍗').replace('}', '🍖')
+        content = content.replace('--!!PH', '{}')
+    return content
+
+
+
 #########################################################################################
 db = sqlite3.connect("itemname.cache.sqlite")
 c = db.cursor()
 c.execute("CREATE TABLE IF NOT EXISTS itemnames (id INTEGER PRIMARY KEY, name TEXT)")
 
+get_form("lua.lua")
 main()
 
 c.close()
