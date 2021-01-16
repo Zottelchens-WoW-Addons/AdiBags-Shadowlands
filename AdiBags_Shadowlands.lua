@@ -486,6 +486,9 @@ local AnimaIDs = {
  -- Ascended Crafting
 local AscendedCraftingIDs = {
 178995, -- Soul Mirror Shard
+179378, -- Soul Mirror
+179009, -- Tampered Anima Charger
+179008, -- Depleted Goliath Core
 180477, -- Elysian Feathers
 180478, -- Champion's Pelt
 180594, -- Calloused Bone
