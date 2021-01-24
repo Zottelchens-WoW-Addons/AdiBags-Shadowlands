@@ -1441,16 +1441,20 @@ function setFilter:Filter(slotData)
         -- Override Method
         if MatchIDs[i]['override'] then
             slotData['loc'] = ItemLocation:CreateFromBagAndSlot(slotData.bag, slotData.slot)
-            if MatchIDs[i]['override_method'](slotData.loc) then
-                return i
+            if slotData['loc']:IsValid() then
+                if MatchIDs[i]['override_method'](slotData.loc) then
+                    return i
+                end
             end
 
         -- Bonus Condition (triggers when bonus condition is not fulfilled)
         elseif MatchIDs[i]['bonus_condition'] then
             if name[slotData.itemId] then
                 slotData['loc'] = ItemLocation:CreateFromBagAndSlot(slotData.bag, slotData.slot)
-                if not MatchIDs[i]['bonus_condition_method'](slotData.loc) then -- THERE IS A NOT HERE!
-                    return i
+                if slotData['loc']:IsValid() then
+                    if not MatchIDs[i]['bonus_condition_method'](slotData.loc) then -- THERE IS A NOT HERE!
+                        return i
+                    end
                 end
             end
 
