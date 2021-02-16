@@ -364,10 +364,12 @@ local TrinketsIDs = {
  -- Abominable Stitching
 local AbominableStitchingIDs = {
 178061, -- Malleable Flesh
+178594, -- Anima-bound Wraps
 181371, -- Spare Head
 181797, -- Strange Cloth
 181798, -- Stuffed Construct
 181799, -- Extra Large Hat
+183519, -- Necromantic Oil
 183743, -- Malleable Flesh
 183744, -- Superior Parts
 183752, -- Empty Nightcap Cask
