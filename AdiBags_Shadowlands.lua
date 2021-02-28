@@ -1225,6 +1225,7 @@ local SinstonesIDs = {
 
  -- Ve'nari
 local VenariIDs = {
+180817, -- Cypher of Relocation
 180949, -- Animaflow Stabilizer
 180952, -- Possibility Matrix
 180953, -- Soultwinning Scepter

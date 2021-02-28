@@ -1213,6 +1213,7 @@ Sinstones used by the Avowed faction
 
 Items that are sold by Ve'nari
 
+ * 180817 - Cypher of Relocation
  * 180949 - Animaflow Stabilizer
  * 180952 - Possibility Matrix
  * 180953 - Soultwinning Scepter
