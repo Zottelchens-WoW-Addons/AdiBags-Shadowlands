@@ -817,6 +817,7 @@ local EmberCourtIDs = {
 176139, -- Contract: Stoneborn Reserves
 176140, -- Contract: Maldraxxian Army
 176141, -- Contract: Security 4
+176850, -- Blank Invitation
 177230, -- Anima-Infused Water
 177231, -- Crown of Honor
 177232, -- Bewitched Wardrobe
@@ -869,6 +870,7 @@ local EmberCourtIDs = {
 181536, -- Guest List Page
 181537, -- Guest List Page
 181538, -- Guest List Page
+181715, -- Temel's Certificate of Completion
 182296, -- Letter of Note, Premier Party Planner
 182342, -- Staff: Ambassador
 182343, -- Staff: Ambassador
