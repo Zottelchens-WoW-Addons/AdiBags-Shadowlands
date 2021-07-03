@@ -1,4 +1,4 @@
-## Interface: 90005
+## Interface: 90100
 ## Title: AdiBags - Shadowlands
 ## Version: @project-version@
 ## Author: Zottelchen
@@ -6,5 +6,6 @@
 ## Dependencies: AdiBags
 ## X-Curse-Project-ID: 423029
 ## X-WoWI-ID: 25821
+## X-Wago-ID: ZQ6a976W
 
 AdiBags_Shadowlands.lua
