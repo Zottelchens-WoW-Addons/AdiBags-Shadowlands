@@ -483,6 +483,21 @@ local AnimaIDs = {
 184775, -- Necromancy for the Practical Ritualist
 184776, -- Urn of Arena Soil
 184777, -- Gravedredger's Shovel
+186200, -- Infused Dendrite
+186201, -- Ancient Anima Vessel
+186202, -- Wafting Koricone
+186203, -- Glowing Devourer Stomach
+186204, -- Anima-Stained Glass Shards
+186205, -- Scholarly Attendant's Bangle
+186206, -- Vault Emberstone
+186519, -- Compressed Anima Bubble
+187175, -- Runekeeper's Ingot
+187347, -- Concentrated Anima
+187349, -- Anima Laden Egg
+187432, -- Magifocus Heartwood
+187433, -- Windcrystal Chimes
+187434, -- Lightseed Sapling
+187517, -- Animaswell Prism
 }
 
  -- Ascended Crafting
@@ -495,6 +510,38 @@ local AscendedCraftingIDs = {
 180478, -- Champion's Pelt
 180594, -- Calloused Bone
 180595, -- Nightforged Steel
+}
+
+ -- Cataloged Research
+local CatalogedResearchIDs = {
+186685, -- Relic Fragment
+187311, -- Azgoth's Tattered Maps
+187322, -- Crumbling Stone Tablet
+187323, -- Runic Diagram
+187324, -- Gnawed Ancient Idol
+187325, -- Faded Razorwing Anatomy Illustration
+187326, -- Half-Completed Runeforge Pattern
+187327, -- Encrypted Korthian Journal
+187328, -- Ripped Cosmology Chart
+187329, -- Old God Specimen Jar
+187330, -- Naaru Shard Fragment
+187331, -- Tattered Fae Designs
+187332, -- Recovered Page of Voices
+187333, -- Core of an Unknown Titan
+187334, -- Shattered Void Tablet
+187335, -- Maldraxxus Larva Shell
+187336, -- Forbidden Weapon Schematics
+187350, -- Displaced Relic
+187457, -- Engraved Glass Pane
+187458, -- Unearthed Teleporter Sigil
+187459, -- Vial of Mysterious Liquid
+187460, -- Strangely Intricate Key
+187462, -- Scroll of Shadowlands Fables
+187463, -- Enigmatic Map Fragments
+187465, -- Complicated Organism Harmonizer
+187466, -- Korthian Cypher Book
+187467, -- Perplexing Rune-Cube
+187478, -- White Razorwing Talon
 }
 
  -- Conduits
@@ -775,6 +822,10 @@ local ConduitsIDs = {
 183514, -- Perforated Veins
 184359, -- Unbound Reality Fragment
 184587, -- Ambuscade
+187148, -- Death-Bound Shard
+187216, -- Soultwining Crescent
+187506, -- Condensed Anima Sphere
+187507, -- Adaptive Armor Fragment
 }
 
  -- Ember Court
@@ -1089,6 +1140,54 @@ local LegendaryPowersIDs = {
 183392, -- Memory of the Thunderlord
 183393, -- Memory of an Unbreakable Will
 184665, -- Chronicle of Lost Memories
+186565, -- Memory of Rampant Transference
+186566, -- Memory of the Final Sentence
+186567, -- Memory of Insatiable Hunger
+186568, -- Memory of an Abomination's Frenzy
+186570, -- Memory of Glory
+186572, -- Memory of the Sinful Surge
+186576, -- Memory of Nature's Fury
+186577, -- Memory of the Unbridled Swarm
+186591, -- Memory of the Harmonic Echo
+186609, -- Memory of Sinful Hysteria
+186621, -- Memory of Death's Fathom
+186635, -- Memory of Sinful Delight
+186673, -- Memory of Kindred Affinity
+186676, -- Memory of the Toxic Onslaught
+186687, -- Memory of Celestial Spirits
+186689, -- Memory of the Splintered Elements
+186710, -- Memory of the Obedient
+186712, -- Memory of the Deathspike
+186775, -- Memory of Resounding Clarity
+187105, -- Memory of the Agonizing Gaze
+187106, -- Memory of Divine Resonance
+187107, -- Memory of the Duty-Bound Gavel
+187109, -- Memory of a Blazing Slaughter
+187111, -- Memory of Blind Faith
+187118, -- Memory of the Demonic Oath
+187127, -- Memory of Radiant Embers
+187132, -- Memory of the Seasons of Plenty
+187160, -- Memory of Pallid Command
+187161, -- Memory of Bwonsamdi's Pact
+187162, -- Memory of Shadow Word: Manipulation
+187163, -- Memory of the Spheres' Harmony
+187217, -- Memory of the Bountiful Brew
+187223, -- Memory of the Seeds of Rampant Growth
+187224, -- Memory of the Elemental Conduit
+187225, -- Memory of the Languishing Soul Detritus
+187226, -- Memory of the Shards of Annihilation
+187227, -- Memory of the Decaying Soul Satchel
+187228, -- Memory of the Contained Perpetual Explosion
+187229, -- Memory of the Pact of the Soulstalkers
+187230, -- Memory of the Bag of Munitions
+187231, -- Memory of the Fragments of the Elder Antlers
+187232, -- Memory of the Pouch of Razor Fragments
+187237, -- Memory of a Call to Arms
+187258, -- Memory of the Faeline Harmony
+187259, -- Memory of the Raging Vesper Vortex
+187277, -- Memory of Sinister Teachings
+187280, -- Memory of the Fae Heart
+187511, -- Memory of Elysian Might
 }
 
  -- Outdoor Items
@@ -1301,6 +1400,14 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveCatalogedResearch then
+        if self.db.profile.showcoloredCategories then
+            Result["|cff8fbc8fCataloged Research|r"] = AddToSet(CatalogedResearchIDs)
+        else
+            Result[unescape("|cff8fbc8fCataloged Research|r")] = AddToSet(CatalogedResearchIDs)
+        end
+    end
+
     if self.db.profile.moveConduits then
         if self.db.profile.showcoloredCategories then
             Result["|cff1d9e00Conduits|r"] = AddToSet(ConduitsIDs)
@@ -1413,6 +1520,7 @@ function setFilter:OnInitialize()
             moveAbominableStitching = true,
             moveAnima = true,
             moveAscendedCrafting = true,
+            moveCatalogedResearch = true,
             moveConduits = true,
             moveEmberCourt = true,
             moveLegendaryItems = true,
@@ -1526,74 +1634,81 @@ function setFilter:GetOptions()
             order = 60
         },
 
+        moveCatalogedResearch = {
+            name = "Cataloged Research",
+            desc = "Items used to generate Cataloged Research",
+            type = "toggle",
+            order = 70
+        },
+
         moveConduits = {
             name = "Conduits",
             desc = "Items used to unlock Conduits",
             type = "toggle",
-            order = 70
+            order = 80
         },
 
         moveEmberCourt = {
             name = "Ember Court",
             desc = "Items used for the Ember Court (Venthyr)",
             type = "toggle",
-            order = 80
+            order = 90
         },
 
         moveLegendaryItems = {
             name = "Legendary Items",
             desc = "Runeforged Legendaries",
             type = "toggle",
-            order = 90
+            order = 100
         },
 
         moveLegendaryPowers = {
             name = "Legendary Powers",
             desc = "Items used to unlock Legendary Powers at the Runecarver",
             type = "toggle",
-            order = 100
+            order = 110
         },
 
         moveOutdoorItems = {
             name = "Outdoor Items",
             desc = "Items that can be found and used in Outdoor Shadowlands",
             type = "toggle",
-            order = 110
+            order = 120
         },
 
         moveQueensConservatory = {
             name = "Queen's Conservatory",
             desc = "Items used in the Queen's Conservatory (Night Fae Covenant)",
             type = "toggle",
-            order = 120
+            order = 130
         },
 
         moveRuneVessel = {
             name = "Rune Vessel",
             desc = "Items used to craft Legendaries",
             type = "toggle",
-            order = 130
+            order = 140
         },
 
         moveSinstones = {
             name = "Sinstones",
             desc = "Sinstones used by the Avowed faction",
             type = "toggle",
-            order = 140
+            order = 150
         },
 
         moveVenari = {
             name = "Ve'nari",
             desc = "Items that are sold by Ve'nari",
             type = "toggle",
-            order = 150
+            order = 160
         },
 
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 160
+            order = 170
         },
 
 

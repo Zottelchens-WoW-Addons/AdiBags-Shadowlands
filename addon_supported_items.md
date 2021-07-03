@@ -461,6 +461,21 @@ Items used to gain Anima
  * 184775 - Necromancy for the Practical Ritualist
  * 184776 - Urn of Arena Soil
  * 184777 - Gravedredger's Shovel
+ * 186200 - Infused Dendrite
+ * 186201 - Ancient Anima Vessel
+ * 186202 - Wafting Koricone
+ * 186203 - Glowing Devourer Stomach
+ * 186204 - Anima-Stained Glass Shards
+ * 186205 - Scholarly Attendant's Bangle
+ * 186206 - Vault Emberstone
+ * 186519 - Compressed Anima Bubble
+ * 187175 - Runekeeper's Ingot
+ * 187347 - Concentrated Anima
+ * 187349 - Anima Laden Egg
+ * 187432 - Magifocus Heartwood
+ * 187433 - Windcrystal Chimes
+ * 187434 - Lightseed Sapling
+ * 187517 - Animaswell Prism
 
 ## Ascended Crafting 
 
@@ -474,6 +489,39 @@ Items used for Ascended Crafting (Kyrian Covenant)
  * 180478 - Champion's Pelt
  * 180594 - Calloused Bone
  * 180595 - Nightforged Steel
+
+## Cataloged Research 
+
+Items used to generate Cataloged Research
+
+ * 186685 - Relic Fragment
+ * 187311 - Azgoth's Tattered Maps
+ * 187322 - Crumbling Stone Tablet
+ * 187323 - Runic Diagram
+ * 187324 - Gnawed Ancient Idol
+ * 187325 - Faded Razorwing Anatomy Illustration
+ * 187326 - Half-Completed Runeforge Pattern
+ * 187327 - Encrypted Korthian Journal
+ * 187328 - Ripped Cosmology Chart
+ * 187329 - Old God Specimen Jar
+ * 187330 - Naaru Shard Fragment
+ * 187331 - Tattered Fae Designs
+ * 187332 - Recovered Page of Voices
+ * 187333 - Core of an Unknown Titan
+ * 187334 - Shattered Void Tablet
+ * 187335 - Maldraxxus Larva Shell
+ * 187336 - Forbidden Weapon Schematics
+ * 187350 - Displaced Relic
+ * 187457 - Engraved Glass Pane
+ * 187458 - Unearthed Teleporter Sigil
+ * 187459 - Vial of Mysterious Liquid
+ * 187460 - Strangely Intricate Key
+ * 187462 - Scroll of Shadowlands Fables
+ * 187463 - Enigmatic Map Fragments
+ * 187465 - Complicated Organism Harmonizer
+ * 187466 - Korthian Cypher Book
+ * 187467 - Perplexing Rune-Cube
+ * 187478 - White Razorwing Talon
 
 ## Conduits 
 
@@ -755,6 +803,10 @@ Items used to unlock Conduits
  * 183514 - Perforated Veins
  * 184359 - Unbound Reality Fragment
  * 184587 - Ambuscade
+ * 187148 - Death-Bound Shard
+ * 187216 - Soultwining Crescent
+ * 187506 - Condensed Anima Sphere
+ * 187507 - Adaptive Armor Fragment
 
 ## Ember Court 
 
@@ -1072,6 +1124,54 @@ Items used to unlock Legendary Powers at the Runecarver
  * 183392 - Memory of the Thunderlord
  * 183393 - Memory of an Unbreakable Will
  * 184665 - Chronicle of Lost Memories
+ * 186565 - Memory of Rampant Transference
+ * 186566 - Memory of the Final Sentence
+ * 186567 - Memory of Insatiable Hunger
+ * 186568 - Memory of an Abomination's Frenzy
+ * 186570 - Memory of Glory
+ * 186572 - Memory of the Sinful Surge
+ * 186576 - Memory of Nature's Fury
+ * 186577 - Memory of the Unbridled Swarm
+ * 186591 - Memory of the Harmonic Echo
+ * 186609 - Memory of Sinful Hysteria
+ * 186621 - Memory of Death's Fathom
+ * 186635 - Memory of Sinful Delight
+ * 186673 - Memory of Kindred Affinity
+ * 186676 - Memory of the Toxic Onslaught
+ * 186687 - Memory of Celestial Spirits
+ * 186689 - Memory of the Splintered Elements
+ * 186710 - Memory of the Obedient
+ * 186712 - Memory of the Deathspike
+ * 186775 - Memory of Resounding Clarity
+ * 187105 - Memory of the Agonizing Gaze
+ * 187106 - Memory of Divine Resonance
+ * 187107 - Memory of the Duty-Bound Gavel
+ * 187109 - Memory of a Blazing Slaughter
+ * 187111 - Memory of Blind Faith
+ * 187118 - Memory of the Demonic Oath
+ * 187127 - Memory of Radiant Embers
+ * 187132 - Memory of the Seasons of Plenty
+ * 187160 - Memory of Pallid Command
+ * 187161 - Memory of Bwonsamdi's Pact
+ * 187162 - Memory of Shadow Word: Manipulation
+ * 187163 - Memory of the Spheres' Harmony
+ * 187217 - Memory of the Bountiful Brew
+ * 187223 - Memory of the Seeds of Rampant Growth
+ * 187224 - Memory of the Elemental Conduit
+ * 187225 - Memory of the Languishing Soul Detritus
+ * 187226 - Memory of the Shards of Annihilation
+ * 187227 - Memory of the Decaying Soul Satchel
+ * 187228 - Memory of the Contained Perpetual Explosion
+ * 187229 - Memory of the Pact of the Soulstalkers
+ * 187230 - Memory of the Bag of Munitions
+ * 187231 - Memory of the Fragments of the Elder Antlers
+ * 187232 - Memory of the Pouch of Razor Fragments
+ * 187237 - Memory of a Call to Arms
+ * 187258 - Memory of the Faeline Harmony
+ * 187259 - Memory of the Raging Vesper Vortex
+ * 187277 - Memory of Sinister Teachings
+ * 187280 - Memory of the Fae Heart
+ * 187511 - Memory of Elysian Might
 
 ## Outdoor Items 
 
