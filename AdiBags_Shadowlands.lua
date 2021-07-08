@@ -1379,6 +1379,7 @@ local ShardsofDominationIDs = {
 187318, -- Portentous Shard of Dyz
 187319, -- Portentous Shard of Oth
 187320, -- Portentous Shard of Zed
+187532, -- Soulfire Chisel
 }
 
  -- Sinstones
