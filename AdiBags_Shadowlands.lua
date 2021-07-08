@@ -1270,6 +1270,28 @@ local QueensConservatoryIDs = {
 184779, -- Temporal Leaves
 }
 
+ -- Roh-Suir
+local RohSuirIDs = {
+185636, -- The Archivists' Codex
+186648, -- Soaring Razorwing
+186714, -- Research Report: All-Seeing Crystal
+186716, -- Research Report: Ancient Shrines
+186717, -- Research Report: Adaptive Alloys
+186718, -- Teleporter Repair Kit
+186721, -- Treatise: Relics Abound in the Shadowlands
+186722, -- Treatise: The Study of Anima and Harnessing Every Drop
+186731, -- Repaired Riftkey
+186984, -- Korthite Crystal Key
+187134, -- Alloy-Warping Facetor
+187138, -- Research Report: First Alloys
+187145, -- Treatise: Recognizing Stygia and its Uses
+187148, -- Death-Bound Shard
+187508, -- Trained Gromit Carrier
+187612, -- Key of Flowing Waters
+187613, -- Key of the Inner Chambers
+187614, -- Key of Many Thoughts
+}
+
  -- Rune Vessel
 local RuneVesselIDs = {
 171412, -- Shadowghast Breastplate
@@ -1460,6 +1482,14 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveRohSuir then
+        if self.db.profile.showcoloredCategories then
+            Result["|cff780075Roh-Suir|r"] = AddToSet(RohSuirIDs)
+        else
+            Result[unescape("|cff780075Roh-Suir|r")] = AddToSet(RohSuirIDs)
+        end
+    end
+
     if self.db.profile.moveRuneVessel then
         if self.db.profile.showcoloredCategories then
             Result["|cffff8000Rune Vessel|r"] = AddToSet(RuneVesselIDs)
@@ -1527,6 +1557,7 @@ function setFilter:OnInitialize()
             moveLegendaryPowers = true,
             moveOutdoorItems = true,
             moveQueensConservatory = true,
+            moveRohSuir = true,
             moveRuneVessel = true,
             moveSinstones = true,
             moveVenari = true,
@@ -1683,32 +1714,39 @@ function setFilter:GetOptions()
             order = 130
         },
 
+        moveRohSuir = {
+            name = "Roh-Suir",
+            desc = "Items that are sold by Archivist Roh-Suir",
+            type = "toggle",
+            order = 140
+        },
+
         moveRuneVessel = {
             name = "Rune Vessel",
             desc = "Items used to craft Legendaries",
             type = "toggle",
-            order = 140
+            order = 150
         },
 
         moveSinstones = {
             name = "Sinstones",
             desc = "Sinstones used by the Avowed faction",
             type = "toggle",
-            order = 150
+            order = 160
         },
 
         moveVenari = {
             name = "Ve'nari",
             desc = "Items that are sold by Ve'nari",
             type = "toggle",
-            order = 160
+            order = 170
         },
 
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 170
+            order = 180
         },
 
 

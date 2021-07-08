@@ -94,7 +94,7 @@ def create_lua(itemdict):
     itemlist, profiledefaults, filters, settings = "", "", "", ""
     order_counter = 0
     for key in itemdict:
-        key_clean = key.replace(' ', '').replace("'", "")
+        key_clean = key.replace(' ', '').replace("'", "").replace("-", "")
 
         # ITEM LISTE
 

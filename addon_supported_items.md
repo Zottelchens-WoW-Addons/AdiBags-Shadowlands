@@ -1255,6 +1255,29 @@ Items used in the Queen's Conservatory (Night Fae Covenant)
  * 183806 - Energetic Spirit of Curiosity
  * 184779 - Temporal Leaves
 
+## Roh-Suir 
+
+Items that are sold by Archivist Roh-Suir
+
+ * 185636 - The Archivists' Codex
+ * 186648 - Soaring Razorwing
+ * 186714 - Research Report: All-Seeing Crystal
+ * 186716 - Research Report: Ancient Shrines
+ * 186717 - Research Report: Adaptive Alloys
+ * 186718 - Teleporter Repair Kit
+ * 186721 - Treatise: Relics Abound in the Shadowlands
+ * 186722 - Treatise: The Study of Anima and Harnessing Every Drop
+ * 186731 - Repaired Riftkey
+ * 186984 - Korthite Crystal Key
+ * 187134 - Alloy-Warping Facetor
+ * 187138 - Research Report: First Alloys
+ * 187145 - Treatise: Recognizing Stygia and its Uses
+ * 187148 - Death-Bound Shard
+ * 187508 - Trained Gromit Carrier
+ * 187612 - Key of Flowing Waters
+ * 187613 - Key of the Inner Chambers
+ * 187614 - Key of Many Thoughts
+
 ## Rune Vessel 
 
 Items used to craft Legendaries
