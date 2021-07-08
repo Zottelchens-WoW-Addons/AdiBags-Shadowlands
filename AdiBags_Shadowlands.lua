@@ -1331,6 +1331,20 @@ local RuneVesselIDs = {
 178927, -- Shadowghast Necklace
 }
 
+ -- Shards of Domination
+local ShardsofDominationIDs = {
+187057, -- Shard of Bek
+187059, -- Shard of Jas
+187061, -- Shard of Rev
+187063, -- Shard of Cor
+187065, -- Shard of Kyr
+187071, -- Shard of Tel
+187073, -- Shard of Dyz
+187076, -- Shard of Oth
+187079, -- Shard of Zed
+187532, -- Soulfire Chisel
+}
+
  -- Sinstones
 local SinstonesIDs = {
 172996, -- Inquisitor Sorin's Sinstone
@@ -1502,6 +1516,14 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveShardsofDomination then
+        if self.db.profile.showcoloredCategories then
+            Result["|cffab1100Shards of Domination|r"] = AddToSet(ShardsofDominationIDs)
+        else
+            Result[unescape("|cffab1100Shards of Domination|r")] = AddToSet(ShardsofDominationIDs)
+        end
+    end
+
     if self.db.profile.moveSinstones then
         if self.db.profile.showcoloredCategories then
             Result["|cff37b2ffSinstones|r"] = AddToSet(SinstonesIDs)
@@ -1559,6 +1581,7 @@ function setFilter:OnInitialize()
             moveQueensConservatory = true,
             moveRohSuir = true,
             moveRuneVessel = true,
+            moveShardsofDomination = true,
             moveSinstones = true,
             moveVenari = true,
             showcoloredCategories = true,
@@ -1728,25 +1751,32 @@ function setFilter:GetOptions()
             order = 150
         },
 
+        moveShardsofDomination = {
+            name = "Shards of Domination",
+            desc = "Shards of Domination are special upgradable gems with unique bonuses",
+            type = "toggle",
+            order = 160
+        },
+
         moveSinstones = {
             name = "Sinstones",
             desc = "Sinstones used by the Avowed faction",
             type = "toggle",
-            order = 160
+            order = 170
         },
 
         moveVenari = {
             name = "Ve'nari",
             desc = "Items that are sold by Ve'nari",
             type = "toggle",
-            order = 170
+            order = 180
         },
 
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 180
+            order = 190
         },
 
 

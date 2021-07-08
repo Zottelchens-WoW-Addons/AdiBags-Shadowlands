@@ -1318,6 +1318,21 @@ Items used to craft Legendaries
  * 178926 - Shadowghast Ring
  * 178927 - Shadowghast Necklace
 
+## Shards of Domination 
+
+Shards of Domination are special upgradable gems with unique bonuses
+
+ * 187057 - Shard of Bek
+ * 187059 - Shard of Jas
+ * 187061 - Shard of Rev
+ * 187063 - Shard of Cor
+ * 187065 - Shard of Kyr
+ * 187071 - Shard of Tel
+ * 187073 - Shard of Dyz
+ * 187076 - Shard of Oth
+ * 187079 - Shard of Zed
+ * 187532 - Soulfire Chisel
+
 ## Sinstones 
 
 Sinstones used by the Avowed faction
