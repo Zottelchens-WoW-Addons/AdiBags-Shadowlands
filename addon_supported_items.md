@@ -1331,7 +1331,43 @@ Shards of Domination are special upgradable gems with unique bonuses
  * 187073 - Shard of Dyz
  * 187076 - Shard of Oth
  * 187079 - Shard of Zed
- * 187532 - Soulfire Chisel
+ * 187120 - Blood Healing Shard 1 - Rank 5
+ * 187284 - Ominous Shard of Bek
+ * 187285 - Ominous Shard of Jas
+ * 187286 - Ominous Shard of Rev
+ * 187287 - Ominous Shard of Cor
+ * 187288 - Ominous Shard of Kyr
+ * 187289 - Ominous Shard of Tel
+ * 187290 - Ominous Shard of Dyz
+ * 187291 - Ominous Shard of Oth
+ * 187292 - Ominous Shard of Zed
+ * 187293 - Desolate Shard of Bek
+ * 187294 - Desolate Shard of Jas
+ * 187295 - Desolate Shard of Rev
+ * 187296 - Desolate Shard of Cor
+ * 187297 - Desolate Shard of Kyr
+ * 187298 - Desolate Shard of Tel
+ * 187299 - Desolate Shard of Dyz
+ * 187300 - Desolate Shard of Oth
+ * 187301 - Desolate Shard of Zed
+ * 187302 - Foreboding Shard of Bek
+ * 187303 - Foreboding Shard of Jas
+ * 187304 - Foreboding Shard of Rev
+ * 187305 - Foreboding Shard of Cor
+ * 187306 - Foreboding Shard of Kyr
+ * 187307 - Foreboding Shard of Tel
+ * 187308 - Foreboding Shard of Dyz
+ * 187309 - Foreboding Shard of Oth
+ * 187310 - Foreboding Shard of Zed
+ * 187312 - Portentous Shard of Bek
+ * 187313 - Portentous Shard of Jas
+ * 187314 - Portentous Shard of Rev
+ * 187315 - Portentous Shard of Cor
+ * 187316 - Portentous Shard of Kyr
+ * 187317 - Portentous Shard of Tel
+ * 187318 - Portentous Shard of Dyz
+ * 187319 - Portentous Shard of Oth
+ * 187320 - Portentous Shard of Zed
 
 ## Sinstones 
 
