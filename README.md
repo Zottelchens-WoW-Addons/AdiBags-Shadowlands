@@ -15,8 +15,11 @@
 * Sinstones
 * Items sold by Ve'nari
 
-* New in 9.1 (Addon version 1.2.9 and up): 
-    * Cataloged Research
-    * Archivist Roh-Suir
+**New in 9.1 (Addon version 1.2.9 and up):**
+
+* Cataloged Research
+* Archivist Roh-Suir
+* Shards of Domination
+
 
 If anything is missing, please write a comment or [open an issue](https://github.com/Zottelchen/adibags-shadowlands/issues).
