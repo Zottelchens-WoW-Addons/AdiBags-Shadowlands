@@ -20,6 +20,6 @@
 * Cataloged Research
 * Archivist Roh-Suir
 * Shards of Domination
-
+* Upgradeable Items [Valor/Korthian/Covenant Armor] (disabled by default)
 
 If anything is missing, please write a comment or [open an issue](https://github.com/Zottelchen/adibags-shadowlands/issues).

@@ -57,7 +57,7 @@ end
 
 local setFilter = AdiBags:RegisterFilter("Shadowlands", 98, "ABEvent-1.0")
 setFilter.uiName = "|cff008a57Shadowlands|r"
-setFilter.uiDesc = "Items from the Shadowlands"
+setFilter.uiDesc = "Items from the Shadowlands\n|cff50C878Filter version: @project-version@|r"
 
 function setFilter:OnInitialize()
     self.db = AdiBags.db:RegisterNamespace("Shadowlands", {

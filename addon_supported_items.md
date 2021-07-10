@@ -336,6 +336,11 @@ All Shadowlands Trinkets
  * 184841 - Lyre of Sacred Purpose
  * 184842 - Instructor's Divine Bell
 
+## Upgradeable Items (Disabled by default)
+
+Items which can be upgraded (for example: Valor/Korthian/Covenant Armor) - this might not be specific to Shadowlands
+
+
 ## Abominable Stitching 
 
 Items used for Abominable Stitching (Necrolord Covenant)

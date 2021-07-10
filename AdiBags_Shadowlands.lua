@@ -361,6 +361,10 @@ local TrinketsIDs = {
 184842, -- Instructor's Divine Bell
 }
 
+ -- Upgradeable Items
+local UpgradeableItemsIDs = {
+}
+
  -- Abominable Stitching
 local AbominableStitchingIDs = {
 178061, -- Malleable Flesh
@@ -1449,6 +1453,18 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveUpgradeableItems then
+        if self.db.profile.showcoloredCategories then
+            Result["|cffa335eeUpgradeable Items|r"] = AddToSet(UpgradeableItemsIDs)
+            Result["|cffa335eeUpgradeable Items|r"]["override"] = true
+            Result["|cffa335eeUpgradeable Items|r"]["override_method"] = C_ItemUpgrade.CanUpgradeItem
+        else
+            Result[unescape("|cffa335eeUpgradeable Items|r")] = AddToSet(UpgradeableItemsIDs)
+            Result[unescape("|cffa335eeUpgradeable Items|r")]["override"] = true
+            Result[unescape("|cffa335eeUpgradeable Items|r")]["override_method"] = C_ItemUpgrade.CanUpgradeItem
+        end
+    end
+
     if self.db.profile.moveAbominableStitching then
         if self.db.profile.showcoloredCategories then
             Result["|cff37b2ffAbominable Stitching|r"] = AddToSet(AbominableStitchingIDs)
@@ -1597,7 +1613,7 @@ end
 
 local setFilter = AdiBags:RegisterFilter("Shadowlands", 98, "ABEvent-1.0")
 setFilter.uiName = "|cff008a57Shadowlands|r"
-setFilter.uiDesc = "Items from the Shadowlands"
+setFilter.uiDesc = "Items from the Shadowlands\n|cff50C878Filter version: @project-version@|r"
 
 function setFilter:OnInitialize()
     self.db = AdiBags.db:RegisterNamespace("Shadowlands", {
@@ -1606,6 +1622,7 @@ function setFilter:OnInitialize()
             moveFood = false,
             moveRings = false,
             moveTrinkets = false,
+            moveUpgradeableItems = false,
             moveAbominableStitching = true,
             moveAnima = true,
             moveAscendedCrafting = true,
@@ -1704,116 +1721,123 @@ function setFilter:GetOptions()
             order = 30
         },
 
+        moveUpgradeableItems = {
+            name = "Upgradeable Items",
+            desc = "Items which can be upgraded (for example: Valor/Korthian/Covenant Armor). \n|cffffd300This might not be specific to Shadowlands.|r",
+            type = "toggle",
+            order = 40
+        },
+
         moveAbominableStitching = {
             name = "Abominable Stitching",
             desc = "Items used for Abominable Stitching (Necrolord Covenant)",
             type = "toggle",
-            order = 40
+            order = 50
         },
 
         moveAnima = {
             name = "Anima",
             desc = "Items used to gain Anima",
             type = "toggle",
-            order = 50
+            order = 60
         },
 
         moveAscendedCrafting = {
             name = "Ascended Crafting",
             desc = "Items used for Ascended Crafting (Kyrian Covenant)",
             type = "toggle",
-            order = 60
+            order = 70
         },
 
         moveCatalogedResearch = {
             name = "Cataloged Research",
             desc = "Items used to generate Cataloged Research",
             type = "toggle",
-            order = 70
+            order = 80
         },
 
         moveConduits = {
             name = "Conduits",
             desc = "Items used to unlock Conduits",
             type = "toggle",
-            order = 80
+            order = 90
         },
 
         moveEmberCourt = {
             name = "Ember Court",
             desc = "Items used for the Ember Court (Venthyr)",
             type = "toggle",
-            order = 90
+            order = 100
         },
 
         moveLegendaryItems = {
             name = "Legendary Items",
             desc = "Runeforged Legendaries",
             type = "toggle",
-            order = 100
+            order = 110
         },
 
         moveLegendaryPowers = {
             name = "Legendary Powers",
             desc = "Items used to unlock Legendary Powers at the Runecarver",
             type = "toggle",
-            order = 110
+            order = 120
         },
 
         moveOutdoorItems = {
             name = "Outdoor Items",
             desc = "Items that can be found and used in Outdoor Shadowlands",
             type = "toggle",
-            order = 120
+            order = 130
         },
 
         moveQueensConservatory = {
             name = "Queen's Conservatory",
             desc = "Items used in the Queen's Conservatory (Night Fae Covenant)",
             type = "toggle",
-            order = 130
+            order = 140
         },
 
         moveRohSuir = {
             name = "Roh-Suir",
             desc = "Items that are sold by Archivist Roh-Suir",
             type = "toggle",
-            order = 140
+            order = 150
         },
 
         moveRuneVessel = {
             name = "Rune Vessel",
             desc = "Items used to craft Legendaries",
             type = "toggle",
-            order = 150
+            order = 160
         },
 
         moveShardsofDomination = {
             name = "Shards of Domination",
             desc = "Shards of Domination are special upgradable gems with unique bonuses",
             type = "toggle",
-            order = 160
+            order = 170
         },
 
         moveSinstones = {
             name = "Sinstones",
             desc = "Sinstones used by the Avowed faction",
             type = "toggle",
-            order = 170
+            order = 180
         },
 
         moveVenari = {
             name = "Ve'nari",
             desc = "Items that are sold by Ve'nari",
             type = "toggle",
-            order = 180
+            order = 190
         },
 
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 190
+            order = 200
         },
 
 
