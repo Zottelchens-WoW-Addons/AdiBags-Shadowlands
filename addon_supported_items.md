@@ -154,6 +154,30 @@ All Shadowlands Rings
  * 184756 - Smoothed Loop of Contemplation
  * 184783 - Muirnne's Stormforged Signet
  * 184784 - Punishing Loop
+ * 185156 - Unchained Aspirant's Ring
+ * 185192 - Unchained Gladiator's Ring
+ * 185233 - Unchained Aspirant's Band
+ * 185241 - Unchained Aspirant's Signet
+ * 185273 - Unchained Gladiator's Band
+ * 185281 - Unchained Gladiator's Signet
+ * 185813 - Signet of Collapsing Stars
+ * 185840 - Seal of the Panoply
+ * 185894 - Attendant's Loop
+ * 185895 - Lost Wayfarer's Band
+ * 185903 - Soul-Seeker's Ring
+ * 185941 - Korthian Scholar's Signet
+ * 186145 - Stygian Thorn Loop
+ * 186153 - Foresworn Seal
+ * 186290 - Sworn Oath of the Nine
+ * 186375 - Miniature Breaking Wheel
+ * 186376 - Oscillating Ouroboros
+ * 186377 - Tarnished Insignia of Quel'Thalas
+ * 186450 - Crude Stygian Fastener
+ * 186629 - Sanngor's Spiked Band
+ * 186631 - Emberfused Band
+ * 187401 - Band of the Shaded Rift
+ * 187402 - All-Consuming Loop
+ * 187406 - Band of Blinding Shadows
 
 ## Trinkets (Disabled by default)
 
@@ -335,6 +359,47 @@ All Shadowlands Trinkets
  * 184840 - Hymnal of the Path
  * 184841 - Lyre of Sacred Purpose
  * 184842 - Instructor's Divine Bell
+ * 184873 - Soul Igniter (Test)
+ * 185161 - Unchained Aspirant's Badge of Ferocity
+ * 185197 - Unchained Gladiator's Badge of Ferocity
+ * 185238 - Unchained Aspirant's Insignia of Alacrity
+ * 185242 - Unchained Aspirant's Emblem
+ * 185278 - Unchained Gladiator's Insignia of Alacrity
+ * 185282 - Unchained Gladiator's Emblem
+ * 185304 - Unchained Gladiator's Medallion
+ * 185305 - Unchained Gladiator's Relentless Brooch
+ * 185306 - Unchained Gladiator's Sigil of Adaptation
+ * 185309 - Unchained Aspirant's Medallion
+ * 185310 - Unchained Aspirant's Relentless Brooch
+ * 185311 - Unchained Aspirant's Sigil of Adaptation
+ * 185818 - So'leah's Secret Technique
+ * 185836 - Codex of the First Technique
+ * 185844 - Ticking Sack of Terror
+ * 185845 - First Class Healing Distributor
+ * 185846 - Miniscule Mailemental in an Envelope
+ * 185902 - Iron Maiden's Toolkit
+ * 186155 - Harmonic Crowd Breaker
+ * 186156 - Tome of Insight
+ * 186421 - Forbidden Necromantic Tome
+ * 186422 - Tome of Monstrous Constructions
+ * 186423 - Titanic Ocular Gland
+ * 186424 - Shard of Annhylde's Aegis
+ * 186425 - Scrawled Word of Recall
+ * 186427 - Whispering Shard of Power
+ * 186428 - Shadowed Orb of Torment
+ * 186429 - Decanter of Endless Howling
+ * 186430 - Tormented Rack Fragment
+ * 186431 - Ebonsoul Vise
+ * 186432 - Salvaged Fusion Amplifier
+ * 186433 - Reactive Defense Matrix
+ * 186434 - Weave of Warped Fates
+ * 186435 - Carved Ivory Keepsake
+ * 186436 - Resonant Silver Bell
+ * 186437 - Relic of the Frozen Wastes
+ * 186438 - Old Warrior's Soul
+ * 186976 - Fine Razorwing Quill
+ * 186980 - Unchained Gladiator's Shackles
+ * 187447 - Soul Cage Fragment
 
 ## Upgradeable Items (Disabled by default)
 
