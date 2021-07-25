@@ -1735,7 +1735,6 @@ function setFilter:Filter(slotData)
             return i
         end
     end
-
 end
 
 function setFilter:GetOptions()
