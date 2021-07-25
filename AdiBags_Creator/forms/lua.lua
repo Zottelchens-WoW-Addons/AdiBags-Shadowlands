@@ -10,7 +10,6 @@ local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
 
 local L = addon.L
 local MatchIDs
-local Tooltip
 local Result = {}
 
 local function AddToSet(List)
@@ -40,19 +39,6 @@ local function MatchIDs_Init(self)
 --!!PH
 
 	return Result
-end
-
-local function Tooltip_Init()
-	local tip, leftside = CreateFrame("GameTooltip"), {}
-	for i = 1, 6 do
-		local Left, Right = tip:CreateFontString(), tip:CreateFontString()
-		Left:SetFontObject(GameFontNormal)
-		Right:SetFontObject(GameFontNormal)
-		tip:AddFontStrings(Left, Right)
-		leftside[i] = Left
-	end
-	tip.leftside = leftside
-	return tip
 end
 
 local setFilter = AdiBags:RegisterFilter("Shadowlands", 98, "ABEvent-1.0")
@@ -108,18 +94,6 @@ function setFilter:Filter(slotData)
 			return i
 		end
 	end
-	
-	Tooltip = Tooltip or Tooltip_Init()
-	Tooltip:SetOwner(UIParent,"ANCHOR_NONE")
-	Tooltip:ClearLines()
-	
-	if slotData.bag == BANK_CONTAINER then
-		Tooltip:SetInventoryItem("player", BankButtonIDToInvSlotID(slotData.slot, nil))
-	else
-		Tooltip:SetBagItem(slotData.bag, slotData.slot)
-	end
-	
-	Tooltip:Hide()
 end
 
 function setFilter:GetOptions()
