@@ -593,6 +593,20 @@ Items used to generate Cataloged Research
  * 187467 - Perplexing Rune-Cube
  * 187478 - White Razorwing Talon
 
+## Companion EXP 
+
+Items which grant EXP to Companions
+
+ * 184684 - Grimoire of Knowledge
+ * 184685 - Grimoire of Knowledge
+ * 184686 - Grimoire of Knowledge
+ * 184687 - Grimoire of Knowledge
+ * 184688 - Grimoire of Knowledge
+ * 186472 - Wisps of Memory
+ * 187413 - Crystalline Memory Repository
+ * 187414 - Fractal Thoughtbinder
+ * 187415 - Mind-Expanding Prism
+
 ## Conduits 
 
 Items used to unlock Conduits

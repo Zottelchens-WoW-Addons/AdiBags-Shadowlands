@@ -612,6 +612,19 @@ local CatalogedResearchIDs = {
 187478, -- White Razorwing Talon
 }
 
+ -- Companion EXP
+local CompanionEXPIDs = {
+184684, -- Grimoire of Knowledge
+184685, -- Grimoire of Knowledge
+184686, -- Grimoire of Knowledge
+184687, -- Grimoire of Knowledge
+184688, -- Grimoire of Knowledge
+186472, -- Wisps of Memory
+187413, -- Crystalline Memory Repository
+187414, -- Fractal Thoughtbinder
+187415, -- Mind-Expanding Prism
+}
+
  -- Conduits
 local ConduitsIDs = {
 180842, -- Stalwart Guardian
@@ -1561,6 +1574,14 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveCompanionEXP then
+        if self.db.profile.showcoloredCategories then
+            Result["|cff37ffeeCompanion EXP|r"] = AddToSet(CompanionEXPIDs)
+        else
+            Result[unescape("|cff37ffeeCompanion EXP|r")] = AddToSet(CompanionEXPIDs)
+        end
+    end
+
     if self.db.profile.moveConduits then
         if self.db.profile.showcoloredCategories then
             Result["|cff1d9e00Conduits|r"] = AddToSet(ConduitsIDs)
@@ -1678,6 +1699,7 @@ function setFilter:OnInitialize()
             moveAnima = true,
             moveAscendedCrafting = true,
             moveCatalogedResearch = true,
+            moveCompanionEXP = true,
             moveConduits = true,
             moveEmberCourt = true,
             moveLegendaryItems = true,
@@ -1795,88 +1817,95 @@ function setFilter:GetOptions()
             order = 80
         },
 
+        moveCompanionEXP = {
+            name = "Companion EXP",
+            desc = "Items which grant EXP to Companions",
+            type = "toggle",
+            order = 90
+        },
+
         moveConduits = {
             name = "Conduits",
             desc = "Items used to unlock Conduits",
             type = "toggle",
-            order = 90
+            order = 100
         },
 
         moveEmberCourt = {
             name = "Ember Court",
             desc = "Items used for the Ember Court (Venthyr)",
             type = "toggle",
-            order = 100
+            order = 110
         },
 
         moveLegendaryItems = {
             name = "Legendary Items",
             desc = "Runeforged Legendaries",
             type = "toggle",
-            order = 110
+            order = 120
         },
 
         moveLegendaryPowers = {
             name = "Legendary Powers",
             desc = "Items used to unlock Legendary Powers at the Runecarver",
             type = "toggle",
-            order = 120
+            order = 130
         },
 
         moveOutdoorItems = {
             name = "Outdoor Items",
             desc = "Items that can be found and used in Outdoor Shadowlands",
             type = "toggle",
-            order = 130
+            order = 140
         },
 
         moveQueensConservatory = {
             name = "Queen's Conservatory",
             desc = "Items used in the Queen's Conservatory (Night Fae Covenant)",
             type = "toggle",
-            order = 140
+            order = 150
         },
 
         moveRohSuir = {
             name = "Roh-Suir",
             desc = "Items that are sold by Archivist Roh-Suir",
             type = "toggle",
-            order = 150
+            order = 160
         },
 
         moveRuneVessel = {
             name = "Rune Vessel",
             desc = "Items used to craft Legendaries",
             type = "toggle",
-            order = 160
+            order = 170
         },
 
         moveShardsofDomination = {
             name = "Shards of Domination",
             desc = "Shards of Domination are special upgradable gems with unique bonuses",
             type = "toggle",
-            order = 170
+            order = 180
         },
 
         moveSinstones = {
             name = "Sinstones",
             desc = "Sinstones used by the Avowed faction",
             type = "toggle",
-            order = 180
+            order = 190
         },
 
         moveVenari = {
             name = "Ve'nari",
             desc = "Items that are sold by Ve'nari",
             type = "toggle",
-            order = 190
+            order = 200
         },
 
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 200
+            order = 210
         },
 
 

@@ -1,0 +1,12 @@
+!Items which grant EXP to Companions
+#Items which grant EXP to Companions
+$37FFEE
+184684
+184685
+184686
+184687
+184688
+186472
+187413
+187414
+187415
