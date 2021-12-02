@@ -623,9 +623,9 @@ local CompanionEXPIDs = {
 187413, -- Crystalline Memory Repository
 187414, -- Fractal Thoughtbinder
 187415, -- Mind-Expanding Prism
-188655, -- Crystalline Memory Repository (Blizzard Account Bound)
-188656, -- Fractal Thoughtbinder (Blizzard Account Bound)
-188657, -- Mind-Expanding Prism (Blizzard Account Bound)
+188655, -- Crystalline Memory Repository
+188656, -- Fractal Thoughtbinder
+188657, -- Mind-Expanding Prism
 }
 
  -- Conduits
