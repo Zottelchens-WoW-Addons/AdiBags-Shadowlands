@@ -416,6 +416,7 @@ Items used for Abominable Stitching (Necrolord Covenant)
  * 181797 - Strange Cloth
  * 181798 - Stuffed Construct
  * 181799 - Extra Large Hat
+ * 183475 - Indomitable Hide
  * 183519 - Necromantic Oil
  * 183743 - Malleable Flesh
  * 183744 - Superior Parts
