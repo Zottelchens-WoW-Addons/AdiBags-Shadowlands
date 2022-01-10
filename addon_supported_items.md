@@ -607,6 +607,11 @@ Items which grant EXP to Companions
  * 187413 - Crystalline Memory Repository
  * 187414 - Fractal Thoughtbinder
  * 187415 - Mind-Expanding Prism
+ * 188650 - Grimoire of Knowledge
+ * 188651 - Grimoire of Knowledge
+ * 188652 - Grimoire of Knowledge
+ * 188653 - Grimoire of Knowledge
+ * 188654 - Grimoire of Knowledge
  * 188655 - Crystalline Memory Repository
  * 188656 - Fractal Thoughtbinder
  * 188657 - Mind-Expanding Prism
