@@ -470,6 +470,7 @@ local AbominableStitchingIDs = {
 184205, -- Long Lost Crown
 184224, -- Dapperling Seeds
 184225, -- Small Posable Skeleton
+184304, -- Anima-Touched Weapon Fragments
 }
 
  -- Anima
