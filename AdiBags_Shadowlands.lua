@@ -61,6 +61,7 @@ local FoodIDs = {
 
  -- Rings
 local RingsIDs = {
+169806, -- Lucky Ring
 173131, -- Versatile Solenium Ring
 173132, -- Masterful Phaedrum Ring
 173133, -- Quick Oxxein Ring
@@ -153,9 +154,14 @@ local RingsIDs = {
 178870, -- Ritual Bone Band
 178871, -- Bloodoath Signet
 178872, -- Ring of Perpetual Conflict
+178926, -- Shadowghast Ring
 178933, -- Arachnid Cipher Ring
 179355, -- Death God's Signet
+180214, -- Venthyr Ring
 180349, -- Nethrezim Acolyte's Band
+180350, -- Simple Stone Loop
+180351, -- Worn Ring of Piety
+180352, -- Cracked Inquisitor's Band
 180855, -- Competitor's Signet
 181217, -- Dominance Guard's Band
 181218, -- Chalice Noble's Signet
@@ -167,6 +173,8 @@ local RingsIDs = {
 183036, -- Most Regal Signet of Sire Denathrius
 183037, -- Ritualist's Treasured Ring
 183038, -- Hyperlight Band
+183149, -- Heirloom Ring
+183159, -- Heirloom Ring
 183631, -- Ring of Carnelian and Sinew
 183659, -- Annhylde's Band
 183673, -- Nerubian Aegis Ring
@@ -203,9 +211,46 @@ local RingsIDs = {
 186450, -- Crude Stygian Fastener
 186629, -- Sanngor's Spiked Band
 186631, -- Emberfused Band
+186784, -- Cosmic Gladiator's Ring
+186785, -- Cosmic Gladiator's Band
+186786, -- Cosmic Gladiator's Signet
+186901, -- Cosmic Aspirant's Ring
+186937, -- Cosmic Aspirant's Band
+186945, -- Cosmic Aspirant's Signet
 187401, -- Band of the Shaded Rift
 187402, -- All-Consuming Loop
 187406, -- Band of Blinding Shadows
+188044, -- Discarded Cartel Al Signet
+188045, -- Salvaged Viperid Band
+188053, -- Abandoned Automa Loop
+188055, -- Impossibly Ancient Band
+188112, -- Cypher Attunement Ring
+188297, -- Signet of Repose
+188343, -- Ring of the Shadow Deeps
+188344, -- Weathered Band of the Swamplord
+188357, -- Ring of Fabled Hope
+188365, -- Eye of the Stalker
+188379, -- Ring of Umbral Doom
+188382, -- Arcane Netherband
+188408, -- Signet of Arachnathid Command
+188419, -- Ring of the Traitor King
+188446, -- Unsmashable Heavy Band
+188451, -- Annhylde's Ring
+188472, -- Spiteful Signet
+188494, -- Signet of Transformation
+188502, -- Kibble
+188505, -- Skullcracker Ring
+189772, -- Modified Defense Grid
+189802, -- Loquacious Keeper's Peridot
+189833, -- Taciturn Keeper's Lapis
+189839, -- Soulwarped Seal of Wrynn
+189841, -- Soulwarped Seal of Menethil
+189854, -- Rygelon's Heraldric Ring
+190632, -- Cypher-Etched Ring
+190633, -- Cypher-Etched Band
+190729, -- Vigorous Sentinel's Seal
+190730, -- Matriarch's Shell Band
+190731, -- Deceiver's Illusionary Signet
 }
 
  -- Trinkets
