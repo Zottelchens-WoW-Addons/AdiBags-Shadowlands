@@ -396,6 +396,8 @@ local TrinketsIDs = {
 182454, -- Murmurs in the Dark
 182455, -- Dreamer's Mending
 182682, -- Book-Borrower Identification
+183150, -- Heirloom Trinket
+183160, -- Heirloom Trinket
 183650, -- Miniscule Abomination in a Jar
 183849, -- Soulsifter Root
 183850, -- Wakener's Frond
@@ -425,6 +427,8 @@ local TrinketsIDs = {
 184058, -- Corrupted Aspirant's Medallion
 184059, -- Corrupted Aspirant's Relentless Brooch
 184060, -- Corrupted Aspirant's Sigil of Adaptation
+184268, -- Gladiator's Emblem
+184269, -- Gladiator's Medallion
 184279, -- Siphoning Blood-Drinker
 184807, -- Relic of the First Ones
 184839, -- Misfiring Centurion Controller
@@ -469,9 +473,62 @@ local TrinketsIDs = {
 186436, -- Resonant Silver Bell
 186437, -- Relic of the Frozen Wastes
 186438, -- Old Warrior's Soul
+186866, -- Cosmic Gladiator's Badge of Ferocity
+186867, -- Cosmic Gladiator's Insignia of Alacrity
+186868, -- Cosmic Gladiator's Emblem
+186869, -- Cosmic Gladiator's Medallion
+186870, -- Cosmic Gladiator's Relentless Brooch
+186871, -- Cosmic Gladiator's Sigil of Adaptation
+186906, -- Cosmic Aspirant's Badge of Ferocity
+186942, -- Cosmic Aspirant's Insignia of Alacrity
+186946, -- Cosmic Aspirant's Emblem
+186966, -- Cosmic Aspirant's Medallion
+186967, -- Cosmic Aspirant's Relentless Brooch
+186968, -- Cosmic Aspirant's Sigil of Adaptation
 186976, -- Fine Razorwing Quill
 186980, -- Unchained Gladiator's Shackles
 187447, -- Soul Cage Fragment
+188252, -- Chains of Domination
+188253, -- Scars of Fraternal Strife
+188254, -- Grim Eclipse
+188255, -- Heart of the Swarm
+188261, -- Intrusive Thoughtcage
+188262, -- The Lion's Roar
+188263, -- Reclaimer's Intensity Core
+188264, -- Earthbreaker's Impact
+188265, -- Cache of Acquired Treasures
+188266, -- Pulsating Riftshard
+188267, -- Bells of the Endless Feast
+188268, -- Architect's Ingenuity Core
+188269, -- Pocket Protoforge
+188270, -- Elegy of the Eternals
+188271, -- The First Sigil
+188272, -- Resonant Reservoir
+188273, -- Auxillary Attendant Chime
+188282, -- Auslese's Light Channeler
+188309, -- Icon of Unyielding Courage
+188352, -- Argussian Compass
+188359, -- Alembic of Infernal Power
+188396, -- Bangle of Endless Blessings
+188415, -- Essence of Gossamer
+188478, -- Needle-Encrusted Scorpion
+188490, -- Grace of the Herald
+188514, -- Witching Hourglass
+188524, -- Cosmic Gladiator's Fastidious Resolve
+188691, -- Cosmic Gladiator's Echoing Resolve
+188766, -- Cosmic Gladiator's Resonator
+188775, -- Cosmic Gladiator's Eternal Aegis
+188778, -- Cosmic Gladiator's Devouring Malediction
+190374, -- Gemstone of Prismatic Brilliance
+190389, -- Broker's Lucky Coin
+190390, -- Protector's Diffusion Implement
+190582, -- Symbol of the Vombata
+190597, -- Symbol of the Lupine
+190602, -- Symbol of the Raptora
+190641, -- Instructor's Divine Bell
+190652, -- Ticking Sack of Terror
+190726, -- Extract of Prodigious Sands
+190958, -- So'leah's Secret Technique
 }
 
  -- Upgradeable Items

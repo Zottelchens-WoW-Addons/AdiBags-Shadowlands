@@ -1,6 +1,7 @@
 import os
 import sqlite3
 from glob import glob
+from json import JSONDecodeError
 from pathlib import Path
 
 import requests
@@ -67,6 +68,9 @@ def get_item_name(itemid, access_token):
             c.execute("INSERT INTO itemnames (id, name) VALUES (?, ?);", (itemid, item_name))
             db.commit()
         except KeyError as e:
+            print("Error at ID", itemid, ":", str(e), '\nJSON:', r.text)
+            item_name = 'ERROR'
+        except JSONDecodeError as e:
             print("Error at ID", itemid, ":", str(e), '\nJSON:', r.text)
             item_name = 'ERROR'
     return item_name
