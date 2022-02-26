@@ -53,6 +53,10 @@ local FoodIDs = {
 184624, -- Extra Sugary Fish Feast
 184682, -- Extra Lemony Herb Filet
 184690, -- Extra Fancy Darkmoon Feast
+186704, -- Twilight Tea
+186725, -- Bonemeal Bread
+186726, -- Porous Rock Candy
+187648, -- Empty Kettle of Stone Soup
 }
 
  -- Rings
