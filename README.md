@@ -23,4 +23,9 @@
 * Upgradeable Items [Valor/Korthian/Covenant Armor] (disabled by default)
 * Companion EXP Tokens
 
-If anything is missing, please write a comment or [open an issue](https://github.com/Zottelchen/adibags-shadowlands/issues).
+**New in 9.2 (Addon version 1.4.0 and up):**
+
+* Zereth Mortis
+* Protoform Synthesis
+
+If anything is missing (or misplaced), please write a comment or [open an issue](https://github.com/Zottelchen/adibags-shadowlands/issues).
