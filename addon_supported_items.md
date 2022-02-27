@@ -654,6 +654,9 @@ Items used to gain Anima
  * 187433 - Windcrystal Chimes
  * 187434 - Lightseed Sapling
  * 187517 - Animaswell Prism
+ * 189544 - Anima Webbing
+ * 189864 - Anima Gossamer
+ * 189865 - Anima Matrix
 
 ## Ascended Crafting 
 
