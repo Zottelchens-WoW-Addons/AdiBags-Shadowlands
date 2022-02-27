@@ -3,7 +3,7 @@ import sqlite3
 from glob import glob
 from json import JSONDecodeError
 from pathlib import Path
-
+from colorama import Fore
 import requests
 
 import blizzauth
@@ -61,17 +61,16 @@ def get_item_name(itemid, access_token):
         record = c.fetchone()
         item_name = record[1]
     else:
-        # https://eu.api.blizzard.com/data/wow/item/19019?namespace=static-us&locale=en_GB&access_token=USPG9Vwd4iFxbiybTTrHhVa1r437EXYESp
         r = requests.get("https://us.api.blizzard.com/data/wow/item/" + itemid + "?namespace=static-us&locale=en_us&access_token=" + access_token)
         try:
             item_name = r.json()["name"]
             c.execute("INSERT INTO itemnames (id, name) VALUES (?, ?);", (itemid, item_name))
             db.commit()
         except KeyError as e:
-            print("Error at ID", itemid, ":", str(e), '\nJSON:', r.text)
+            print(f"{Fore.RED}KeyError at ID {itemid}: {e}\t||\tJSON: {r.text}{Fore.RESET}")
             item_name = 'ERROR'
         except JSONDecodeError as e:
-            print("Error at ID", itemid, ":", str(e), '\nJSON:', r.text)
+            print(f"{Fore.RED}JSONDecodeError at ID {itemid}: {e}\t||\tJSON: {r.text}{Fore.RESET}")
             item_name = 'ERROR'
     return item_name
 

@@ -1440,6 +1440,47 @@ local OutdoorItemsIDs = {
 184719, -- Enchanted Map of Infused Ruby Network
 }
 
+ -- Protoform Synthesis
+local ProtoformSynthesisIDs = {
+187633, -- Bufonid Lattice
+187634, -- Ambystan Lattice
+187635, -- Cervid Lattice
+187636, -- Aurelid Lattice
+188957, -- Genesis Mote
+189145, -- Helicid Lattice
+189146, -- Geomental Lattice
+189147, -- Leporid Lattice
+189148, -- Poultrid Lattice
+189149, -- Proto Avian Lattice
+189150, -- Raptora Lattice
+189151, -- Scarabid Lattice
+189152, -- Tarachnid Lattice
+189153, -- Unformed Lattice
+189154, -- Vespoid Lattice
+189155, -- Viperid Lattice
+189156, -- Vombata Lattice
+189157, -- Glimmer of Animation
+189159, -- Glimmer of Discovery
+189161, -- Glimmer of Malice
+189162, -- Glimmer of Metamorphosis
+189163, -- Glimmer of Motion
+189164, -- Glimmer of Multiplicity
+189165, -- Glimmer of Predation
+189166, -- Glimmer of Renewal
+189168, -- Glimmer of Serenity
+189169, -- Glimmer of Survival
+189170, -- Glimmer of Vigilance
+189172, -- Crystallized Echo of the First Song
+189173, -- Eternal Ragepearl
+189176, -- Protoform Sentience Crown
+189177, -- Revelation Key
+189180, -- Wind's Infinite Call
+189499, -- Protoform Catalyst
+189500, -- Cervid Lattice
+189501, -- Protoform Tool
+190388, -- Lupine Lattice
+}
+
  -- Queen's Conservatory
 local QueensConservatoryIDs = {
 176832, -- Wildseed Root Grain
@@ -1617,6 +1658,26 @@ local VenariIDs = {
 184664, -- Sticky-Fingered Skeletal Hand
 }
 
+ -- Zereth Mortis
+local ZerethMortisIDs = {
+187707, -- Progenitor Essentia
+188787, -- Locked Broker Luggage
+189575, -- Firim in Exile, Part 1
+189576, -- Firim in Exile, Part 2
+189578, -- Firim in Exile, Part 3
+189579, -- Firim in Exile, Part 4
+189580, -- Firim in Exile, Part 5
+189581, -- Firim in Exile, Part 6
+189582, -- Firim in Exile, Part 7
+189704, -- Dominance Key
+189753, -- Firim in Exile, Epilogue
+189863, -- Spatial Opener
+190189, -- Sandworn Relic
+190198, -- Sandworn Chest Key Fragment
+190738, -- Bouncing Bufonids
+190739, -- Provis Wax
+}
+
 
 
 local function MatchIDs_Init(self)
@@ -1742,6 +1803,14 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveProtoformSynthesis then
+        if self.db.profile.showcoloredCategories then
+            Result["|cff37b2ffProtoform Synthesis|r"] = AddToSet(ProtoformSynthesisIDs)
+        else
+            Result[unescape("|cff37b2ffProtoform Synthesis|r")] = AddToSet(ProtoformSynthesisIDs)
+        end
+    end
+
     if self.db.profile.moveQueensConservatory then
         if self.db.profile.showcoloredCategories then
             Result["|cff37b2ffQueen's Conservatory|r"] = AddToSet(QueensConservatoryIDs)
@@ -1794,6 +1863,14 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveZerethMortis then
+        if self.db.profile.showcoloredCategories then
+            Result["|cfff5f5dcZereth Mortis|r"] = AddToSet(ZerethMortisIDs)
+        else
+            Result[unescape("|cfff5f5dcZereth Mortis|r")] = AddToSet(ZerethMortisIDs)
+        end
+    end
+
 
 
     return Result
@@ -1821,12 +1898,14 @@ function setFilter:OnInitialize()
             moveLegendaryItems = true,
             moveLegendaryPowers = true,
             moveOutdoorItems = true,
+            moveProtoformSynthesis = true,
             moveQueensConservatory = true,
             moveRohSuir = true,
             moveRuneVessel = true,
             moveShardsofDomination = true,
             moveSinstones = true,
             moveVenari = true,
+            moveZerethMortis = true,
             showcoloredCategories = true,
         }
     })
@@ -1975,53 +2054,67 @@ function setFilter:GetOptions()
             order = 140
         },
 
+        moveProtoformSynthesis = {
+            name = "Protoform Synthesis",
+            desc = "Items used in Protoform Synthesis",
+            type = "toggle",
+            order = 150
+        },
+
         moveQueensConservatory = {
             name = "Queen's Conservatory",
             desc = "Items used in the Queen's Conservatory (Night Fae Covenant)",
             type = "toggle",
-            order = 150
+            order = 160
         },
 
         moveRohSuir = {
             name = "Roh-Suir",
             desc = "Items that are sold by Archivist Roh-Suir",
             type = "toggle",
-            order = 160
+            order = 170
         },
 
         moveRuneVessel = {
             name = "Rune Vessel",
             desc = "Items used to craft Legendaries",
             type = "toggle",
-            order = 170
+            order = 180
         },
 
         moveShardsofDomination = {
             name = "Shards of Domination",
             desc = "Shards of Domination are special upgradable gems with unique bonuses",
             type = "toggle",
-            order = 180
+            order = 190
         },
 
         moveSinstones = {
             name = "Sinstones",
             desc = "Sinstones used by the Avowed faction",
             type = "toggle",
-            order = 190
+            order = 200
         },
 
         moveVenari = {
             name = "Ve'nari",
             desc = "Items that are sold by Ve'nari",
             type = "toggle",
-            order = 200
+            order = 210
+        },
+
+        moveZerethMortis = {
+            name = "Zereth Mortis",
+            desc = "Items relating to Zereth Mortis",
+            type = "toggle",
+            order = 220
         },
 
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 210
+            order = 230
         },
 
 

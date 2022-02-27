@@ -1427,6 +1427,48 @@ Items that can be found and used in Outdoor Shadowlands (usually have a duration
  * 184586 - Sky Chain
  * 184719 - Enchanted Map of Infused Ruby Network
 
+## Protoform Synthesis 
+
+Items used in Protoform Synthesis
+
+ * 187633 - Bufonid Lattice
+ * 187634 - Ambystan Lattice
+ * 187635 - Cervid Lattice
+ * 187636 - Aurelid Lattice
+ * 188957 - Genesis Mote
+ * 189145 - Helicid Lattice
+ * 189146 - Geomental Lattice
+ * 189147 - Leporid Lattice
+ * 189148 - Poultrid Lattice
+ * 189149 - Proto Avian Lattice
+ * 189150 - Raptora Lattice
+ * 189151 - Scarabid Lattice
+ * 189152 - Tarachnid Lattice
+ * 189153 - Unformed Lattice
+ * 189154 - Vespoid Lattice
+ * 189155 - Viperid Lattice
+ * 189156 - Vombata Lattice
+ * 189157 - Glimmer of Animation
+ * 189159 - Glimmer of Discovery
+ * 189161 - Glimmer of Malice
+ * 189162 - Glimmer of Metamorphosis
+ * 189163 - Glimmer of Motion
+ * 189164 - Glimmer of Multiplicity
+ * 189165 - Glimmer of Predation
+ * 189166 - Glimmer of Renewal
+ * 189168 - Glimmer of Serenity
+ * 189169 - Glimmer of Survival
+ * 189170 - Glimmer of Vigilance
+ * 189172 - Crystallized Echo of the First Song
+ * 189173 - Eternal Ragepearl
+ * 189176 - Protoform Sentience Crown
+ * 189177 - Revelation Key
+ * 189180 - Wind's Infinite Call
+ * 189499 - Protoform Catalyst
+ * 189500 - Cervid Lattice
+ * 189501 - Protoform Tool
+ * 190388 - Lupine Lattice
+
 ## Queen's Conservatory 
 
 Items used in the Queen's Conservatory (Night Fae Covenant)
@@ -1609,4 +1651,25 @@ Items that are sold by Ve'nari
  * 184652 - Phantasmic Infuser
  * 184653 - Animated Levitating Chain
  * 184664 - Sticky-Fingered Skeletal Hand
+
+## Zereth Mortis 
+
+Items relating to Zereth Mortis
+
+ * 187707 - Progenitor Essentia
+ * 188787 - Locked Broker Luggage
+ * 189575 - Firim in Exile, Part 1
+ * 189576 - Firim in Exile, Part 2
+ * 189578 - Firim in Exile, Part 3
+ * 189579 - Firim in Exile, Part 4
+ * 189580 - Firim in Exile, Part 5
+ * 189581 - Firim in Exile, Part 6
+ * 189582 - Firim in Exile, Part 7
+ * 189704 - Dominance Key
+ * 189753 - Firim in Exile, Epilogue
+ * 189863 - Spatial Opener
+ * 190189 - Sandworn Relic
+ * 190198 - Sandworn Chest Key Fragment
+ * 190738 - Bouncing Bufonids
+ * 190739 - Provis Wax
 
