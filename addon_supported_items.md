@@ -1453,6 +1453,7 @@ Items used in Protoform Synthesis
  * 189156 - Vombata Lattice
  * 189157 - Glimmer of Animation
  * 189159 - Glimmer of Discovery
+ * 189160 - Glimmer of Focus
  * 189161 - Glimmer of Malice
  * 189162 - Glimmer of Metamorphosis
  * 189163 - Glimmer of Motion
