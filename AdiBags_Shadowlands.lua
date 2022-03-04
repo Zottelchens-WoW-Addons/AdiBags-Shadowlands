@@ -1524,6 +1524,8 @@ local RareProtoMaterialIDs = {
 187892, -- Incorporeal Sand
 187893, -- Volatile Precursor
 187894, -- Energized Firmament
+190128, -- Wayward Essence
+190129, -- Serene Pigment
 }
 
  -- Roh-Suir
