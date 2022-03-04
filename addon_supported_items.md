@@ -1429,6 +1429,9 @@ Items that can be found and used in Outdoor Shadowlands (usually have a duration
  * 184485 - Mawforged Key
  * 184586 - Sky Chain
  * 184719 - Enchanted Map of Infused Ruby Network
+ * 187865 - Spiked Protomesh
+ * 187866 - Accelerating Tendons
+ * 187867 - Evolved Exo-mucus
 
 ## Protoform Synthesis 
 
