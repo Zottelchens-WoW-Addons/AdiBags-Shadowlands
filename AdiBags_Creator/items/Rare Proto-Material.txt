@@ -1,0 +1,10 @@
+!Rare Proto Materials used for the Achievement: Traversing the Spheres
+#Rare Proto Materials used for the Achievement: Traversing the Spheres
+$F1E83E
+187879
+187885
+187889
+187891
+187892
+187893
+187894

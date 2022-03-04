@@ -1512,6 +1512,17 @@ local QueensConservatoryIDs = {
 184779, -- Temporal Leaves
 }
 
+ -- Rare Proto-Material
+local RareProtoMaterialIDs = {
+187879, -- Pollinated Extraction
+187885, -- Honeycombed Lattice
+187889, -- Unstable Agitant
+187891, -- Empyrean Essence
+187892, -- Incorporeal Sand
+187893, -- Volatile Precursor
+187894, -- Energized Firmament
+}
+
  -- Roh-Suir
 local RohSuirIDs = {
 185636, -- The Archivists' Codex
@@ -1823,6 +1834,14 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveRareProtoMaterial then
+        if self.db.profile.showcoloredCategories then
+            Result["|cfff1e83eRare Proto-Material|r"] = AddToSet(RareProtoMaterialIDs)
+        else
+            Result[unescape("|cfff1e83eRare Proto-Material|r")] = AddToSet(RareProtoMaterialIDs)
+        end
+    end
+
     if self.db.profile.moveRohSuir then
         if self.db.profile.showcoloredCategories then
             Result["|cff780075Roh-Suir|r"] = AddToSet(RohSuirIDs)
@@ -1904,6 +1923,7 @@ function setFilter:OnInitialize()
             moveOutdoorItems = true,
             moveProtoformSynthesis = true,
             moveQueensConservatory = true,
+            moveRareProtoMaterial = true,
             moveRohSuir = true,
             moveRuneVessel = true,
             moveShardsofDomination = true,
@@ -2072,53 +2092,60 @@ function setFilter:GetOptions()
             order = 160
         },
 
+        moveRareProtoMaterial = {
+            name = "Rare Proto-Material",
+            desc = "Rare Proto Materials used for the Achievement: Traversing the Spheres",
+            type = "toggle",
+            order = 170
+        },
+
         moveRohSuir = {
             name = "Roh-Suir",
             desc = "Items that are sold by Archivist Roh-Suir",
             type = "toggle",
-            order = 170
+            order = 180
         },
 
         moveRuneVessel = {
             name = "Rune Vessel",
             desc = "Items used to craft Legendaries",
             type = "toggle",
-            order = 180
+            order = 190
         },
 
         moveShardsofDomination = {
             name = "Shards of Domination",
             desc = "Shards of Domination are special upgradable gems with unique bonuses",
             type = "toggle",
-            order = 190
+            order = 200
         },
 
         moveSinstones = {
             name = "Sinstones",
             desc = "Sinstones used by the Avowed faction",
             type = "toggle",
-            order = 200
+            order = 210
         },
 
         moveVenari = {
             name = "Ve'nari",
             desc = "Items that are sold by Ve'nari",
             type = "toggle",
-            order = 210
+            order = 220
         },
 
         moveZerethMortis = {
             name = "Zereth Mortis",
             desc = "Items relating to Zereth Mortis",
             type = "toggle",
-            order = 220
+            order = 230
         },
 
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 230
+            order = 240
         },
 
 

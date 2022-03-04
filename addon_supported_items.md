@@ -1501,6 +1501,18 @@ Items used in the Queen's Conservatory (Night Fae Covenant)
  * 183806 - Energetic Spirit of Curiosity
  * 184779 - Temporal Leaves
 
+## Rare Proto-Material 
+
+Rare Proto Materials used for the Achievement: Traversing the Spheres
+
+ * 187879 - Pollinated Extraction
+ * 187885 - Honeycombed Lattice
+ * 187889 - Unstable Agitant
+ * 187891 - Empyrean Essence
+ * 187892 - Incorporeal Sand
+ * 187893 - Volatile Precursor
+ * 187894 - Energized Firmament
+
 ## Roh-Suir 
 
 Items that are sold by Archivist Roh-Suir
