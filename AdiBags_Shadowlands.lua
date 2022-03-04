@@ -1679,6 +1679,10 @@ local VenariIDs = {
  -- Zereth Mortis
 local ZerethMortisIDs = {
 187707, -- Progenitor Essentia
+187728, -- Ephemera Strands
+187790, -- Trace Enigmet
+187791, -- ERROR
+187908, -- Firim's Spare Forge-tap
 188787, -- Locked Broker Luggage
 189575, -- Firim in Exile, Part 1
 189576, -- Firim in Exile, Part 2
@@ -1691,6 +1695,7 @@ local ZerethMortisIDs = {
 189753, -- Firim in Exile, Epilogue
 189863, -- Spatial Opener
 190189, -- Sandworn Relic
+190197, -- Sandworn Chest Key
 190198, -- Sandworn Chest Key Fragment
 190738, -- Bouncing Bufonids
 190739, -- Provis Wax
