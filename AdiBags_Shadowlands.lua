@@ -723,6 +723,30 @@ local CatalogedResearchIDs = {
 187478, -- White Razorwing Talon
 }
 
+ -- Class Set Tokens
+local ClassSetTokensIDs = {
+191002, -- Mystic Helm Module
+191003, -- Venerated Helm Module
+191004, -- Zenith Helm Module
+191005, -- Dreadful Helm Module
+191006, -- Dreadful Shoulder Module
+191007, -- Mystic Shoulder Module
+191008, -- Venerated Shoulder Module
+191009, -- Zenith Shoulder Module
+191010, -- Dreadful Chest Module
+191011, -- Mystic Chest Module
+191012, -- Venerated Chest Module
+191013, -- Zenith Chest Module
+191014, -- Dreadful Hand Module
+191015, -- Mystic Hand Module
+191016, -- Venerated Hand Module
+191017, -- Zenith Hand Module
+191018, -- Dreadful Leg Module
+191019, -- Mystic Leg Module
+191020, -- Venerated Leg Module
+191021, -- Zenith Leg Module
+}
+
  -- Companion EXP
 local CompanionEXPIDs = {
 184684, -- Grimoire of Knowledge
@@ -1776,6 +1800,14 @@ local function MatchIDs_Init(self)
         end
     end
 
+    if self.db.profile.moveClassSetTokens then
+        if self.db.profile.showcoloredCategories then
+            Result["|cffa335eeClass Set Tokens|r"] = AddToSet(ClassSetTokensIDs)
+        else
+            Result[unescape("|cffa335eeClass Set Tokens|r")] = AddToSet(ClassSetTokensIDs)
+        end
+    end
+
     if self.db.profile.moveCompanionEXP then
         if self.db.profile.showcoloredCategories then
             Result["|cff37ffeeCompanion EXP|r"] = AddToSet(CompanionEXPIDs)
@@ -1925,6 +1957,7 @@ function setFilter:OnInitialize()
             moveAnima = true,
             moveAscendedCrafting = true,
             moveCatalogedResearch = true,
+            moveClassSetTokens = true,
             moveCompanionEXP = true,
             moveConduits = true,
             moveEmberCourt = true,
@@ -2046,116 +2079,123 @@ function setFilter:GetOptions()
             order = 80
         },
 
+        moveClassSetTokens = {
+            name = "Class Set Tokens",
+            desc = "Items used for Crafting of class sets (The tokens for these class items drop from raid bosses in the Sepulcher of the First Ones.)",
+            type = "toggle",
+            order = 90
+        },
+
         moveCompanionEXP = {
             name = "Companion EXP",
             desc = "Items which grant EXP to Companions",
             type = "toggle",
-            order = 90
+            order = 100
         },
 
         moveConduits = {
             name = "Conduits",
             desc = "Items used to unlock Conduits",
             type = "toggle",
-            order = 100
+            order = 110
         },
 
         moveEmberCourt = {
             name = "Ember Court",
             desc = "Items used for the Ember Court (Venthyr)",
             type = "toggle",
-            order = 110
+            order = 120
         },
 
         moveLegendaryItems = {
             name = "Legendary Items",
             desc = "Runeforged Legendaries",
             type = "toggle",
-            order = 120
+            order = 130
         },
 
         moveLegendaryPowers = {
             name = "Legendary Powers",
             desc = "Items used to unlock Legendary Powers at the Runecarver",
             type = "toggle",
-            order = 130
+            order = 140
         },
 
         moveOutdoorItems = {
             name = "Outdoor Items",
             desc = "Items that can be found and used in Outdoor Shadowlands",
             type = "toggle",
-            order = 140
+            order = 150
         },
 
         moveProtoformSynthesis = {
             name = "Protoform Synthesis",
             desc = "Items used in Protoform Synthesis",
             type = "toggle",
-            order = 150
+            order = 160
         },
 
         moveQueensConservatory = {
             name = "Queen's Conservatory",
             desc = "Items used in the Queen's Conservatory (Night Fae Covenant)",
             type = "toggle",
-            order = 160
+            order = 170
         },
 
         moveRareProtoMaterial = {
             name = "Rare Proto-Material",
             desc = "Rare Proto Materials used for the Achievement: Traversing the Spheres",
             type = "toggle",
-            order = 170
+            order = 180
         },
 
         moveRohSuir = {
             name = "Roh-Suir",
             desc = "Items that are sold by Archivist Roh-Suir",
             type = "toggle",
-            order = 180
+            order = 190
         },
 
         moveRuneVessel = {
             name = "Rune Vessel",
             desc = "Items used to craft Legendaries",
             type = "toggle",
-            order = 190
+            order = 200
         },
 
         moveShardsofDomination = {
             name = "Shards of Domination",
             desc = "Shards of Domination are special upgradable gems with unique bonuses",
             type = "toggle",
-            order = 200
+            order = 210
         },
 
         moveSinstones = {
             name = "Sinstones",
             desc = "Sinstones used by the Avowed faction",
             type = "toggle",
-            order = 210
+            order = 220
         },
 
         moveVenari = {
             name = "Ve'nari",
             desc = "Items that are sold by Ve'nari",
             type = "toggle",
-            order = 220
+            order = 230
         },
 
         moveZerethMortis = {
             name = "Zereth Mortis",
             desc = "Items relating to Zereth Mortis",
             type = "toggle",
-            order = 230
+            order = 240
         },
 
         showcoloredCategories = {
             name = "|cffff98abC|cffffa094o|cffffa77el|cffffaf67o|cfffebf71r|cfffecf7be|cfffddf85d|cffe0d988 |cffc3d38bC|cffa6cd8ea|cff9bccaet|cff8fcbcde|cff95bad2g|cff9aa9d7o|cffa098dcr|cffae98dci|cffbd98dce|cffcb98dcs|r",
             desc = "Should Categories be colored?",
             type = "toggle",
-            order = 240
+            order = 250
         },
 
 

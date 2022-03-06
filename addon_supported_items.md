@@ -704,6 +704,31 @@ Items used to generate Cataloged Research
  * 187467 - Perplexing Rune-Cube
  * 187478 - White Razorwing Talon
 
+## Class Set Tokens 
+
+Items used for Crafting of class sets (The tokens for these class items drop from raid bosses in the Sepulcher of the First Ones.)
+
+ * 191002 - Mystic Helm Module
+ * 191003 - Venerated Helm Module
+ * 191004 - Zenith Helm Module
+ * 191005 - Dreadful Helm Module
+ * 191006 - Dreadful Shoulder Module
+ * 191007 - Mystic Shoulder Module
+ * 191008 - Venerated Shoulder Module
+ * 191009 - Zenith Shoulder Module
+ * 191010 - Dreadful Chest Module
+ * 191011 - Mystic Chest Module
+ * 191012 - Venerated Chest Module
+ * 191013 - Zenith Chest Module
+ * 191014 - Dreadful Hand Module
+ * 191015 - Mystic Hand Module
+ * 191016 - Venerated Hand Module
+ * 191017 - Zenith Hand Module
+ * 191018 - Dreadful Leg Module
+ * 191019 - Mystic Leg Module
+ * 191020 - Venerated Leg Module
+ * 191021 - Zenith Leg Module
+
 ## Companion EXP 
 
 Items which grant EXP to Companions

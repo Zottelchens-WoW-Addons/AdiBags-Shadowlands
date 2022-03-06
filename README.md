@@ -28,5 +28,6 @@
 * Zereth Mortis
 * Protoform Synthesis
 * Rare Proto Material (1.4.1 and up)
+* Class Set Tokens (1.4.3 and up)
 
 If anything is missing (or misplaced), please write a comment or [open an issue](https://github.com/Zottelchen/adibags-shadowlands/issues).
