@@ -1674,6 +1674,47 @@ Sinstones used by the Avowed faction
  * 173008 - Grand Inquisitor Aurica's Sinstone
  * 180451 - Grand Inquisitor's Sinstone Fragment
 
+## Special Cypher Equipment 
+
+Special Cypher Equipment are special pieces of gear you obtain on Zereth Mortis that have passive or active abilities; these are worth keeping
+
+ * 190742 - Dimensional Enigmatic Footguards
+ * 190743 - Recreative Enigmatic Footguards
+ * 190744 - Temporal Enigmatic Footguards
+ * 190745 - Dimensional Numerus Handguards
+ * 190746 - Recreative Numerus Handguards
+ * 190747 - Temporal Numerus Handguards
+ * 190748 - Dimensional Cryptic Grips
+ * 190749 - Temporal Cryptic Grips
+ * 190750 - Recreative Cryptic Grips
+ * 190751 - Dimensional Oracular Wrists
+ * 190752 - Recreative Oracular Wrists
+ * 190753 - Temporal Oracular Wrists
+ * 190977 - Scouring Oracular Smock
+ * 190978 - Nova Oracular Smock
+ * 190979 - Crystallic Oracular Smock
+ * 190980 - Empathic Oracular Mantle
+ * 190981 - Broker's Oracular Mantle
+ * 190982 - Synchronous Oracular Mantle
+ * 190983 - Scouring Cryptic Mask
+ * 190984 - Nova Cryptic Mask
+ * 190985 - Crystallic Cryptic Mask
+ * 190986 - Empathic Cryptic Shoulderpads
+ * 190987 - Broker's Cryptic Shoulderpads
+ * 190988 - Synchronous Cryptic Shoulderpads
+ * 190989 - Scouring Enigmatic Epaulettes
+ * 190990 - Nova Enigmatic Epaulettes
+ * 190991 - Crystallic Enigmatic Epaulettes
+ * 190992 - Empathic Enigmatic Cowl
+ * 190993 - Broker's Enigmatic Cowl
+ * 190994 - Synchronous Enigmatic Cowl
+ * 190995 - Scouring Numerus Crown
+ * 190996 - Nova Numerus Crown
+ * 190997 - Crystallic Numerus Crown
+ * 190998 - Empathic Numerus Breastplate
+ * 190999 - Broker's Numerus Breastplate
+ * 191000 - Synchronous Numerus Breastplate
+
 ## Ve'nari 
 
 Items that are sold by Ve'nari
