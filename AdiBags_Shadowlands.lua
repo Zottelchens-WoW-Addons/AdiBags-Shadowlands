@@ -1503,6 +1503,7 @@ local ProtoformSynthesisIDs = {
 189170, -- Glimmer of Vigilance
 189172, -- Crystallized Echo of the First Song
 189173, -- Eternal Ragepearl
+189174, -- Lens of Focused Intention
 189176, -- Protoform Sentience Crown
 189177, -- Revelation Key
 189180, -- Wind's Infinite Call
