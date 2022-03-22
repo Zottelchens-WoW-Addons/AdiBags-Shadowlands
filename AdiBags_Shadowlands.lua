@@ -1510,6 +1510,7 @@ local ProtoformSynthesisIDs = {
 189500, -- Cervid Lattice
 189501, -- Protoform Tool
 190388, -- Lupine Lattice
+189174, -- Lens of Focused Intention    
 }
 
  -- Queen's Conservatory
