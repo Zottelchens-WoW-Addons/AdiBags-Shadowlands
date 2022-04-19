@@ -1,0 +1,56 @@
+name: 2. New Category ➕1️⃣
+description: Send in some Items/IDs to add to existing categories
+title: "New Category: <FILL IN>"
+labels: ["new category"]
+body:
+  - type: input
+    id: category
+    attributes:
+      label: Category Name
+      description: What should the new category be called?
+      placeholder: Steamy Romance Novels
+    validations:
+      required: true
+  - type: input
+    id: ingamecolor
+    attributes:
+      label: In-Game Color
+      description: Suggest a color for the category in-game! (Hex preferred)
+      placeholder: "#4D9466"
+    validations:
+      required: true
+  - type: input
+    id: ingamedescription
+    attributes:
+      label: In-Game Description
+      description: Suggest a description for the tooltip ingame!
+      placeholder: The Steamy Romance Novels are a series of erotic novels and in-game junk book items.
+    validations:
+      required: true
+  - type: input
+    id: docdescription
+    attributes:
+      label: README.md Description
+      description: Suggest a description for the README.md! It can be the same as above or contain additional information.
+      placeholder: The Steamy Romance Novels, collectively known as the Steamy Romance saga, are a series of erotic novels and in-game junk book items that were first introduced in The Burning Crusade, with new entries added with successive expansions.
+    validations:
+      required: true
+  - type: textarea
+    id: urls
+    attributes:
+      label: URLs
+      description: Fill this with WoWHead or WoWDB urls with the missing items. Collection pages are fine, if complete. Fill either this OR the IDs field below. One per line.
+      placeholder: |
+        https://www.wowhead.com/item=137199/a-steamy-romance-novel
+        https://www.wowhead.com/item=137200/a-steamy-romance-novel-forbidden-love
+        https://www.wowhead.com/item=137201/a-steamy-romance-novel-northern-exposure
+  - type: textarea
+    id: ids
+    attributes:
+      label: Item IDs
+      description: Enter IDs here. Only IDs and *nothing* else is required here. Fill either this OR the Wowhead above. One per line.
+      render: Shell
+      placeholder: |
+        137199
+        137200
+        137201

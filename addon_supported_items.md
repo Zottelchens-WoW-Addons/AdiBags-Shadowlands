@@ -1481,6 +1481,7 @@ Items used in Protoform Synthesis
  * 189155 - Viperid Lattice
  * 189156 - Vombata Lattice
  * 189157 - Glimmer of Animation
+ * 189158 - Glimmer of Cunning
  * 189159 - Glimmer of Discovery
  * 189160 - Glimmer of Focus
  * 189161 - Glimmer of Malice
@@ -1489,14 +1490,19 @@ Items used in Protoform Synthesis
  * 189164 - Glimmer of Multiplicity
  * 189165 - Glimmer of Predation
  * 189166 - Glimmer of Renewal
+ * 189167 - Glimmer of Satisfaction
  * 189168 - Glimmer of Serenity
  * 189169 - Glimmer of Survival
  * 189170 - Glimmer of Vigilance
+ * 189171 - Bauble of Pure Innovation
  * 189172 - Crystallized Echo of the First Song
  * 189173 - Eternal Ragepearl
  * 189174 - Lens of Focused Intention
+ * 189175 - Mawforged Bridle
  * 189176 - Protoform Sentience Crown
  * 189177 - Revelation Key
+ * 189178 - Tools of Incomprehensible Experimentation
+ * 189179 - Unalloyed Bronze Ingot
  * 189180 - Wind's Infinite Call
  * 189499 - Protoform Catalyst
  * 189500 - Cervid Lattice
