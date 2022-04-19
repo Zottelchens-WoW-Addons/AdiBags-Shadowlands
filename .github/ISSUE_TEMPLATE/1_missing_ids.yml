@@ -19,18 +19,20 @@ body:
     id: urls
     attributes:
       label: URLs
-      description: Fill this with WoWHead or WoWDB urls with the missing items. Collection pages are fine, if complete. Fill either this OR the IDs field below. One per line.
+      description: Fill this with Wowhead or WoWDB urls with the missing items. Collection pages are fine, if complete. Fill either this OR the IDs field below. **One per line.**
       placeholder: |
         https://www.wowhead.com/item=137199/a-steamy-romance-novel
         https://www.wowhead.com/item=137200/a-steamy-romance-novel-forbidden-love
         https://www.wowhead.com/item=137201/a-steamy-romance-novel-northern-exposure
+        ...
   - type: textarea
     id: ids
     attributes:
       label: Item IDs
-      description: Enter IDs here. Only IDs and *nothing* else is required here. Fill either this OR the Wowhead above. One per line.
+      description: Enter IDs here. Only IDs and *nothing* else is required here. Fill either this OR the Wowhead above. **One per line.**
       render: Shell
       placeholder: |
         137199
         137200
         137201
+        ...

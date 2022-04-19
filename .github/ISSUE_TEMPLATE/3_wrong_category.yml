@@ -11,7 +11,7 @@ body:
     id: category
     attributes:
       label: Category Name
-      description: In which category do the following items/IDs actually belong?
+      description: In which category do the following items/IDs *actually* belong?
       placeholder: Steamy Romance Novels
     validations:
       required: true
@@ -19,9 +19,10 @@ body:
     id: ids
     attributes:
       label: Item IDs / Item Names
-      description: Enter IDs or Item Names here. One per line.
+      description: Enter IDs or Item Names here. **One per line.**
       render: Shell
       placeholder: |
         137199
         137200
         137201
+        ...
