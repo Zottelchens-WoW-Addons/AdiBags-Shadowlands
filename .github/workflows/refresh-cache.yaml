@@ -1,0 +1,19 @@
+name: Refresh Cache↪
+
+on:
+  schedule:
+    - cron: '0 0 */5 * *'
+  workflow_dispatch:
+
+jobs:
+  touch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Items DB
+        id: cache-db
+        uses: actions/cache@v3
+        with:
+            path: itemname.cache.sqlite
+            key: items-db
+      - name: Touch
+        run: touch itemname.cache.sqlite

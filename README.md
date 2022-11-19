@@ -1,6 +1,6 @@
 # AdiBags - Shadowlands
 
-**Adds a multiple (optionally colored) categories for the most common Shadowlands items in AdiBags (AdiBags is required!):**
+**Adds multiple (optionally colored) categories for the most common Shadowlands items in AdiBags (AdiBags is required!):**
 
 * Cooked Food (disabled by default)
 * Rings (disabled by default)
@@ -31,4 +31,4 @@
 * Class Set Tokens (1.4.3 and up)
 * Special Cypher Equipment (1.4.4 and up)
 
-If anything is missing (or misplaced), please write a comment or [open an issue](https://github.com/Zottelchen/adibags-shadowlands/issues).
+If anything is missing, misplaced, or you want a new category, then please write a comment or [open an issue](https://github.com/Zottelchen/adibags-shadowlands/issues).

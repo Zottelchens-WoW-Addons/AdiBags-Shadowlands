@@ -1,7 +1,4 @@
 enable-nolib-creation: no
 
-ignore:
-  - AdiBags_Creator
-
 required-dependencies: 
   - adibags

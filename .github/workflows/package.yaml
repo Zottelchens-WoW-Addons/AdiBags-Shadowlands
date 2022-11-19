@@ -1,0 +1,86 @@
+# description of this workflow, can be anything you want
+name: Package and release 📦
+
+# we need to let GitHub know _when_ we want to release, typically only when we create a new tag.
+# this will target only tags, and not all pushes to the master branch.
+# this part can be heavily customized to your liking, like targeting only tags that match a certain word,
+# other branches or even pullrequests.
+on:
+  push:
+    tags:
+      - '**'
+
+# a workflow is built up as jobs, and within these jobs are steps
+jobs:
+
+  # "release" is a job, you can name it anything you want
+  release:
+
+    # we can run our steps on pretty much anything, but the "ubuntu-latest" image is a safe bet
+    runs-on: ubuntu-latest
+
+    # specify the environment variables used by the packager, matching the secrets from the project on GitHub
+    env:
+      WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
+      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}  # "GITHUB_TOKEN" is a secret always provided to the workflow
+
+    # "steps" holds a list of all the steps needed to package and release our AddOn
+    steps:
+
+      # we first have to clone the AddOn project, this is a required step
+      - name: Clone project
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # gets entire git history, needed for automatic changelogs
+          path: ./variant
+
+      - name: Get Zottelchen/adibags-creator-action
+        uses: actions/checkout@v3
+        with:
+            repository: Zottelchen/adibags-creator-action
+            ref: refs/heads/main
+            persist-credentials: false
+            path: ./action
+      - name: Merge
+        run: |
+          cp -r ./variant/* ./action
+          mkdir ./dist
+          cp ./variant/.pkgmeta ./dist/.pkgmeta
+          mv ./action/* .
+          cp -r ./variant/.git .
+          rm -rf ./action ./variant
+          ls -la .
+      - name: Cache Items DB
+        id: cache-db
+        uses: actions/cache@v3
+        with:
+          path: itemname.cache.sqlite
+          key: items-db
+      - name: Build AdiBags Extension
+        uses: ./
+        env:
+          PYTHONUNBUFFERED: 1
+          BLIZZ_ID: ${{ secrets.BLIZZ_ID }}
+          BLIZZ_SECRET: ${{ secrets.BLIZZ_SECRET }}
+          ADDON_VARIANT: "Shadowlands"
+          ADDON_COLOR: "008a57"
+          TOC_VERSION: "100002"
+          CURSE_ID: "423029"
+          WOW_INTERFACE_ID: "25821"
+          WAGO_ID: "q96d9OKO"
+      - name: Copy Output
+        run: |
+          cp -r ./out/* ./dist
+          cp -r ./out/.git ./dist
+          ls -la ./dist
+          cd ./dist
+          git add *
+
+
+      # once cloned, we just run the GitHub Action for the packager project
+      - name: Package and release
+        uses: BigWigsMods/packager@v2
+        with:
+          args: -t dist
