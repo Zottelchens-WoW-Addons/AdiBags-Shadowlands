@@ -64,7 +64,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: latest # NOTE: we recommend pinning to a specific version in case of formatting changes
           # CLI arguments
-          args: --verify --indent-type spaces --indent-width 2 --line-endings Windows --quote-style AutoPreferDouble out/AdiBags_REPLACENAME.lua out/Localization.lua
+          args: --verify --indent-type spaces --indent-width 2 --line-endings Windows --quote-style AutoPreferDouble out/AdiBags_Shadowlands.lua out/Localization.lua
       - name: ✅Luacheck Main Addon
         uses: lunarmodules/luacheck@v0
         with:
