@@ -30,20 +30,20 @@ jobs:
     steps:
 
       # we first have to clone the AddOn project, this is a required step
-      - name: Clone project
+      - name: 👱👱Clone project
         uses: actions/checkout@v3
         with:
           fetch-depth: 0  # gets entire git history, needed for automatic changelogs
           path: ./variant
 
-      - name: Get Zottelchen/adibags-creator-action
+      - name: 🎭Get Zottelchen/adibags-creator-action
         uses: actions/checkout@v3
         with:
             repository: Zottelchen/adibags-creator-action
-            ref: refs/heads/main
+            ref: refs/heads/v2
             persist-credentials: false
             path: ./action
-      - name: Merge
+      - name: 🏹Merge
         run: |
           cp -r ./variant/* ./action
           mkdir ./dist
@@ -52,25 +52,38 @@ jobs:
           cp -r ./variant/.git .
           rm -rf ./action ./variant
           ls -la .
-      - name: Cache Items DB
-        id: cache-db
-        uses: actions/cache@v3
-        with:
-          path: itemname.cache.sqlite
-          key: items-db
-      - name: Build AdiBags Extension
+      - name: 📷Build AdiBags Extension
         uses: ./
         env:
           PYTHONUNBUFFERED: 1
           BLIZZ_ID: ${{ secrets.BLIZZ_ID }}
           BLIZZ_SECRET: ${{ secrets.BLIZZ_SECRET }}
-          ADDON_VARIANT: "Shadowlands"
-          ADDON_COLOR: "008a57"
-          TOC_VERSION: "100002"
-          CURSE_ID: "423029"
-          WOW_INTERFACE_ID: "25821"
-          WAGO_ID: "q96d9OKO"
-      - name: Copy Output
+      - name: 😎Stylua
+        uses: JohnnyMorganz/stylua-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest # NOTE: we recommend pinning to a specific version in case of formatting changes
+          # CLI arguments
+          args: --verify --indent-type spaces --indent-width 2 --line-endings Windows --quote-style AutoPreferDouble out/AdiBags_REPLACENAME.lua out/Localization.lua
+      - name: ✅Luacheck Main Addon
+        uses: lunarmodules/luacheck@v0
+        with:
+          args: out/AdiBags_Shadowlands.lua --ignore 113 211 212 611 614 631
+          # ignored (see https://luacheck.readthedocs.io/en/stable/warnings.html):
+          # 113: Accessing an undefined global variable. - There are bound to be some as this an addon, as there are some functions which are known to WoW only.
+          # 211: Unused local variable. - Not important.
+          # 212: Unused argument. - Not important.
+          # 611: A line consists of nothing but whitespace. - Oh no! Oh wait, not important.
+          # 614: Trailing whitespace in a comment. - These reports are just plain wrong.
+          # 631: Line is too long. - Not important.
+      - name: ☑️Luacheck Localization
+        uses: lunarmodules/luacheck@v0
+        with:
+          args: out/Localization.lua --ignore 113 211 212 542 611 614 631
+          # additionally ignored:
+          # 542: empty if branch - This is expected, since Bigwigs will replace the empty branch AFTER this check runs.
+
+      - name: 📝Copy Output
         run: |
           cp -r ./out/* ./dist
           cp -r ./out/.git ./dist
@@ -78,9 +91,8 @@ jobs:
           cd ./dist
           git add *
 
-
       # once cloned, we just run the GitHub Action for the packager project
-      - name: Package and release
+      - name: 📦Package and release
         uses: BigWigsMods/packager@v2
         with:
           args: -t dist

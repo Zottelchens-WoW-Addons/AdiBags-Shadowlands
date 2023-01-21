@@ -1,4 +1,0 @@
-!Items which can be upgraded (for example: Valor/Korthian/Covenant Armor). \n|cffffd300This might not be specific to Shadowlands.|r
-#Items which can be upgraded (for example: Valor/Korthian/Covenant Armor) - this might not be specific to Shadowlands
-$a335ee
-*C_ItemUpgrade.CanUpgradeItem

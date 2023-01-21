@@ -1,0 +1,85 @@
+category_name = "Eternity's  End"
+category_color = 0xB2A800
+category_description = { _ = "Items that don't fit another category and were added in 9.2." }
+mergeable = true
+merged_by_default = false
+
+[zerethmortis]
+name = "Zereth Mortis"
+description = { _ = "Items relating to Zereth Mortis" }
+color = 0xF5F5DC
+items = [
+    187707,
+    187728,
+    187790,
+    187791,
+    187908,
+    188787,
+    189575,
+    189576,
+    189578,
+    189579,
+    189580,
+    189581,
+    189582,
+    189704,
+    189753,
+    189863,
+    190189,
+    190197,
+    190198,
+    190738,
+    190739,
+]
+
+[protoform_synth]
+name = "Protoform Synthesis"
+description = { _ = "A Hearthstone" }
+color = 0x37B2FF
+items = [
+    187633,
+    187634,
+    187635,
+    187636,
+    188957,
+    189145,
+    189146,
+    189147,
+    189148,
+    189149,
+    189150,
+    189151,
+    189152,
+    189153,
+    189154,
+    189155,
+    189156,
+    189157,
+    189158,
+    189159,
+    189160,
+    189161,
+    189162,
+    189163,
+    189164,
+    189165,
+    189166,
+    189167,
+    189168,
+    189169,
+    189170,
+    189171,
+    189172,
+    189173,
+    189174,
+    189175,
+    189176,
+    189177,
+    189178,
+    189179,
+    189180,
+    189499,
+    189500,
+    189501,
+    190388,
+]

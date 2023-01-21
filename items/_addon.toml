@@ -1,0 +1,12 @@
+filter_name = "Shadowlands"
+filter_description = "Items from the Shadowlands expansion."
+filter_author = "Zottelchen"
+prefixes = ["SL", "SL-", "8.", "icon:3601566", "icon:3752121"]
+
+[replacers]
+ADDON_COLOR = 0x008a57
+TOC_VERSION = "100002"
+CURSE_ID = "423029"
+WAGO_ID = "25821"
+WOW_INTERFACE_ID = "q96d9OKO"
+

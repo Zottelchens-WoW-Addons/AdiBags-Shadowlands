@@ -1,0 +1,11 @@
+category_name = "Achievements"
+category_color = 0x0000ff
+category_description = { _ = "Items which are used for achievements" }
+mergeable = false # if we have multiple achievements, this might make sense :)
+merged_by_default = false
+
+[protomaterial]
+name = "Rare Proto-Material"
+description = { _ = "Rare Proto Materials used for the Achievement: Traversing the Spheres" }
+color = 0xF1E83E
+items = [187879, 187885, 187889, 187891, 187892, 187893, 187894, 190128, 190129]

@@ -1,4 +1,0 @@
-!Runeforged Legendaries
-#Runeforged Legendaries
-$FF8000
-*C_LegendaryCrafting.IsRuneforgeLegendary
