@@ -56,8 +56,8 @@ jobs:
         uses: ./
         env:
           PYTHONUNBUFFERED: 1
-          BLIZZ_ID: ${{ secrets.BLIZZ_ID }}
-          BLIZZ_SECRET: ${{ secrets.BLIZZ_SECRET }}
+          BLIZZARD_API_ID: ${{ secrets.BLIZZ_ID }}
+          BLIZZARD_API_SECRET: ${{ secrets.BLIZZ_SECRET }}
       - name: 😎Stylua
         uses: JohnnyMorganz/stylua-action@v2
         with:
