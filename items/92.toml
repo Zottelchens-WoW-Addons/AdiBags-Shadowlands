@@ -34,7 +34,7 @@ items = [
 
 [protoform_synth]
 name = "Protoform Synthesis"
-description = { _ = "A Hearthstone" }
+description = { _ = "Items used in Protoform Synthesis" }
 color = 0x37B2FF
 items = [
     187633,
