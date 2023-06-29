@@ -2,6 +2,8 @@ name: 3. Items/IDs in the wrong category 🧀
 description: Send in some Items/IDs which are in the wrong category
 title: "Items in wrong category"
 labels: ["bug"]
+assignees:
+  - Zottelchen
 body:
   - type: markdown
     attributes:

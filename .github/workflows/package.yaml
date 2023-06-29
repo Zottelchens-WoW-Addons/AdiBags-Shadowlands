@@ -60,6 +60,7 @@ jobs:
           BLIZZARD_API_SECRET: ${{ secrets.BLIZZ_SECRET }}
           GITHUB_GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
           APPRISE_ADDON_LOCALE: ${{ secrets.APPRISE_ADDON_LOCALE }}
+          APPRISE_ITEM_CACHE: ${{ secrets.APPRISE_ITEM_CACHE }}
       - name: 😎Stylua
         uses: JohnnyMorganz/stylua-action@v2
         with:

@@ -2,6 +2,8 @@ name: 1. Missing Items/IDs 🙈
 description: Send in some Items/IDs to add to existing categories
 title: "Missing IDs"
 labels: ["missing ids"]
+assignees:
+  - Zottelchen
 body:
   - type: markdown
     attributes:

@@ -2,6 +2,8 @@ name: 2. New Category ➕1️⃣
 description: Send in some Items/IDs to add to a new category
 title: "New Category: <FILL IN>"
 labels: ["new category"]
+assignees:
+  - Zottelchen
 body:
   - type: input
     id: category
