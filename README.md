@@ -52,7 +52,6 @@ If anything is missing, misplaced, or you want a new category, then please write
 
 **If you want to contribute too, you can do so by submitting translations [directly on Curseforge](https://legacy.curseforge.com/wow/addons/adibags-shadowlands/localization).**
 
-<<<<<<< HEAD
 ## Other Expansions
 
 I have created similiar addons for other expansions. Check them out & complete the set :)
@@ -98,8 +97,6 @@ I have created similiar addons for other expansions. Check them out & complete t
  - [Dragonflight](https://addons.wago.io/addons/adibags-dragonflight)
 -->
 
-=======
->>>>>>> main
 ## Support
 
 If you want to help out with development, you can always donate using PayPal, Ko-fi or become a Patreon:
