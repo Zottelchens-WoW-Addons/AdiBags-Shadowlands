@@ -67,7 +67,7 @@ I have created similiar addons for other expansions. Check them out & complete t
 | Legion                 | [Curseforge](https://www.curseforge.com/wow/addons/adibags-legion)             | [Wago Addons](https://addons.wago.io/addons/adibags-legion)              |
 | Battle for Azeroth     | [Curseforge](https://www.curseforge.com/wow/addons/adibags-battleforazeroth)   | [Wago Addons](https://addons.wago.io/addons/adibags-battleforazeroth)    |
 | Shadowlands            | [Curseforge](https://www.curseforge.com/wow/addons/adibags-shadowlands)        | [Wago Addons](https://addons.wago.io/addons/adibags-shadowlands-filters) |
-| Dragonflight           | [Curseforge](https://www.curseforge.com/wow/addons/adibags-legion)             | [Wago Addons](https://addons.wago.io/addons/adibags-dragonflight)        |
+| Dragonflight           | [Curseforge](https://www.curseforge.com/wow/addons/adibags-dragonflight)       | [Wago Addons](https://addons.wago.io/addons/adibags-dragonflight)        |
 
 <!--CURSEFORGE ONLY-->
 <!--
@@ -80,7 +80,7 @@ I have created similiar addons for other expansions. Check them out & complete t
  - [Legion](https://www.curseforge.com/wow/addons/adibags-legion)
  - [Battle for Azeroth](https://www.curseforge.com/wow/addons/adibags-battleforazeroth)
  - [Shadowlands](https://www.curseforge.com/wow/addons/adibags-shadowlands)
- - [Dragonflight](https://www.curseforge.com/wow/addons/adibags-legion)
+ - [Dragonflight](https://www.curseforge.com/wow/addons/adibags-dragonflight)
 -->
 
 <!--WAGO ONLY -->
