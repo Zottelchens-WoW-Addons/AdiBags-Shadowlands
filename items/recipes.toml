@@ -1,0 +1,133 @@
+category_name = "Recipes"
+category_color = 0x68D080
+category_description = { _ = "Recipes for all professions." }
+mergeable = true
+merged_by_default = true
+
+[alchemy]
+name = "Alchemy Recipes"
+description = { _ = "Recipes for crafting potions, elixirs, and transmuting materials." }
+color = 0x4E9A06
+items = [
+    180780,
+    182660,
+    182665,
+    183106,
+    183868,
+    186986,
+    186987,
+    186988,
+    186989,
+    186990,
+    186991,
+    187828,
+    187848,
+]
+
+[blacksmithing]
+name = "Blacksmithing Recipes"
+description = { _ = "Recipes for forging metal armor, weapons, and enhancements." }
+color = 0x8F8F8F
+items = [182670, 183094, 183095, 183864]
+
+[enchanting]
+name = "Enchanting Recipes"
+description = { _ = "Recipes for enchanting gear with magical properties." }
+color = 0x5C3566
+items = [182666, 183096, 183866, 186992, 187824, 187826]
+
+[engineering]
+name = "Engineering Recipes"
+description = { _ = "Recipes for creating gadgets, explosives, and mechanical devices." }
+color = 0xC4A000
+items = [183097, 183858, 183867, 187832, 187837]
+
+# [herbalism]
+# name = "Herbalism Recipes"
+# description = { _ = "Recipes for gathering herbs for use in Alchemy and Inscription." }
+# color = 0x4E9A06
+# items = []
+
+[inscription] # introduced in WotLK
+name = "Inscription Recipes"
+description = { _ = "Recipes for scribing glyphs and crafting scrolls and tomes." }
+color = 0x855C33
+items = [
+    173068,
+    180782,
+    183093,
+    183098,
+    183102,
+    183103,
+    183104,
+    183865,
+    184095,
+    184098,
+    184099,
+    186671,
+    186724,
+    187797,
+    187806,
+    187883,
+    187886,
+    187930,
+    187932,
+    187935,
+    187937,
+    190379,
+    190381,
+]
+
+[jewelcrafting] # introduced in TBC
+name = "Jewelcrafting Recipes"
+description = { _ = "Recipes for cutting gems and crafting jewelry." }
+color = 0xAD7FA8
+items = [180783, 183099, 186993, 186994, 187830, 187847]
+
+[leatherworking]
+name = "Leatherworking Recipes"
+description = { _ = "Recipes for crafting leather and mail armor." }
+color = 0x8B4513
+items = [182669, 183100, 183839, 186998, 186999, 187000]
+
+# [mining]
+# name = "Mining Recipes"
+# description = { _ = "Recipes for extracting ores and stones." }
+# color = 0x7F7F7F
+# items = []
+
+# [skinning]
+# name = "Skinning Recipes"
+# description = { _ = "Recipes for harvesting leather from beasts." }
+# color = 0x7B3503
+# items = []
+
+[tailoring]
+name = "Tailoring Recipes"
+description = { _ = "Recipes for weaving cloth armor and other cloth items." }
+color = 0xD3D7CF
+items = [180781, 183101, 183871, 186995]
+
+[cooking]
+name = "Cooking Recipes"
+description = { _ = "Recipes for preparing food that provides buffs." }
+color = 0xE9B96E
+items = [182668, 184625, 184683, 184689, 187006, 187007, 187008, 187804]
+
+# [Fishing]
+# name = "Fishing Recipes"
+# description = { _ = "Recipes for catching fish and other underwater items." }
+# color = 0x3465A4
+# items = []
+
+# [Archaeology] # introduced in Cataclysm
+# name = "Archaeology Recipes"
+# description = { _ = "Recipes for uncovering artifacts and historical items." }
+# color = 0xC17D11
+# items = []
+
+# [First_Aid] # gone with BFA
+# name = "First Aid Recipes"
+# description = { _ = "Recipes for crafting bandages and anti-venoms." }
+# color = 0xCC0000
+# items = []
